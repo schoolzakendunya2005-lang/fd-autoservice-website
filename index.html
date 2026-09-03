@@ -1605,6 +1605,23 @@
     max-width:520px;margin:0 auto 32px;
   }
   .foot-cta .btn-pill{margin-top:8px}
+  .foot-cta-acties{
+    display:flex;align-items:center;justify-content:center;
+    gap:14px;flex-wrap:wrap;margin-top:8px;
+  }
+  .foot-cta-bel{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:17px 26px;border-radius:999px;
+    background:#fff;border:1.5px solid var(--border);
+    color:var(--text-strong);font-weight:700;font-size:.95rem;
+    text-decoration:none;transition:border-color .2s ease, color .2s ease;
+  }
+  .foot-cta-bel svg{color:var(--accent);flex-shrink:0}
+  .foot-cta-bel:hover{border-color:var(--accent);color:var(--accent)}
+  @media(max-width:560px){
+    .foot-cta-acties{flex-direction:column;gap:10px}
+    .foot-cta-acties > *{width:100%;justify-content:center}
+  }
 
   .foot-grid{
     display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:48px;
@@ -2169,13 +2186,13 @@
     <p>Van APK tot onderhoud, van reparaties tot bandenservice, één werkplaats, één team, één duidelijke prijs.</p>
 
     <div class="dcta-pills">
-      <a class='dcta-pill' href='/apk-keuring'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>APK keuring</a>
-      <a class='dcta-pill' href='/onderhoud'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Onderhoud &amp; beurten</a>
-      <a class='dcta-pill' href='/diensten'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Autoreparatie</a>
-      <a class='dcta-pill' href='/bandenservice'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Banden vervangen</a>
-      <a class='dcta-pill' href='/diensten'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Diagnose &amp; uitlezen</a>
-      <a class='dcta-pill' href='/airco-service'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Airco service</a>
-      <a class='dcta-pill' href='/diensten'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Koplampen polijsten</a>
+      <a class='dcta-pill' data-fd-dienst="apk" href='/apk-keuring'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>APK keuring</a>
+      <a class='dcta-pill' data-fd-dienst="onderhoud" href='/onderhoud'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Onderhoud &amp; beurten</a>
+      <a class='dcta-pill' data-fd-dienst="reparatie" href='/diensten'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Autoreparatie</a>
+      <a class='dcta-pill' data-fd-dienst="banden" href='/bandenservice'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Banden vervangen</a>
+      <a class='dcta-pill' data-fd-dienst="diagnose" href='/diensten'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Diagnose &amp; uitlezen</a>
+      <a class='dcta-pill' data-fd-dienst="airco" href='/airco-service'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Airco service</a>
+      <a class='dcta-pill' data-fd-dienst="koplampen" href='/diensten'><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Koplampen polijsten</a>
     </div>
 
     <div class="dcta-actions">
@@ -2399,7 +2416,12 @@
     <div class="wrap">
       <h2>Klaar voor je <em class="serif">APK?</em></h2>
       <p>Plan online een afspraak, vaak nog deze week terecht. Geen verrassingen, vaste prijs en herkeuring gratis.</p>
-      <a class='btn-pill' href='/contact'>Maak een afspraak</a>
+      <!-- Wees hier de eindstreep: afspraak als hoofdknop, bellen ernaast.
+           Deze knop wees naar /contact, waar de bezoeker opnieuw moest kiezen. -->
+      <div class="foot-cta-acties">
+        <a class="btn-pill" href="/afspraak">Maak een afspraak</a>
+        <a class="foot-cta-bel" href="tel:+31752013142"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-fd="tel">075 - 201 3142</span></a>
+      </div>
     </div>
   </div>
 
@@ -2432,12 +2454,12 @@
       <div>
         <h4>Diensten</h4>
         <ul>
-          <li><a href='/apk-keuring'>APK keuring</a></li>
-          <li><a href='/onderhoud'>Onderhoud & beurt</a></li>
-          <li><a href='/diensten'>Autoreparatie</a></li>
-          <li><a href='/bandenservice'>Bandenservice</a></li>
-          <li><a href='/diensten'>Diagnose</a></li>
-          <li><a href='/airco-service'>Airco service</a></li>
+          <li><a data-fd-dienst="apk" href='/apk-keuring'>APK keuring</a></li>
+          <li><a data-fd-dienst="onderhoud" href='/onderhoud'>Onderhoud &amp; beurt</a></li>
+          <li><a data-fd-dienst="reparatie" href='/diensten'>Autoreparatie</a></li>
+          <li><a data-fd-dienst="banden" href='/bandenservice'>Bandenservice</a></li>
+          <li><a data-fd-dienst="diagnose" href='/diensten'>Diagnose</a></li>
+          <li><a data-fd-dienst="airco" href='/airco-service'>Airco service</a></li>
         </ul>
       </div>
       <div>

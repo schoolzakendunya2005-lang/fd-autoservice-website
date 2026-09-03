@@ -134,11 +134,36 @@
     return uit;
   }
 
+  /* Dienstlinks uit één lijst.
+     De juiste adressen staan al in de HTML, zodat ze ook zonder JavaScript
+     werken en door Google gevolgd worden. Dit houdt ze gelijk aan
+     site-config.js: verhuist een dienst naar een eigen pagina, dan hoeft
+     dat maar op één plek gewijzigd te worden en volgen de homepage,
+     /diensten en de footer vanzelf. */
+  function dienstLinks() {
+    if (!DATA.diensten || !DATA.diensten.length) return;
+
+    var opSleutel = {};
+    DATA.diensten.forEach(function (d) { opSleutel[d.sleutel] = d; });
+
+    document.querySelectorAll('[data-fd-dienst]').forEach(function (el) {
+      var d = opSleutel[el.getAttribute('data-fd-dienst')];
+      if (!d || !d.url) return;
+
+      // Niet naar de pagina linken waar de bezoeker al staat
+      var hier = location.pathname.replace(/\.html$/, '') || '/';
+      if (d.url === hier) return;
+
+      el.setAttribute('href', d.url);
+    });
+  }
+
   /* ---- Toepassen op de pagina ----
      Elementen met data-fd="..." worden hier gevuld. De HTML bevat al
      de juiste waarde, dit houdt hem alleen actueel. */
   function toepassen() {
     var st = status();
+    dienstLinks();
 
     document.querySelectorAll('[data-fd]').forEach(function (el) {
       var sleutel = el.getAttribute('data-fd');

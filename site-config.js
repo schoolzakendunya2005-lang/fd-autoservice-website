@@ -89,16 +89,21 @@
        prijs: wat er bij de dienst getoond wordt, leeg laten als er geen
               vaste prijs is. Nooit zelf een prijs verzinnen.
        eigenPagina: false betekent dat er nog geen eigen pagina bestaat en
-              de link voorlopig naar /diensten gaat.
+              de link voorlopig naar het afspraakformulier gaat.
        ------------------------------------------------------------------ */
     diensten: [
       { sleutel: 'apk',        label: 'APK keuring',          url: '/apk-keuring',   prijs: '€ 60',              eigenPagina: true },
       { sleutel: 'onderhoud',  label: 'Onderhoud & beurt',    url: '/onderhoud',     prijs: 'vanaf € 219',       eigenPagina: true },
       { sleutel: 'banden',     label: 'Banden vervangen',     url: '/bandenservice', prijs: '€ 30 ex btw p/st',  eigenPagina: true },
       { sleutel: 'airco',      label: 'Airco service',        url: '/airco-service', prijs: '€ 150',             eigenPagina: true },
-      { sleutel: 'diagnose',   label: 'Diagnose & uitlezen',  url: '/diensten',      prijs: '€ 30 ex btw',       eigenPagina: false },
-      { sleutel: 'reparatie',  label: 'Autoreparatie',        url: '/diensten',      prijs: '',                  eigenPagina: false },
-      { sleutel: 'koplampen',  label: 'Koplampen polijsten',  url: '/diensten',      prijs: '',                  eigenPagina: false }
+      // Deze drie hebben nog geen eigen pagina. Ze wijzen daarom naar het
+      // afspraakformulier: dat is het enige wat een bezoeker er nu mee kan.
+      // Komen /diagnose, /autoreparatie en /koplampen-polijsten er wel, zet
+      // dan hier de nieuwe adressen en eigenPagina op true. De homepage,
+      // /diensten en de footer volgen vanzelf.
+      { sleutel: 'diagnose',   label: 'Diagnose & uitlezen',  url: '/afspraak',      prijs: '€ 30 ex btw',       eigenPagina: false },
+      { sleutel: 'reparatie',  label: 'Autoreparatie',        url: '/afspraak',      prijs: '',                  eigenPagina: false },
+      { sleutel: 'koplampen',  label: 'Koplampen polijsten',  url: '/afspraak',      prijs: '',                  eigenPagina: false }
     ]
   };
 
