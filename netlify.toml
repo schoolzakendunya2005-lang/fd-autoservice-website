@@ -1,0 +1,131 @@
+# ============================================================================
+# FD Autoservice — Netlify configuratie
+#
+# Adressen zonder .html
+# ---------------------
+# De site was bereikbaar op zowel /contact als /contact.html. Dat zijn voor
+# Google twee adressen met dezelfde inhoud, en het staat rommelig in de
+# adresbalk. Hieronder stuurt elk .html-adres permanent (301) door naar de
+# nette variant. De interne links in de site wijzen al naar /contact,
+# /occasions, /diensten enzovoort.
+# ============================================================================
+
+[build]
+  publish = "."
+
+# ---------------------------------------------------------------- redirects
+# force = true, anders wint het bestaande bestand en wordt er niet omgeleid.
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/diensten.html"
+  to = "/diensten"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/occasions.html"
+  to = "/occasions"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/afspraak.html"
+  to = "/afspraak"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/over-ons.html"
+  to = "/over-ons"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/onderhoud-prijzen.html"
+  to = "/onderhoud-prijzen"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/apk-keuring.html"
+  to = "/apk-keuring"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/onderhoud.html"
+  to = "/onderhoud"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/bandenservice.html"
+  to = "/bandenservice"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/airco-service.html"
+  to = "/airco-service"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacyverklaring.html"
+  to = "/privacyverklaring"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cookiebeleid.html"
+  to = "/cookiebeleid"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/algemene-voorwaarden.html"
+  to = "/algemene-voorwaarden"
+  status = 301
+  force = true
+
+# Oude adressen die nog in advertenties of visitekaartjes kunnen staan
+[[redirects]]
+  from = "/apk"
+  to = "/apk-keuring"
+  status = 301
+
+[[redirects]]
+  from = "/auto-s-te-koop"
+  to = "/occasions"
+  status = 301
+
+# ------------------------------------------------------------------ headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

@@ -1,0 +1,1412 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=ff84e051-7c06-4847-9784-ca019c047249
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=ff84e051-7c06-4847-9784-ca019c047249">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Afspraak plannen | FD Autoservice Zaandam | APK, onderhoud, reparatie</title>
+<meta name="description" content="Plan online een afspraak bij FD Autoservice in Zaandam. Auto langsbrengen in de ochtend, klaar dezelfde dag (of volgende dag met bericht). APK, onderhoud, reparatie of banden, vaste prijzen, geen verrassingen.">
+<meta name="keywords" content="APK afspraak Zaandam, autogarage afspraak online, onderhoud plannen Zaandam, reparatie inplannen">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://fdautoservice.nl/afspraak">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@1,9..144,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#101014;--primary-light:#F1F1F4;
+        --accent:#D7261E;--accent-hover:#B81B14;
+    /* Rood als hierarchie, niet als thema.
+       --accent      alleen voor primaire knoppen en het telefoonnummer
+       --accent-mute labels, eyebrows en iconen: herkenbaar maar rustig
+       --accent-soft randen en achtergrondvlakjes */
+    --accent-mute:#B3312A;--accent-soft:rgba(215,38,30,.10);
+    --bg:#FFFFFF;--bg-soft:#F6F6F8;--bg-card:#FFFFFF;--border:#E4E4EA;
+    --text:rgba(16,16,20,.72);--text-strong:#101014;--success:#17784A;
+    --muted:rgba(16,16,20,.56);--maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{color:#101014;font-weight:900;letter-spacing:-.025em;margin:0 0 .4em}
+  h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:.98}
+  h2{font-size:1.4rem}
+  .serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;color:var(--accent-mute)}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(16,16,20,.053);backdrop-filter:blur(14px);border-bottom:1px solid rgba(16,16,20,.136)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:#101014;font-size:1.05rem;text-decoration:none}
+  .logo-mark{width:44px;height:44px;border-radius:8px;background:#000;display:grid;place-items:center;font-weight:900;letter-spacing:-.05em;font-size:1.05rem;position:relative;overflow:hidden;border:1px solid #ECECF1}
+  .logo-mark::before{content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);width:28px;height:5px;background:linear-gradient(90deg,transparent 0%,#fff 30%,#fff 70%,transparent 100%);border-radius:50%;opacity:.85;clip-path:polygon(0 50%,15% 0,85% 0,100% 50%,100% 100%,0 100%)}
+  .logo-mark .fd{color:var(--accent);margin-top:8px;font-size:.95rem;line-height:1}
+  .logo span small{display:block;font-weight:500;font-size:.7rem;color:rgba(16,16,20,.644);letter-spacing:.06em;text-transform:uppercase;margin-top:-2px}
+  .nav-back{color:rgba(16,16,20,.718);font-size:.86rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+  .nav-back:hover{color:#101014}
+
+  .ap-hero{padding:56px 0 52px;position:relative;overflow:hidden}
+  .ap-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 30%, rgba(215,38,30,.10) 0%, transparent 50%),radial-gradient(circle at 80% 70%, rgba(215,38,30,.10) 0%, transparent 50%)}
+  .ap-hero .wrap{position:relative;z-index:1}
+  .ap-eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--accent);font-size:.74rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;margin-bottom:24px}
+  .ap-eyebrow::before{content:"";display:inline-block;width:32px;height:1px;background:var(--accent)}
+  .ap-hero p{color:rgba(16,16,20,.754);max-width:62ch;font-size:1.1rem;margin:18px 0 0}
+
+  .ap-progress{display:flex;align-items:center;gap:12px;margin-bottom:36px;padding:0 4px}
+  .ap-step-num{
+    width:32px;height:32px;border-radius:50%;
+    display:grid;place-items:center;
+    background:var(--bg-card);border:1.5px solid var(--border);
+    color:rgba(16,16,20,.607);font-weight:800;font-size:.84rem;
+    flex-shrink:0;transition:all .25s ease;
+  }
+  .ap-step-num.active{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 0 4px rgba(215,38,30,.10)}
+  .ap-step-num.done{background:var(--success);border-color:var(--success);color:#101014}
+  .ap-step-line{flex:1;height:2px;background:var(--border);position:relative;overflow:hidden}
+  .ap-step-line.active::before{content:"";position:absolute;inset:0;background:var(--accent);transform-origin:left;animation:lineFill .5s ease forwards}
+  @keyframes lineFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .ap-step-label{font-size:.78rem;font-weight:700;color:rgba(16,16,20,.754);text-transform:uppercase;letter-spacing:.1em;flex-shrink:0}
+
+  .ap-section{padding:0 0 120px}
+  .ap-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:48px;align-items:start}
+  @media(max-width:920px){.ap-grid{grid-template-columns:1fr;gap:32px}}
+
+  .ap-card{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:40px;margin-bottom:20px}
+  @media(max-width:560px){.ap-card{padding:28px 22px}}
+  .ap-card h2{margin-bottom:8px}
+  .ap-card .ap-sub{color:rgba(16,16,20,.644);font-size:.96rem;margin-bottom:28px}
+
+  /* Service picker */
+  .svc-options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(max-width:480px){.svc-options{grid-template-columns:1fr}}
+  .svc-options input[type="radio"]{position:absolute;opacity:0;pointer-events:none}
+  .svc-options label{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:16px 16px;border:1.5px solid var(--border);border-radius:12px;
+    cursor:pointer;transition:all .2s ease;background:transparent;
+    color:#101014;
+  }
+  .svc-options label:hover{border-color:rgba(215,38,30,.4);background:rgba(215,38,30,.04)}
+  .svc-options input:checked + label{
+    border-color:var(--accent);background:rgba(215,38,30,.08);
+    box-shadow:0 0 0 4px rgba(215,38,30,.10);
+  }
+  .svc-options .so-ico{width:36px;height:36px;border-radius:9px;background:rgba(215,38,30,.10);color:var(--accent);display:grid;place-items:center;flex-shrink:0}
+  .svc-options input:checked + label .so-ico{background:var(--accent);color:#fff}
+  .svc-options .so-text strong{display:block;color:#101014;font-size:.98rem;font-weight:700;letter-spacing:-.005em}
+  .svc-options .so-text span{font-size:.82rem;color:rgba(16,16,20,.644);display:block;margin-top:2px}
+
+  /* Calendar */
+  .cal-month{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  .cal-month strong{color:#101014;font-size:1.05rem;letter-spacing:-.01em}
+  .cal-nav{display:flex;gap:8px}
+  .cal-nav button{width:36px;height:36px;border-radius:8px;background:rgba(16,16,20,.031);border:1px solid var(--border);color:#101014;cursor:pointer;display:grid;place-items:center;transition:all .2s ease}
+  .cal-nav button:hover:not(:disabled){background:rgba(16,16,20,.062);border-color:rgba(16,16,20,.18)}
+  .cal-nav button:disabled{opacity:.35;cursor:not-allowed}
+  .cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:8px}
+  .cal-weekdays span{text-align:center;font-size:.72rem;color:rgba(16,16,20,.57);text-transform:uppercase;letter-spacing:.1em;font-weight:700;padding:6px 0}
+  .cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .cal-day{
+    aspect-ratio:1;border-radius:10px;
+    display:grid;place-items:center;
+    background:rgba(16,16,20,.025);border:1.5px solid transparent;
+    color:#101014;font-weight:600;font-size:.92rem;
+    cursor:pointer;transition:all .2s ease;position:relative;
+  }
+  .cal-day:hover:not(:disabled):not(.empty){background:rgba(16,16,20,.062);border-color:var(--accent)}
+  .cal-day.empty{background:transparent;cursor:default}
+  .cal-day:disabled{color:rgba(16,16,20,.166);cursor:not-allowed;background:transparent}
+  .cal-day.today{font-weight:800;color:var(--accent)}
+  .cal-day.selected{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 6px 18px -4px rgba(215,38,30,.5)}
+
+  /* Form fields */
+  .ap-row{display:grid;gap:16px;margin-bottom:16px}
+  .ap-row.two{grid-template-columns:1fr 1fr}
+  @media(max-width:520px){.ap-row.two{grid-template-columns:1fr}}
+  .ap-field{display:flex;flex-direction:column;gap:6px}
+  .ap-field label{font-size:.78rem;font-weight:700;color:rgba(16,16,20,.782);letter-spacing:.04em;text-transform:uppercase}
+  .ap-field input,.ap-field textarea{
+    background:rgba(16,16,20,.031);border:1.5px solid var(--border);border-radius:10px;
+    padding:14px 16px;font-family:inherit;font-size:1rem;color:#101014;
+    transition:all .2s ease;
+  }
+  .ap-field input:focus,.ap-field textarea:focus{outline:none;border-color:var(--accent);background:rgba(16,16,20,.05);box-shadow:0 0 0 4px rgba(215,38,30,.10)}
+
+  /* Car preview after kenteken lookup */
+  .car-preview{
+    display:none;margin-top:16px;padding:20px 22px;
+    background:rgba(16,16,20,.025);border:1px solid var(--border);
+    border-radius:12px;animation:cpIn .35s ease;
+  }
+  .car-preview.show{display:block}
+  @keyframes cpIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .car-preview .cp-header{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px}
+  .car-preview .cp-name{color:#101014;font-weight:800;font-size:1.1rem;letter-spacing:-.01em;margin:0}
+  .car-preview .cp-meta{color:rgba(16,16,20,.644);font-size:.86rem;margin-top:2px}
+  .car-preview .cp-badge{background:var(--accent);color:#fff;padding:6px 10px;border-radius:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;flex-shrink:0;white-space:nowrap}
+  .car-preview .cp-price{display:flex;align-items:baseline;gap:10px;padding-top:14px;border-top:1px solid rgba(16,16,20,.136)}
+  .car-preview .cp-price .lbl{color:rgba(16,16,20,.644);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-right:auto}
+  .car-preview .cp-price .euro{color:rgba(16,16,20,.644);font-size:1rem;font-weight:600}
+  .car-preview .cp-price .amount{color:#101014;font-size:2rem;font-weight:900;letter-spacing:-.03em;line-height:1}
+  .car-preview .cp-price .suffix{color:rgba(16,16,20,.644);font-size:.8rem;font-weight:500;margin-left:6px}
+  .car-preview .cp-note{margin-top:10px;font-size:.82rem;color:rgba(16,16,20,.607);line-height:1.5}
+
+  /* Kenteken input with search button */
+  .kenteken-wrap{display:flex;gap:8px}
+  .kenteken-wrap input{flex:1 1 0;min-width:0}
+  .kenteken-btn{
+    padding:0 20px;background:var(--accent);color:#fff;border:0;border-radius:10px;
+    font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;
+    cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+    transition:background .2s ease;flex-shrink:0;white-space:nowrap;
+  }
+  .kenteken-btn:hover:not(:disabled){background:var(--accent-hover)}
+  .kenteken-btn:disabled{opacity:.5;cursor:wait}
+  .kenteken-spinner{width:14px;height:14px;border:2px solid rgba(16,16,20,.18);border-top-color:#101014;border-radius:50%;animation:spinKt .8s linear infinite}
+  @keyframes spinKt{to{transform:rotate(360deg)}}
+
+  /* Add-ons selector */
+  .addons-section{margin-top:20px;padding:32px;background:var(--bg-card);border:1px solid var(--border);border-radius:16px}
+  .addons-section h3{color:#101014;font-size:1.15rem;margin:0 0 6px}
+  .addons-section > p{color:rgba(16,16,20,.644);font-size:.92rem;margin:0 0 22px}
+  .addons-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch}
+  @media(max-width:640px){.addons-list{grid-template-columns:1fr}}
+  .addon-pick{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all .2s ease;background:rgba(16,16,20,.012)}
+  .addon-pick:hover{border-color:rgba(215,38,30,.4)}
+  .addon-pick.checked{border-color:var(--accent);background:rgba(215,38,30,.06)}
+  .addon-pick input{position:absolute;opacity:0;pointer-events:none}
+  .addon-check{width:22px;height:22px;border-radius:6px;border:1.5px solid var(--border);display:grid;place-items:center;flex-shrink:0;transition:all .2s ease;background:transparent}
+  .addon-pick.checked .addon-check{background:var(--accent);border-color:var(--accent)}
+  .addon-check svg{width:14px;height:14px;color:#101014;opacity:0;transition:opacity .15s ease}
+  .addon-pick.checked .addon-check svg{opacity:1}
+  .addon-body{flex:1;min-width:0}
+  .addon-body .name{display:block;color:#101014;font-weight:700;font-size:.94rem;letter-spacing:-.005em}
+  .addon-body .desc{display:block;color:rgba(16,16,20,.607);font-size:.78rem;margin-top:1px}
+  .addon-price-tag{color:var(--accent);font-weight:900;font-size:1.05rem;letter-spacing:-.02em;flex-shrink:0}
+
+  /* ---------- Aantal-kiezers (banden, koplampen) ---------- */
+  /* height:100% + flex:1 = kaarten in dezelfde rij worden even hoog,
+     anders ontstaat er een gat naast een kaart met korte omschrijving */
+  .addon-wrap{display:flex;flex-direction:column;height:100%}
+  .addon-wrap > .addon-pick{flex:1 1 auto}
+  .addon-qty{
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    margin:-4px 0 0;padding:12px 16px 14px;
+    background:rgba(215,38,30,.07);
+    border:1px solid rgba(215,38,30,.22);border-top:0;
+    border-radius:0 0 12px 12px;
+  }
+  .addon-qty[hidden]{display:none}
+  .addon-qty-lbl{font-size:.8rem;font-weight:700;color:#101014}
+  .addon-qty-calc{font-size:.8rem;color:rgba(16,16,20,.681);margin-left:auto}
+  .addon-qty-calc strong{color:var(--accent)}
+
+  .addon-qty-ctrl,.banden-qty-ctrl{
+    display:inline-flex;align-items:center;gap:2px;
+    background:rgba(16,16,20,.021);border:1px solid var(--border);border-radius:999px;padding:3px;
+  }
+  .qty-btn{
+    width:28px;height:28px;border-radius:50%;border:0;cursor:pointer;
+    background:transparent;color:#101014;font-size:1.1rem;font-weight:700;line-height:1;
+    display:grid;place-items:center;transition:background .18s ease;
+  }
+  .qty-btn:hover{background:rgba(16,16,20,.07)}
+  .qty-input{
+    width:44px;text-align:center;border:0;background:transparent;
+    color:#101014;font-family:inherit;font-weight:800;font-size:.98rem;
+    -moz-appearance:textfield;
+  }
+  .qty-input::-webkit-outer-spin-button,
+  .qty-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .qty-input:focus{outline:none}
+
+  /* Aantal banden wanneer Bandenservice de hoofddienst is */
+  .banden-qty{
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    margin:14px 0;padding:14px 16px;
+    background:rgba(215,38,30,.08);
+    border:1px solid rgba(215,38,30,.25);border-radius:12px;
+  }
+  .banden-qty-lbl{font-size:.86rem;font-weight:700;color:#101014}
+  .banden-qty-calc{font-size:.84rem;color:rgba(16,16,20,.681);margin-left:auto}
+  .banden-qty-calc strong{color:var(--accent);font-size:1rem}
+  @media(max-width:520px){
+    .addon-qty-calc,.banden-qty-calc{margin-left:0;width:100%}
+  }
+
+  /* Akkoord checkbox — nette custom styling */
+  .akkoord-check{
+    display:flex;align-items:flex-start;gap:14px;cursor:pointer;
+    padding:16px 18px;border:1.5px solid var(--border);border-radius:12px;
+    background:rgba(16,16,20,.019);
+    transition:all .2s ease;
+  }
+  .akkoord-check:hover{border-color:rgba(215,38,30,.4);background:rgba(16,16,20,.031)}
+  .akkoord-check input{position:absolute;opacity:0;pointer-events:none}
+  .akkoord-box{
+    width:22px;height:22px;border-radius:6px;border:1.5px solid var(--border);
+    display:grid;place-items:center;flex-shrink:0;background:transparent;
+    transition:all .2s ease;margin-top:2px;
+  }
+  .akkoord-check input:checked ~ .akkoord-box{background:var(--accent);border-color:var(--accent)}
+  .akkoord-box svg{width:14px;height:14px;color:#101014;opacity:0;transition:opacity .15s ease}
+  .akkoord-check input:checked ~ .akkoord-box svg{opacity:1}
+  .akkoord-text{
+    flex:1;color:rgba(16,16,20,.69);font-size:.92rem;font-weight:500;line-height:1.5;
+  }
+  .akkoord-text a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+  .akkoord-check input:checked ~ .akkoord-text{color:#101014}
+
+  /* Totaal-blok */
+  .total-block{margin-top:22px;padding:20px 22px;background:rgba(215,38,30,.08);border:1px solid rgba(215,38,30,.25);border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .total-block .lbl{color:rgba(16,16,20,.754);font-size:.86rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+  .total-block .lbl small{display:block;font-size:.7rem;color:rgba(16,16,20,.57);font-weight:500;text-transform:none;letter-spacing:0;margin-top:2px}
+  .total-block .total{color:#101014;font-weight:900;font-size:1.9rem;letter-spacing:-.03em}
+  /* Nog geen prijs bekend: nette tekst ipv een streepje */
+  .total-block .total.leeg{
+    font-size:1rem;font-weight:600;color:rgba(16,16,20,.552);letter-spacing:0;
+  }
+
+  /* Drop-off info card */
+  .dropoff-info{
+    background:linear-gradient(135deg, rgba(215,38,30,.12) 0%, rgba(215,38,30,.04) 100%);
+    border:1px solid rgba(215,38,30,.25);border-radius:14px;padding:20px 22px;margin-top:12px;
+  }
+  .dropoff-info h4{color:#101014;font-size:.86rem;margin:0 0 8px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+  .dropoff-info p{color:rgba(16,16,20,.69);font-size:.9rem;line-height:1.55;margin:0}
+  .dropoff-info strong{color:#101014}
+
+  /* Sidebar summary — met iconen en visuele hierarchie */
+  .ap-summary{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
+    position:sticky;top:90px;overflow:hidden;
+  }
+  .ap-summary-head{
+    padding:24px 28px;background:linear-gradient(135deg, rgba(215,38,30,.14) 0%, rgba(215,38,30,.04) 100%);
+    border-bottom:1px solid rgba(16,16,20,.136);
+  }
+  .ap-summary-head .eyebrow-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent-mute);margin-bottom:6px;
+  }
+  .ap-summary-head .eyebrow-tag::before{content:"";width:16px;height:1.5px;background:var(--accent-mute);display:inline-block}
+  .ap-summary-head h3{color:#101014;font-size:1.35rem;margin:0;letter-spacing:-.015em;font-weight:900}
+  .ap-summary-body{padding:8px 28px 28px}
+  .ap-sum-line{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
+    padding:16px 0;border-top:1px solid rgba(16,16,20,.102);
+  }
+  .ap-sum-line:first-child{border-top:0}
+  .ap-sum-line .lbl{
+    display:flex;align-items:center;gap:10px;
+    font-size:.76rem;color:rgba(16,16,20,.644);text-transform:uppercase;letter-spacing:.1em;font-weight:700;
+    flex-shrink:0;
+  }
+  .ap-sum-line .lbl svg{width:16px;height:16px;color:var(--accent);opacity:.75}
+  .ap-sum-line .val{color:#101014;font-weight:700;font-size:.96rem;text-align:right;line-height:1.4}
+  .ap-sum-line .val em{font-style:normal;color:rgba(16,16,20,.368);font-size:.78rem;font-weight:500;display:block;margin-top:3px;letter-spacing:.02em}
+  /* Prijs krijgt eigen accent behandeling */
+  .ap-sum-price{
+    background:rgba(215,38,30,.08);border-radius:12px;padding:18px 20px;margin:14px 0;
+    border:1px solid rgba(215,38,30,.20);
+    display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  }
+  .ap-sum-price .lbl{color:#101014;font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .ap-sum-price .amount{color:#101014;font-weight:900;font-size:1.7rem;letter-spacing:-.03em;line-height:1}
+  .ap-sum-price .amount em{display:block;font-style:normal;color:rgba(16,16,20,.644);font-size:.72rem;font-weight:500;margin-top:4px;letter-spacing:.02em;text-align:right}
+  .ap-sum-price[data-empty="true"] .amount{color:rgba(16,16,20,.322);font-size:1.1rem;font-weight:600}
+
+  .ap-nav{display:flex;justify-content:space-between;gap:14px;margin-top:24px}
+  .ap-btn-back{padding:14px 24px;border-radius:10px;background:transparent;color:#101014;border:1.5px solid var(--border);font-weight:700;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s ease}
+  .ap-btn-back:hover{border-color:#101014}
+  .ap-btn-next{padding:14px 28px;border-radius:10px;background:var(--accent);color:#fff;border:0;font-weight:800;font-size:.86rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:all .2s ease;box-shadow:0 12px 30px -8px rgba(215,38,30,.4)}
+  .ap-btn-next:hover{background:var(--accent-hover);transform:translateY(-2px)}
+  .ap-btn-next:disabled{opacity:.4;cursor:not-allowed;transform:none}
+  .ap-btn-submit{
+    padding:18px 36px;font-size:.94rem;letter-spacing:.1em;
+    background:linear-gradient(135deg, var(--accent) 0%, #c02116 100%);
+    box-shadow:0 18px 40px -10px rgba(215,38,30,.55), 0 0 0 1px rgba(16,16,20,.03) inset;
+  }
+  .ap-btn-submit:hover{transform:translateY(-3px);box-shadow:0 24px 50px -10px rgba(215,38,30,.65)}
+
+  .ap-step{display:none}
+  .ap-step.active{display:block;animation:stepIn .4s ease}
+  @keyframes stepIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+
+  .ap-confirm{display:none;text-align:center;padding:60px 20px}
+  .ap-confirm.show{display:block;animation:stepIn .5s ease}
+  .ap-confirm-icon{width:96px;height:96px;border-radius:50%;background:rgba(31,138,85,.15);color:var(--success);display:grid;place-items:center;margin:0 auto 28px}
+  .ap-confirm h2{color:#101014;font-size:2rem;margin-bottom:14px}
+  .ap-confirm p{color:rgba(16,16,20,.754);max-width:52ch;margin:0 auto 24px;line-height:1.6}
+  .ap-confirm .next-steps{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:26px;margin:24px auto;max-width:520px;text-align:left}
+  .ap-confirm .next-steps ol{margin:0;padding-left:22px;color:rgba(16,16,20,.69);line-height:1.7}
+  .ap-confirm .next-steps li{margin-bottom:6px}
+  .ap-confirm .next-steps strong{color:#101014}
+
+  footer{padding:32px 0;border-top:1px solid rgba(16,16,20,.102);font-size:.86rem;color:rgba(16,16,20,.57);text-align:center}
+  footer strong{color:#101014}
+
+</style>
+
+<style>
+  .site-foot{padding:36px 0;border-top:1px solid rgba(16,16,20,.119);font-size:.86rem;color:rgba(16,16,20,.57)}
+  .site-foot .fw{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  .site-foot strong{color:rgba(16,16,20,.718)}
+  .site-foot a{color:rgba(16,16,20,.681);text-decoration:none}
+  .site-foot a:hover{color:#D7261E}
+  .site-foot .legal a + a::before{content:"·";margin:0 8px;color:rgba(16,16,20,.23)}
+
+  /* ============================================================
+     MOBIELE VERFIJNING — bewust als laatste zodat het overschrijft
+     ============================================================ */
+  @media(max-width:760px){
+    .ap-hero{padding:36px 0 34px}
+    .ap-section{padding:0 0 64px}
+    .wrap{padding:0 20px}
+    .ap-card{padding:24px 20px}
+    .ap-grid{gap:24px}
+    .addons-section{padding:24px 20px}
+    .ap-summary{position:static}
+    .cal-days{gap:5px}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 18px}
+    .ap-nav{flex-direction:column-reverse;gap:12px}
+    .ap-nav .ap-btn-back,.ap-nav .ap-btn-next,.ap-nav .ap-btn-submit{
+      width:100%;justify-content:center;
+    }
+    .ap-step-label{font-size:.68rem}
+  }
+</style>
+<!-- Cookie consent + Google Consent Mode v2 — moet vóór Tag Manager staan -->
+<script src="cookie-consent.js"></script>
+<script src="meting.js" defer></script>
+</head>
+<body data-fd-pagina="">
+
+<section class="ap-hero">
+  <div class="wrap">
+    <span class="ap-eyebrow">Afspraak plannen</span>
+    <h1>Plan je afspraak <span class="serif">in drie stappen.</span></h1>
+    <p>Kies je dienst en datum, vul je auto- en contactgegevens in, en je afspraak staat. Auto langsbrengen 's morgens vóór 12:00, bij APK en klein onderhoud rijdt 'ie dezelfde dag weer weg. Bij grotere reparaties bellen we je zodra we weten of het dezelfde dag lukt of één dag langer duurt.</p>
+  </div>
+</section>
+
+<section class="ap-section">
+  <div class="wrap">
+    <div class="ap-progress">
+      <div class="ap-step-num active" data-step-num="1">1</div>
+      <div class="ap-step-line" data-step-line="1"></div>
+      <div class="ap-step-num" data-step-num="2">2</div>
+      <div class="ap-step-line" data-step-line="2"></div>
+      <div class="ap-step-num" data-step-num="3">3</div>
+      <span class="ap-step-label" id="apStepLabel">Stap 1 · Dienst &amp; datum</span>
+    </div>
+
+    <div class="ap-grid">
+      <div>
+        <form action='/bedankt-afspraak' id='apkForm' method='POST' name='afspraak'>
+          <input type="hidden" name="form-name" value="afspraak">
+          <input type="hidden" name="gekozen-datum" id="hiddenDate">
+          <!-- Spamval. Alleen bots vullen dit in.
+               aria-hidden + tabindex houdt hem ook uit de voorleessoftware
+               en uit de tabvolgorde; de oude versie stond wel gewoon in
+               de tekstlaag van de pagina. -->
+          <p aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">
+            <label for="bot-field">Laat dit veld leeg</label>
+            <input id="bot-field" name="bot-field" type="text" tabindex="-1" autocomplete="off">
+          </p>
+
+          <!-- STEP 1: Service + Date -->
+          <div class="ap-step active" data-step="1">
+            <div class="ap-card">
+              <h2>Wat kunnen we voor je doen?</h2>
+              <p class="ap-sub">Kies je dienst, de rest van het formulier past zich hierop aan.</p>
+              <div class="svc-options">
+                <input type="radio" id="svc-apk" name="dienst" value="APK Keuring" data-price-key="apk" required checked>
+                <label for="svc-apk">
+                  <span class="so-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+                  <span class="so-text"><strong>APK keuring</strong><span>Vaste prijs, klaar dezelfde dag</span></span>
+                </label>
+                <input type="radio" id="svc-klein" name="dienst" value="Kleine beurt" data-price-key="klein">
+                <label for="svc-klein">
+                  <span class="so-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.08 7.08l4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.08-7.08l4.24-4.24"/></svg></span>
+                  <span class="so-text"><strong>Kleine beurt</strong><span>Olie, filters &amp; inspectie</span></span>
+                </label>
+                <input type="radio" id="svc-groot" name="dienst" value="Grote beurt" data-price-key="groot">
+                <label for="svc-groot">
+                  <span class="so-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2z"/><path d="M8 12l3 3 5-6"/></svg></span>
+                  <span class="so-text"><strong>Grote beurt</strong><span>Uitgebreid incl. remmen &amp; filters</span></span>
+                </label>
+                <input type="radio" id="svc-reparatie" name="dienst" value="Reparatie" data-price-key="reparatie">
+                <label for="svc-reparatie">
+                  <span class="so-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+                  <span class="so-text"><strong>Reparatie</strong><span>Storing, geluid of schade</span></span>
+                </label>
+                <input type="radio" id="svc-banden" name="dienst" value="Bandenservice" data-price-key="banden">
+                <label for="svc-banden">
+                  <span class="so-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+                  <span class="so-text"><strong>Bandenservice</strong><span>Wisselen of vervangen, €30 ex BTW per band</span></span>
+                </label>
+                <input type="radio" id="svc-airco" name="dienst" value="Airco service" data-price-key="airco">
+                <label for="svc-airco">
+                  <span class="so-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12a10 10 0 1 0 20 0 10 10 0 1 0-20 0z"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></span>
+                  <span class="so-text"><strong>Airco service</strong><span>Check, vullen of reparatie</span></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="ap-card">
+              <h2>Welke dag komt het uit?</h2>
+              <p class="ap-sub" id="calSub">APK doen we alleen op werkdagen. In het weekend is er geen keurmeester aanwezig.</p>
+              <div class="cal-month">
+                <strong id="calMonthLabel"></strong>
+                <div class="cal-nav">
+                  <button type="button" id="calPrev" aria-label="Vorige maand">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                  </button>
+                  <button type="button" id="calNext" aria-label="Volgende maand">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="cal-weekdays"><span>Ma</span><span>Di</span><span>Wo</span><span>Do</span><span>Vr</span><span>Za</span><span>Zo</span></div>
+              <div class="cal-days" id="calDays"></div>
+
+              <div class="dropoff-info">
+                <h4>Zo werkt het</h4>
+                <p><strong>Auto langsbrengen vóór 12:00</strong> op de gekozen dag. Bij <strong>APK, kleine reparaties en onderhoud</strong> is 'ie dezelfde dag klaar. Bij <strong>grotere reparaties</strong> bellen we je zodra we weten of het dezelfde dag lukt of één dag langer duurt. Je hoeft niet te wachten, laat de sleutels achter en we brengen je op de hoogte.</p>
+              </div>
+            </div>
+
+            <div class="ap-nav">
+              <span></span>
+              <button type="button" class="ap-btn-next" id="goStep2" disabled>
+                Verder · auto-info
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: Auto info + auto price -->
+          <div class="ap-step" data-step="2">
+            <div class="ap-card">
+              <h2>Vertel ons over je auto.</h2>
+              <p class="ap-sub">Vul je kenteken in, wij halen automatisch merk, model én de prijs voor je op via de RDW.</p>
+              <div class="ap-row">
+                <div class="ap-field">
+                  <label for="apKenteken">Kenteken</label>
+                  <div class="kenteken-wrap">
+                    <input type="text" id="apKenteken" name="kenteken" placeholder="12ABC3" required maxlength="10" style="text-transform:uppercase" autocomplete="off">
+                    <button type="button" class="kenteken-btn" id="apLookupBtn">
+                      <span id="apLookupBtnText">Zoek</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Auto preview + prijs -->
+              <div class="car-preview" id="apCarPreview">
+                <div class="cp-header">
+                  <div>
+                    <p class="cp-name" id="apCpName"></p>
+                    <p class="cp-meta" id="apCpMeta"></p>
+                  </div>
+                  <span class="cp-badge" id="apCpBadge"></span>
+                </div>
+                <div class="cp-price">
+                  <span class="lbl" id="apCpPriceLabel">Prijs</span>
+                  <span class="euro">€</span>
+                  <span class="amount" id="apCpPrice"></span>
+                  <span class="suffix" id="apCpSuffix">vaste prijs</span>
+                </div>
+                <p class="cp-note" id="apCpNote"></p>
+              </div>
+
+              <div class="ap-row two" style="margin-top:16px">
+                <div class="ap-field">
+                  <label for="apMerk">Merk <span style="font-weight:400;text-transform:none;color:rgba(16,16,20,.57);font-size:.72rem;letter-spacing:0">(auto-invulling)</span></label>
+                  <input type="text" id="apMerk" name="merk" placeholder="bv. Volkswagen" required>
+                </div>
+                <div class="ap-field">
+                  <label for="apModel">Model + bouwjaar</label>
+                  <input type="text" id="apModel" name="model" placeholder="bv. Golf 2019" required>
+                </div>
+              </div>
+              <div class="ap-row">
+                <div class="ap-field">
+                  <label for="apNotes">Bijzonderheden <span style="font-weight:400;text-transform:none;color:rgba(16,16,20,.57);font-size:.72rem;letter-spacing:0">(optioneel)</span></label>
+                  <textarea id="apNotes" name="opmerkingen" rows="3" placeholder="Storingslampje aan? Vreemd geluid? Iets specifieks wat je vermeld wil hebben?"></textarea>
+                </div>
+              </div>
+              <input type="hidden" name="berekende-prijs" id="apHiddenPrice">
+              <input type="hidden" name="auto-categorie" id="apHiddenCategory">
+              <input type="hidden" name="gekozen-addons" id="apHiddenAddons">
+              <input type="hidden" name="totaal-schatting" id="apHiddenTotal">
+              <!-- Klaarstaande bevestigingslinks. Deze komen mee in de mail die
+                   FD ontvangt, zodat hij met één klik de klant kan bevestigen. -->
+              <input type="hidden" name="BEVESTIG-VIA-WHATSAPP" id="apConfirmWa">
+              <input type="hidden" name="BEVESTIG-VIA-EMAIL" id="apConfirmMail">
+            </div>
+
+            <!-- Add-ons picker — verschijnt na kenteken lookup -->
+            <div class="addons-section" id="apAddonsSection">
+              <h3>Wil je meteen wat meer laten checken?</h3>
+              <p>Optionele add-ons, kies wat je wil combineren met je afspraak. Verhoogt de totaalprijs.</p>
+              <div class="addons-list" id="apAddonsList"></div>
+              <div class="total-block">
+                <div class="lbl">Totaal<small id="apTotalSub">incl. materiaal &amp; BTW</small></div>
+                <div class="total leeg" id="apTotal">Vul kenteken in</div>
+              </div>
+            </div>
+            <div class="ap-nav">
+              <button type="button" class="ap-btn-back" data-back-to="1">← Terug</button>
+              <button type="button" class="ap-btn-next" id="goStep3">
+                Verder · contact
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Contact -->
+          <div class="ap-step" data-step="3">
+            <div class="ap-card">
+              <span style="display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-size:.74rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px">
+                <span style="width:20px;height:1.5px;background:var(--accent);display:inline-block"></span>
+                Bijna klaar
+              </span>
+              <h2>Hoe kunnen we je bereiken?</h2>
+              <p class="ap-sub">We bevestigen je afspraak binnen 1 uur (tijdens kantooruren) via WhatsApp of e-mail. Daarna staat 'ie definitief in onze agenda.</p>
+              <div class="ap-row two">
+                <div class="ap-field">
+                  <label for="apNaam">Naam</label>
+                  <input type="text" id="apNaam" name="naam" placeholder="Voor- en achternaam" required>
+                </div>
+                <div class="ap-field">
+                  <label for="apTel">Telefoonnummer</label>
+                  <input type="tel" id="apTel" name="telefoon" placeholder="06 12345678" required>
+                </div>
+              </div>
+              <div class="ap-row">
+                <div class="ap-field">
+                  <label for="apEmail">E-mailadres</label>
+                  <input type="email" id="apEmail" name="email" placeholder="naam@email.nl" required>
+                </div>
+              </div>
+              <div class="ap-row">
+                <label class="akkoord-check">
+                  <input type="checkbox" name="akkoord" required>
+                  <span class="akkoord-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span class="akkoord-text">Ik ga akkoord met de <a href='/privacyverklaring' rel='noopener' target='_blank'>privacyverklaring</a> en de <a href='/algemene-voorwaarden' rel='noopener' target='_blank'>algemene voorwaarden</a>. Betaling gebeurt in de werkplaats bij het ophalen.</span>
+                </label>
+              </div>
+            </div>
+            <div class="ap-nav">
+              <button type="button" class="ap-btn-back" data-back-to="2">← Terug</button>
+              <button type="submit" class="ap-btn-next ap-btn-submit">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Afspraak bevestigen
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="ap-confirm" id="apConfirm">
+          <div class="ap-confirm-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2>Bedankt! Je afspraak staat.</h2>
+          <p>We nemen binnen 1 uur tijdens kantooruren contact op om je afspraak te bevestigen. Kijk in je e-mail of WhatsApp.</p>
+          <div class="next-steps">
+            <strong style="display:block;margin-bottom:12px">Wat gebeurt er nu?</strong>
+            <ol>
+              <li>Je krijgt een <strong>bevestigingsbericht</strong> binnen 1 uur (WhatsApp of e-mail).</li>
+              <li>Op de afgesproken dag: <strong>auto langsbrengen vóór 12:00</strong> aan de Westzijde 158C.</li>
+              <li>Wij bellen je zodra hij klaar is (vaak <strong>dezelfde dag</strong>, bij grote reparaties de volgende).</li>
+              <li>Ophalen + <strong>betalen in de werkplaats</strong>, geen aanbetaling, geen verrassingen.</li>
+            </ol>
+          </div>
+          <div style="background:rgba(215,38,30,.10);border:1px solid rgba(215,38,30,.28);border-radius:14px;padding:22px 26px;margin:24px auto 0;max-width:520px;text-align:left">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D7261E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <div>
+                <strong style="color:#101014;display:block;margin-bottom:4px;font-size:.9rem">Prijs kan afwijken bij extra werk</strong>
+                <span style="color:rgba(16,16,20,.69);font-size:.9rem;line-height:1.5">De opgegeven prijs is gebaseerd op standaard werk. Blijkt er tijdens inspectie meer aan de hand? Dan <strong style="color:#101014">bellen we je altijd eerst</strong> voor akkoord voordat we extra werk doen. Zonder jouw ja gebeurt er niks meer dan afgesproken.</span>
+              </div>
+            </div>
+          </div>
+          <a href="/" style="display:inline-block;margin-top:20px;padding:14px 28px;border-radius:999px;background:var(--accent);color:#101014;font-weight:700;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;font-size:.86rem">Terug naar home</a>
+        </div>
+      </div>
+
+      <aside class="ap-summary" id="apSummary">
+        <div class="ap-summary-head">
+          <span class="eyebrow-tag">Overzicht</span>
+          <h3>Jouw afspraak</h3>
+        </div>
+        <div class="ap-summary-body">
+          <div class="ap-sum-line">
+            <span class="lbl">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              Dienst
+            </span>
+            <span class="val" id="sumSvc">APK keuring<em>Vaste prijs</em></span>
+          </div>
+          <div class="ap-sum-line">
+            <span class="lbl">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Datum
+            </span>
+            <span class="val" id="sumDate">Nog geen datum</span>
+          </div>
+          <div class="ap-sum-line">
+            <span class="lbl">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Aanleveren
+            </span>
+            <span class="val">Vóór 12:00<em>Klaar dezelfde dag</em></span>
+          </div>
+          <div class="ap-sum-line">
+            <span class="lbl">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Locatie
+            </span>
+            <span class="val">Westzijde 158C<em>1506 EK Zaandam</em></span>
+          </div>
+
+          <!-- Prijs krijgt eigen accent-blok -->
+          <div class="ap-sum-price" id="sumPriceLine" data-empty="true">
+            <span class="lbl">Totaal</span>
+            <span class="amount" id="sumPrice">Vul kenteken in<em></em></span>
+          </div>
+
+          <div class="ap-sum-line">
+            <span class="lbl">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Betalen
+            </span>
+            <span class="val">Bij ophalen<em>Geen aanbetaling</em></span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="fw">
+    <span>&copy; 2026 <strong>FD Autoservice</strong> &middot; Westzijde 158C, Zaandam &middot; <a href="tel:+31752013142">075 - 201 3142</a> &middot; <a href="mailto:contact@fdautoservice.nl">contact@fdautoservice.nl</a><br>KvK 94702551</span>
+    <span class="legal">
+      <a href='/privacyverklaring'>Privacyverklaring</a>
+      <a href='/cookiebeleid'>Cookiebeleid</a>
+      <a href='/algemene-voorwaarden'>Algemene voorwaarden</a>
+      <a href="#" data-cookie-settings>Cookievoorkeuren</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  const calDays = document.getElementById('calDays');
+  const calMonthLabel = document.getElementById('calMonthLabel');
+  const calPrev = document.getElementById('calPrev');
+  const calNext = document.getElementById('calNext');
+  const goStep2 = document.getElementById('goStep2');
+  const sumDate = document.getElementById('sumDate');
+  const sumSvc = document.getElementById('sumSvc');
+  const hiddenDate = document.getElementById('hiddenDate');
+
+  const monthNames = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+  const today = new Date(); today.setHours(0,0,0,0);
+  let viewYear = today.getFullYear();
+  let viewMonth = today.getMonth();
+  let selectedDate = null;
+
+  /* Welke dienst is nu gekozen? */
+  function huidigeDienst(){
+    const el = document.querySelector('input[name="dienst"]:checked');
+    return el ? el.dataset.priceKey : 'apk';
+  }
+
+  /* APK kan alleen op werkdagen — de keurmeester is er in het weekend niet.
+     De overige diensten kunnen ook op zaterdag. Zondag is altijd dicht. */
+  function dagBeschikbaar(dow){
+    if(dow === 0) return false;                      // zondag: dicht
+    if(dow === 6) return huidigeDienst() !== 'apk';  // zaterdag: geen APK
+    return true;                                     // ma t/m vr
+  }
+
+  function renderCalendar(){
+    const first = new Date(viewYear, viewMonth, 1);
+    const last = new Date(viewYear, viewMonth + 1, 0);
+    const startDay = (first.getDay() + 6) % 7;
+    calMonthLabel.textContent = monthNames[viewMonth] + ' ' + viewYear;
+    calDays.innerHTML = '';
+    for(let i = 0; i < startDay; i++){
+      const d = document.createElement('div');
+      d.className = 'cal-day empty';
+      calDays.appendChild(d);
+    }
+    for(let day = 1; day <= last.getDate(); day++){
+      const date = new Date(viewYear, viewMonth, day);
+      const dow = date.getDay();
+      const isPast = date < today;
+      const isToday = date.getTime() === today.getTime();
+      const isSelected = selectedDate && date.getTime() === selectedDate.getTime();
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cal-day' + (isToday ? ' today' : '') + (isSelected ? ' selected' : '');
+      btn.textContent = day;
+      const beschikbaar = dagBeschikbaar(dow);
+      if(isPast || !beschikbaar){
+        btn.disabled = true;
+        // Uitleg bij zaterdag zodat het niet als een bug voelt
+        if(!isPast && dow === 6 && huidigeDienst() === 'apk'){
+          btn.title = 'Op zaterdag doen we geen APK, kies een werkdag';
+        }
+      } else {
+        btn.addEventListener('click', () => {
+          selectedDate = date;
+          renderCalendar();
+          updateSummary();
+          goStep2.disabled = false;
+        });
+      }
+      calDays.appendChild(btn);
+    }
+    calPrev.disabled = viewYear === today.getFullYear() && viewMonth === today.getMonth();
+  }
+
+  /* Wisselt iemand naar APK terwijl er al een zaterdag gekozen was?
+     Dan die keuze intrekken, anders verstuurt hij een onmogelijke datum. */
+  function controleerGekozenDatum(){
+    if(selectedDate && !dagBeschikbaar(selectedDate.getDay())){
+      selectedDate = null;
+      goStep2.disabled = true;
+    }
+    // Ondertitel onder de kalender past zich aan de dienst aan
+    const sub = document.getElementById('calSub');
+    if(sub){
+      sub.textContent = huidigeDienst() === 'apk'
+        ? 'APK doen we alleen op werkdagen. In het weekend is er geen keurmeester aanwezig.'
+        : 'Beschikbaar op werkdagen én zaterdag. Zondag zijn we dicht.';
+    }
+  }
+
+  function updateSummary(){
+    if(selectedDate){
+      sumDate.textContent = selectedDate.toLocaleDateString('nl-NL',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+      hiddenDate.value = selectedDate.toISOString().split('T')[0];
+    } else { sumDate.textContent = 'Nog geen datum' }
+    const chosen = document.querySelector('input[name="dienst"]:checked');
+    if(chosen){
+      const label = chosen.nextElementSibling.querySelector('.so-text strong').textContent;
+      const sub = chosen.nextElementSibling.querySelector('.so-text span').textContent;
+      sumSvc.innerHTML = `${label}<em>${sub}</em>`;
+    }
+  }
+
+  document.querySelectorAll('input[name="dienst"]').forEach(r => r.addEventListener('change', () => {
+    renderAddons();            // filter add-ons op basis van nieuwe dienst
+    controleerGekozenDatum();  // zaterdag vrijgeven of blokkeren (APK)
+    renderCalendar();          // kalender opnieuw tekenen met nieuwe regels
+    updateSummary();
+    if(lastCarData) renderCarPreview(lastCarData); // herbereken prijs bij dienst-wissel
+  }));
+
+  // Bij het laden meteen de juiste regels toepassen
+  controleerGekozenDatum();
+
+  /* ============= KENTEKEN LOOKUP + PRIJSBEREKENING ============= */
+  // Prijzen per auto-categorie, kleine auto is goedkoper (minder olie/kortere brug-tijd),
+  // grotere auto's/SUV's/bestelauto's zijn duurder (meer werk, meer materiaal)
+  const PRICES = {
+    klein:  { apk: 60, klein: 219, groot: 349, airco: 150 },
+    middel: { apk: 60, klein: 277, groot: 428, airco: 150 },
+    groot:  { apk: 60, klein: 339, groot: 499, airco: 150 }
+  };
+  /* Add-ons voor optioneel extra werk.
+     qty:true  → de klant vult zelf een aantal in (bijv. aantal banden)
+     qtyLabel  → tekst bij het aantalveld
+     qtyDefault→ startwaarde */
+  const ADDONS = [
+    { key: 'apk',         label: 'APK keuring',           desc: 'Vaste prijs, incl. RDW-afmelding', price: 60 },
+    { key: 'airco',       label: 'Airco service',         desc: 'Check + vullen incl. gas en olie (ex BTW)', price: 150 },
+    { key: 'koplampen',   label: 'Koplampen polijsten',   desc: 'Per koplamp (ex BTW)', price: 50,
+      qty: true, qtyLabel: 'Aantal koplampen', qtyDefault: 2, qtyMax: 2 },
+    { key: 'banden',      label: 'Band vervangen',        desc: 'Per band, elke maat (ex BTW)', price: 30,
+      qty: true, qtyLabel: 'Aantal banden', qtyDefault: 4, qtyMax: 8 },
+    { key: 'uitlezen',    label: 'Diagnose / uitlezen',   desc: 'Foutcodes lezen (ex BTW)', price: 30 },
+    { key: 'remvloeistof', label: 'Remvloeistof verversen', desc: 'Aanbevolen elke 2 jaar (ex BTW)', price: 80 },
+    { key: 'koelvloeistof',label: 'Koelvloeistof verversen',desc: 'Vervangen incl. materiaal', price: 69 }
+  ];
+
+  /* Gekozen aantallen per add-on. Wordt gevuld zodra iemand een
+     add-on met qty aanvinkt. */
+  const addonQty = {};
+  function qtyVan(key){
+    const a = ADDONS.find(x => x.key === key);
+    if(!a || !a.qty) return 1;
+    return addonQty[key] || a.qtyDefault || 1;
+  }
+
+  /* Aantal banden wanneer Bandenservice de hoofddienst is */
+  let bandenAantal = 4;
+
+  /* Prijs-uitleg per dienst — wordt getoond onder de berekende prijs.
+     Zo krijgt de klant een tekst die past bij wat hij daadwerkelijk kiest. */
+  const SERVICE_NOTES = {
+    apk: {
+      label: 'Vaste prijs',
+      suffix: 'incl. afmelding RDW',
+      note: 'De APK-keuring kost €60. Dat is een vaste prijs, ongeacht je automerk of model. Wordt je auto afgekeurd? Dan bespreken we eerst wat er moet gebeuren en wat dat kost. Herkeuring binnen 2 maanden is bij ons gratis.',
+      noteSuv: 'De APK-keuring kost €60. Dat is een vaste prijs, ongeacht je automerk of model. Wordt je auto afgekeurd? Dan bespreken we eerst wat er moet gebeuren en wat dat kost. Herkeuring binnen 2 maanden is bij ons gratis.'
+    },
+    klein: {
+      label: 'Schatting',
+      suffix: 'incl. materiaal & BTW',
+      note: 'Een kleine beurt omvat olie verversen, oliefilter en een inspectie van de belangrijkste punten. Dit bedrag is een schatting op basis van de standaard olie-hoeveelheid voor jouw autotype. Heeft je auto een afwijkende olie-specificatie, dan kan de prijs iets verschillen, we bellen je altijd eerst.',
+      noteSuv: '⚠️ Een kleine beurt omvat olie verversen, oliefilter en inspectie. Voor SUV\'s en bestelauto\'s gaat er meer olie in en is de werktijd langer, dus dit is een ondergrens. We bellen je vooraf met de definitieve prijs.'
+    },
+    groot: {
+      label: 'Schatting',
+      suffix: 'incl. materiaal & BTW',
+      note: 'Een grote beurt is de kleine beurt plus lucht- en interieurfilter, bougies waar nodig, en een uitgebreide inspectie van remmen en ophanging. Dit is een schatting. Welke filters en bougies jouw auto precies nodig heeft zien we bij de beurt. Extra werk doen we nooit zonder jouw akkoord.',
+      noteSuv: '⚠️ Een grote beurt is de kleine beurt plus filters, bougies en uitgebreide inspectie. Voor SUV\'s, bestelauto\'s en premium-modellen zijn onderdelen duurder en duurt het werk langer. Reken op een hoger bedrag. We bellen je vooraf met de definitieve opgave.'
+    },
+    airco: {
+      label: 'Vanaf',
+      suffix: 'ex BTW',
+      note: 'De airco-service kost €150 ex BTW en bestaat uit een werkings- en lekcontrole plus het vullen met nieuw koudemiddel en olie. Blijkt er een lek te zitten dat gerepareerd moet worden, dan is dat extra werk. Dat bespreken we eerst met je.',
+      noteSuv: 'De airco-service kost €150 ex BTW en bestaat uit een werkings- en lekcontrole plus het vullen met nieuw koudemiddel en olie. Grotere auto\'s hebben soms meer koudemiddel nodig; blijkt er een lek te zitten, dan bespreken we die reparatie eerst met je.'
+    },
+    banden: {
+      label: 'Per band',
+      suffix: 'ex BTW · elke maat',
+      note: 'Monteren kost €30 ex BTW per band, elke maat. De banden zelf komen daarbij.',
+      noteSuv: 'Monteren kost €30 ex BTW per band, elke maat. Ook voor SUV en bestelauto. De banden zelf komen daarbij.'
+    },
+    reparatie: {
+      label: 'Prijs op maat',
+      suffix: 'na diagnose',
+      note: 'Bij een reparatie hangt de prijs af van wat we aantreffen. Daarom kunnen we vooraf geen bedrag noemen. Breng je auto langs, dan zoeken we uit wat er aan de hand is en bellen we je binnen 2 uur met een duidelijke prijsopgave. Zonder jouw akkoord voeren we niets uit.',
+      noteSuv: 'Bij een reparatie hangt de prijs af van wat we aantreffen. Daarom kunnen we vooraf geen bedrag noemen. Breng je auto langs, dan zoeken we uit wat er aan de hand is en bellen we je binnen 2 uur met een duidelijke prijsopgave. Zonder jouw akkoord voeren we niets uit.'
+    }
+  };
+  const CATEGORY_LABELS = {
+    klein: 'Kleine auto',
+    middel: 'Middenklasser',
+    groot: 'Grote / SUV / bestelauto'
+  };
+
+  const kentInput = document.getElementById('apKenteken');
+  const lookupBtn = document.getElementById('apLookupBtn');
+  const lookupBtnText = document.getElementById('apLookupBtnText');
+  const merkInput = document.getElementById('apMerk');
+  const modelInput = document.getElementById('apModel');
+  const carPreview = document.getElementById('apCarPreview');
+  const cpName = document.getElementById('apCpName');
+  const cpMeta = document.getElementById('apCpMeta');
+  const cpBadge = document.getElementById('apCpBadge');
+  const cpPrice = document.getElementById('apCpPrice');
+  const cpPriceLabel = document.getElementById('apCpPriceLabel');
+  const cpSuffix = document.getElementById('apCpSuffix');
+  const cpNote = document.getElementById('apCpNote');
+  const hiddenPrice = document.getElementById('apHiddenPrice');
+  const hiddenCategory = document.getElementById('apHiddenCategory');
+  const sumPriceLine = document.getElementById('sumPriceLine');
+  const sumPrice = document.getElementById('sumPrice');
+
+  let lastCarData = null;
+
+  function categorize(car){
+    const cylinder = parseInt(car.cilinderinhoud) || 0;
+    const mass = parseInt(car.massa_ledig_voertuig) || 0;
+    const type = (car.inrichting || '').toLowerCase();
+    const vtype = (car.voertuigsoort || '').toLowerCase();
+    if(vtype.includes('bedrijfs') || type.includes('bestel')) return 'groot';
+    if(cylinder >= 1900 || mass >= 1500) return 'groot';
+    if(cylinder >= 1300 || mass >= 1100) return 'middel';
+    return 'klein';
+  }
+
+  function titlecase(s){
+    return (s||'').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ').trim();
+  }
+  /* De RDW levert merk en handelsbenaming los aan, maar bij sommige merken zit
+     het merk al ín de handelsbenaming ("FIAT" + "FIAT 500"). Zonder deze check
+     toont de site "Fiat Fiat 500". */
+  function combineerMerkModel(merk, model){
+    const m = (merk || '').trim();
+    const mo = (model || '').trim();
+    if(!m) return mo;
+    if(!mo) return m;
+    if(mo.toLowerCase().startsWith(m.toLowerCase())) return mo;
+    return `${m} ${mo}`;
+  }
+  function euro(n){ return n.toLocaleString('nl-NL'); }
+
+  async function lookupKenteken(){
+    const raw = kentInput.value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
+    if(raw.length < 6){
+      kentInput.style.borderColor = 'var(--accent)';
+      return;
+    }
+    kentInput.style.borderColor = '';
+    lookupBtn.disabled = true;
+    lookupBtnText.innerHTML = '<span class="kenteken-spinner"></span>';
+
+    try{
+      const res = await fetch(`https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken=${raw}`);
+      const data = await res.json();
+      lookupBtn.disabled = false;
+      lookupBtnText.textContent = 'Zoek';
+
+      if(!data || data.length === 0){
+        cpName.textContent = 'Kenteken niet gevonden';
+        cpMeta.textContent = 'Vul merk en model dan handmatig in';
+        cpBadge.textContent = '';
+        cpPrice.textContent = '';
+        cpSuffix.textContent = 'onbekende auto';
+        cpNote.textContent = 'We kunnen geen automatische prijs berekenen. Bel of app ons voor een prijsopgave: 075-201 3142.';
+        carPreview.classList.add('show');
+        return;
+      }
+
+      lastCarData = data[0];
+      // Auto-fill merk + model
+      merkInput.value = titlecase(lastCarData.merk);
+      const modelYear = (lastCarData.datum_eerste_toelating||'').substring(0,4);
+      modelInput.value = `${combineerMerkModel(titlecase(lastCarData.merk), titlecase(lastCarData.handelsbenaming))} ${modelYear}`.trim();
+      renderCarPreview(lastCarData);
+    } catch(err){
+      lookupBtn.disabled = false;
+      lookupBtnText.textContent = 'Zoek';
+      cpName.textContent = 'Kon RDW niet bereiken';
+      cpMeta.textContent = 'Probeer opnieuw of vul handmatig in';
+      cpBadge.textContent = '';
+      cpPrice.textContent = '';
+      cpNote.textContent = 'Bel ons als het niet lukt: 075-201 3142.';
+      carPreview.classList.add('show');
+    }
+  }
+
+  function renderCarPreview(car){
+    const cat = categorize(car);
+    const merk = titlecase(car.merk);
+    const model = titlecase(car.handelsbenaming);
+    const year = (car.datum_eerste_toelating||'').substring(0,4);
+
+    // De RDW zet het merk soms al vóór het model ("FIAT" + "FIAT 500").
+    // Zonder deze check krijg je "Fiat Fiat 500" in beeld.
+    cpName.textContent = combineerMerkModel(merk, model);
+    cpMeta.textContent = [year, car.cilinderinhoud ? `${car.cilinderinhoud}cc` : '', titlecase(car.inrichting)].filter(Boolean).join(' · ');
+    cpBadge.textContent = CATEGORY_LABELS[cat];
+
+    // Pak geselecteerde dienst
+    const chosen = document.querySelector('input[name="dienst"]:checked');
+    const key = chosen ? chosen.dataset.priceKey : 'apk';
+    const isSuv = cat === 'groot';
+
+    // Tekst hoort bij de gekozen dienst, niet bij "onderhoud" in het algemeen
+    const info = SERVICE_NOTES[key] || SERVICE_NOTES.reparatie;
+    const noteText = isSuv ? info.noteSuv : info.note;
+
+    // Banden: vast tarief per band × het aantal dat de klant kiest
+    if(key === 'banden'){
+      cpPrice.textContent = euro(30 * bandenAantal);
+      cpPriceLabel.textContent = bandenAantal + ' × €30';
+      cpSuffix.textContent = 'ex BTW · elke maat';
+      cpNote.textContent = noteText;
+      hiddenPrice.value = `${bandenAantal} banden × €30 ex BTW = €${euro(30 * bandenAantal)}`;
+      basePrice = 30 * bandenAantal;
+      hiddenCategory.value = cat;
+      toonBandenAantal(true);
+      updateTotal();
+      renderAddons();
+      carPreview.classList.add('show');
+      return;
+    }
+    toonBandenAantal(false);
+
+    const priceValue = PRICES[cat][key];
+
+    if(priceValue){
+      cpPrice.textContent = euro(priceValue);
+      cpPriceLabel.textContent = info.label;
+      cpSuffix.textContent = info.suffix;
+      cpNote.textContent = noteText;
+      // APK en airco zijn vaste tarieven, de beurten zijn schattingen
+      const isVast = (key === 'apk' || key === 'airco');
+      hiddenPrice.value = isVast
+        ? `€${euro(priceValue)}${key === 'airco' ? ' ex BTW' : ''}`
+        : `€${euro(priceValue)} (schatting)`;
+      basePrice = priceValue;
+      updateTotal();
+    } else {
+      cpPrice.textContent = '';
+      cpPriceLabel.textContent = info.label;
+      cpSuffix.textContent = info.suffix;
+      cpNote.textContent = noteText;
+      hiddenPrice.value = 'op maat';
+      basePrice = 0;
+      updateTotal();
+    }
+    hiddenCategory.value = cat;
+    renderAddons(); // filter airco/banden uit add-ons als hoofd-dienst = airco/banden
+    carPreview.classList.add('show');
+  }
+
+  /* Welke add-on-keys overlappen met welke hoofd-dienst.
+     Zonder dit kan iemand hetzelfde werk twee keer bestellen. */
+  const SERVICE_HIDES_ADDONS = {
+    apk:    ['apk'],
+    banden: ['banden'],
+    airco:  ['airco']
+  };
+
+  // Add-ons + totaal state
+  let basePrice = 0;
+  let addonsPicked = new Set();
+
+  /* Aantal-kiezer voor banden als hoofddienst.
+     Wordt onder de prijs in de auto-preview geplaatst. */
+  function toonBandenAantal(zichtbaar){
+    let el = document.getElementById('bandenAantalBlok');
+    if(!zichtbaar){ if(el) el.remove(); return; }
+    if(!el){
+      el = document.createElement('div');
+      el.id = 'bandenAantalBlok';
+      el.className = 'banden-qty';
+      cpNote.parentNode.insertBefore(el, cpNote);
+    }
+    el.innerHTML = `
+      <span class="banden-qty-lbl">Hoeveel banden?</span>
+      <span class="banden-qty-ctrl">
+        <button type="button" class="qty-btn" data-b="-1" aria-label="Minder">−</button>
+        <input type="number" class="qty-input" id="bandenAantalInput" value="${bandenAantal}" min="1" max="8" inputmode="numeric" aria-label="Aantal banden">
+        <button type="button" class="qty-btn" data-b="1" aria-label="Meer">+</button>
+      </span>
+      <span class="banden-qty-calc">${bandenAantal} × €30 = <strong>€${euro(30 * bandenAantal)}</strong> ex BTW</span>`;
+    el.querySelectorAll('[data-b]').forEach(b => {
+      b.addEventListener('click', (e) => {
+        e.preventDefault();
+        bandenAantal = Math.min(8, Math.max(1, bandenAantal + parseInt(b.dataset.b, 10)));
+        if(lastCarData) renderCarPreview(lastCarData);
+      });
+    });
+    const inp = el.querySelector('#bandenAantalInput');
+    inp.addEventListener('change', () => {
+      const v = parseInt(inp.value, 10);
+      bandenAantal = isNaN(v) ? 4 : Math.min(8, Math.max(1, v));
+      if(lastCarData) renderCarPreview(lastCarData);
+    });
+  }
+
+  // Render add-ons als checkbox-cards, filter opties die al als hoofd-dienst zijn gekozen
+  function renderAddons(){
+    const list = document.getElementById('apAddonsList');
+    if(!list) return;
+    const chosen = document.querySelector('input[name="dienst"]:checked');
+    const serviceKey = chosen ? chosen.dataset.priceKey : 'apk';
+    const hiddenKeys = SERVICE_HIDES_ADDONS[serviceKey] || [];
+
+    // Als een addon nu verstopt wordt maar wel gepickt was → uit set halen
+    hiddenKeys.forEach(k => addonsPicked.delete(k));
+
+    const visible = ADDONS.filter(a => !hiddenKeys.includes(a.key));
+    list.innerHTML = visible.map(a => {
+      const aan = addonsPicked.has(a.key);
+      const n = qtyVan(a.key);
+      // Prijslabel toont het totaal zodra er een aantal in het spel is
+      const prijsLabel = (a.qty && aan && n > 1) ? `€${a.price * n}` : `€${a.price}`;
+      const qtyBlok = a.qty ? `
+        <span class="addon-qty" data-qty-for="${a.key}"${aan ? '' : ' hidden'}>
+          <span class="addon-qty-lbl">${a.qtyLabel}</span>
+          <span class="addon-qty-ctrl">
+            <button type="button" class="qty-btn" data-qty-step="-1" aria-label="Minder">−</button>
+            <input type="number" class="qty-input" value="${n}" min="1" max="${a.qtyMax || 8}" inputmode="numeric" aria-label="${a.qtyLabel}">
+            <button type="button" class="qty-btn" data-qty-step="1" aria-label="Meer">+</button>
+          </span>
+          <span class="addon-qty-calc">${n} × €${a.price} = <strong>€${a.price * n}</strong></span>
+        </span>` : '';
+      return `
+      <div class="addon-wrap">
+        <label class="addon-pick${aan ? ' checked' : ''}" data-key="${a.key}">
+          <input type="checkbox" data-addon="${a.key}" data-price="${a.price}"${aan ? ' checked' : ''}>
+          <span class="addon-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <span class="addon-body">
+            <span class="name">${a.label}</span>
+            <span class="desc">${a.desc}</span>
+          </span>
+          <span class="addon-price-tag">${prijsLabel}</span>
+        </label>
+        ${qtyBlok}
+      </div>`;
+    }).join('');
+
+    // Aan/uit zetten van een add-on
+    list.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', () => {
+        const label = cb.closest('.addon-pick');
+        const key = cb.dataset.addon;
+        if(cb.checked){ addonsPicked.add(key); label.classList.add('checked'); }
+        else{ addonsPicked.delete(key); label.classList.remove('checked'); }
+        renderAddons();   // aantalveld tonen/verbergen
+      });
+    });
+
+    // Aantal aanpassen met de knoppen
+    list.querySelectorAll('[data-qty-step]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const wrap = btn.closest('[data-qty-for]');
+        const key = wrap.dataset.qtyFor;
+        const a = ADDONS.find(x => x.key === key);
+        const max = a.qtyMax || 8;
+        const stap = parseInt(btn.dataset.qtyStep, 10);
+        addonQty[key] = Math.min(max, Math.max(1, qtyVan(key) + stap));
+        renderAddons();
+      });
+    });
+
+    // Aantal handmatig intypen
+    list.querySelectorAll('.qty-input').forEach(inp => {
+      inp.addEventListener('change', () => {
+        const wrap = inp.closest('[data-qty-for]');
+        const key = wrap.dataset.qtyFor;
+        const a = ADDONS.find(x => x.key === key);
+        const max = a.qtyMax || 8;
+        const v = parseInt(inp.value, 10);
+        addonQty[key] = isNaN(v) ? (a.qtyDefault || 1) : Math.min(max, Math.max(1, v));
+        renderAddons();
+      });
+      inp.addEventListener('click', e => e.stopPropagation());
+    });
+
+    updateTotal();
+  }
+
+  // Bereken totaal en update overal
+  function updateTotal(){
+    const totalEl = document.getElementById('apTotal');
+    // Aantallen meerekenen: 4 banden à €30 is €120, niet €30
+    const addonsSum = ADDONS
+      .filter(a => addonsPicked.has(a.key))
+      .reduce((s, a) => s + a.price * qtyVan(a.key), 0);
+    const grandTotal = basePrice + addonsSum;
+    if(basePrice > 0){
+      totalEl.classList.remove('leeg');
+      totalEl.textContent = '€ ' + euro(grandTotal);
+    } else if(addonsSum > 0){
+      totalEl.classList.remove('leeg');
+      totalEl.textContent = '€ ' + euro(addonsSum) + ' + basis op maat';
+    } else {
+      totalEl.classList.add('leeg');
+      totalEl.textContent = 'Vul kenteken in';
+    }
+    // Hidden fields voor form submission
+    document.getElementById('apHiddenAddons').value = Array.from(addonsPicked).map(k => {
+      const a = ADDONS.find(x => x.key === k);
+      const n = qtyVan(k);
+      return n > 1
+        ? `${a.label} ${n}× (€${a.price} p/st = €${a.price * n})`
+        : `${a.label} (€${a.price})`;
+    }).join(', ') || 'geen';
+    document.getElementById('apHiddenTotal').value = basePrice > 0 ? `€${euro(grandTotal)}` : (addonsSum > 0 ? `add-ons €${euro(addonsSum)} + basis op maat` : 'op maat');
+
+    // Subtekst onder "Totaal" past zich aan de dienst aan
+    const totalSub = document.getElementById('apTotalSub');
+    if(totalSub){
+      const svcNow = document.querySelector('input[name="dienst"]:checked');
+      const kNow = svcNow ? svcNow.dataset.priceKey : 'apk';
+      if(kNow === 'apk')           totalSub.textContent = 'vaste prijs · incl. RDW-afmelding';
+      else if(kNow === 'banden')   totalSub.textContent = 'per band · ex BTW';
+      else if(kNow === 'airco')    totalSub.textContent = 'ex BTW';
+      else if(kNow === 'reparatie')totalSub.textContent = 'definitieve prijs na diagnose';
+      else                         totalSub.textContent = 'schatting · incl. materiaal & BTW';
+    }
+    // Sidebar update, met de nieuwe prijs-blok structuur
+    const sumPriceEl = document.getElementById('sumPrice');
+    const sumPriceLineEl = document.getElementById('sumPriceLine');
+    const addonCount = addonsPicked.size;
+    // "Vaste prijs" bij APK, "schatting" bij de beurten, hangt af van de dienst
+    const chosenSvc = document.querySelector('input[name="dienst"]:checked');
+    const svcKey = chosenSvc ? chosenSvc.dataset.priceKey : 'apk';
+    const priceType = (svcKey === 'apk' || svcKey === 'banden' || svcKey === 'airco') ? 'vaste prijs' : 'schatting';
+    const suffix = addonCount > 0 ? `${addonCount} add-on${addonCount>1?'s':''} · ${priceType}` : priceType;
+    if(basePrice > 0){
+      sumPriceLineEl.dataset.empty = 'false';
+      sumPriceEl.innerHTML = `€ ${euro(grandTotal)}<em>${suffix}</em>`;
+    } else if(addonsSum > 0){
+      sumPriceLineEl.dataset.empty = 'false';
+      sumPriceEl.innerHTML = `€ ${euro(addonsSum)} + basis<em>na diagnose</em>`;
+    } else {
+      sumPriceLineEl.dataset.empty = 'true';
+      sumPriceEl.innerHTML = `Vul kenteken in<em></em>`;
+    }
+  }
+
+  renderAddons();
+
+  lookupBtn.addEventListener('click', lookupKenteken);
+  kentInput.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter'){ e.preventDefault(); lookupKenteken(); }
+  });
+  kentInput.addEventListener('input', () => {
+    kentInput.value = kentInput.value.toUpperCase().replace(/[^A-Z0-9-]/g,'');
+    kentInput.style.borderColor = '';
+  });
+  // Automatisch lookup als kenteken al 6+ tekens is bij blur (nice-to-have)
+  kentInput.addEventListener('blur', () => {
+    const cleaned = kentInput.value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
+    if(cleaned.length >= 6 && !lastCarData) lookupKenteken();
+  });
+  calPrev.addEventListener('click', () => {
+    if(viewMonth === 0){viewMonth = 11; viewYear--} else viewMonth--;
+    renderCalendar();
+  });
+  calNext.addEventListener('click', () => {
+    if(viewMonth === 11){viewMonth = 0; viewYear++} else viewMonth++;
+    renderCalendar();
+  });
+  renderCalendar();
+  updateSummary();
+
+  const form = document.getElementById('apkForm');
+  const confirm = document.getElementById('apConfirm');
+  const stepLabel = document.getElementById('apStepLabel');
+  const stepLabels = {1:'Stap 1 · Dienst & datum',2:'Stap 2 · Auto-info',3:'Stap 3 · Contact'};
+
+  function goToStep(n){
+    document.querySelectorAll('.ap-step').forEach(s => s.classList.toggle('active', +s.dataset.step === n));
+    document.querySelectorAll('[data-step-num]').forEach(el => {
+      const num = +el.dataset.stepNum;
+      el.classList.toggle('active', num === n);
+      el.classList.toggle('done', num < n);
+    });
+    document.querySelectorAll('[data-step-line]').forEach(el => el.classList.toggle('active', +el.dataset.stepLine < n));
+    stepLabel.textContent = stepLabels[n];
+    window.scrollTo({top: 200, behavior:'smooth'});
+  }
+
+  function validateStep(n){
+    const step = document.querySelector(`.ap-step[data-step="${n}"]`);
+    const required = step.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(el => {
+      if(el.type === 'checkbox'){
+        if(!el.checked){valid = false;el.parentElement.style.color = 'var(--accent)'}
+      } else if(!el.value || !el.value.trim()){
+        valid = false;
+        el.style.borderColor = 'var(--accent)';
+        el.addEventListener('input', () => el.style.borderColor = '', {once:true});
+      }
+    });
+    return valid;
+  }
+
+  goStep2.addEventListener('click', () => goToStep(2));
+  document.getElementById('goStep3').addEventListener('click', () => {
+    if(!validateStep(2)) return;
+    goToStep(3);
+  });
+  document.querySelectorAll('.ap-btn-back').forEach(btn => {
+    btn.addEventListener('click', () => goToStep(+btn.dataset.backTo));
+  });
+
+  /* ============= BEVESTIGINGSLINKS VOOR FD =============
+     De mail die FD bij een nieuwe aanvraag krijgt bevat twee kant-en-klare
+     links. Klikt hij erop, dan opent WhatsApp of zijn mailprogramma met een
+     voorgeschreven bevestiging aan de klant — hij hoeft alleen op verzenden
+     te drukken. Geen extra dienst of abonnement nodig. */
+  function telefoonNaarInternationaal(tel){
+    let t = (tel || '').replace(/[^\d+]/g, '');
+    if(t.startsWith('+')) return t.slice(1);
+    if(t.startsWith('00')) return t.slice(2);
+    if(t.startsWith('06')) return '316' + t.slice(2);
+    if(t.startsWith('0'))  return '31'  + t.slice(1);
+    return t;
+  }
+
+  function bouwBevestigingsLinks(){
+    const naam    = (document.getElementById('apNaam')    || {}).value || '';
+    const tel     = (document.getElementById('apTel')     || {}).value || '';
+    const mail    = (document.getElementById('apEmail')   || {}).value || '';
+    const dienst  = (document.querySelector('input[name="dienst"]:checked') || {}).value || 'je afspraak';
+    const datumEl = document.getElementById('hiddenDate');
+    let datumTekst = 'de afgesproken dag';
+    if(selectedDate){
+      datumTekst = selectedDate.toLocaleDateString('nl-NL',{weekday:'long',day:'numeric',month:'long'});
+    }
+    const voornaam = naam.trim().split(' ')[0] || 'daar';
+    const totaal = (document.getElementById('apHiddenTotal') || {}).value || '';
+
+    const bericht =
+      `Hoi ${voornaam}, je afspraak bij FD Autoservice is bevestigd.\n\n` +
+      `Dienst: ${dienst}\n` +
+      `Dag: ${datumTekst}\n` +
+      (totaal && totaal !== 'op maat' ? `Richtprijs: ${totaal}\n` : '') +
+      `Aanleveren: vóór 12:00 uur aan de Westzijde 158C in Zaandam.\n\n` +
+      `Tot dan! Vragen? Bel 075 - 201 3142.\n\nGroet, FD Autoservice`;
+
+    const waNr = telefoonNaarInternationaal(tel);
+    const waEl = document.getElementById('apConfirmWa');
+    const mlEl = document.getElementById('apConfirmMail');
+
+    if(waEl) waEl.value = waNr
+      ? `https://wa.me/${waNr}?text=${encodeURIComponent(bericht)}`
+      : '(geen telefoonnummer opgegeven)';
+
+    if(mlEl) mlEl.value = mail
+      ? `mailto:${mail}?subject=${encodeURIComponent('Je afspraak bij FD Autoservice is bevestigd')}&body=${encodeURIComponent(bericht)}`
+      : '(geen e-mailadres opgegeven)';
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if(!validateStep(3)) return;
+    if(!selectedDate){alert('Kies eerst een datum.');goToStep(1);return}
+    // Bevestigingslinks klaarzetten voor in de mail aan FD
+    bouwBevestigingsLinks();
+
+    const formData = new FormData(form);
+    try{
+      await fetch('/', {method:'POST', body: new URLSearchParams(formData).toString(), headers:{'Content-Type':'application/x-www-form-urlencoded'}});
+      form.style.display = 'none';
+      document.getElementById('apSummary').style.display = 'none';
+      confirm.classList.add('show');
+      document.querySelector('.ap-progress').style.display = 'none';
+      window.scrollTo({top: 200, behavior:'smooth'});
+
+      /* Conversie-event naar de dataLayer.
+         In Google Tag Manager kan hierop een Ads-conversie worden gebouwd:
+         trigger = Custom Event met de naam "afspraak_aangevraagd".
+         Respecteert Consent Mode: zonder toestemming stuurt Google alleen
+         een cookieloze ping en wordt er niets op het apparaat opgeslagen. */
+      const chosenSvcEl = document.querySelector('input[name="dienst"]:checked');
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'afspraak_aangevraagd',
+        dienst: chosenSvcEl ? chosenSvcEl.value : 'onbekend',
+        voertuig_categorie: hiddenCategory.value || 'onbekend',
+        geschatte_waarde: basePrice || 0,
+        aantal_addons: addonsPicked.size
+      });
+    } catch(err){
+      alert('Er ging iets mis. Bel ons op 075 - 201 3142 om het direct te regelen.');
+    }
+  });
+</script>
+<script src="site-data.js" defer></script>
+<script src="site-header.js" defer></script>
+<script src="contact-balk.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=ff84e051-7c06-4847-9784-ca019c047249
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=ff84e051-7c06-4847-9784-ca019c047249">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Diensten | APK, onderhoud, banden en meer | FD Autoservice Zaandam</title>
+<meta name="description" content="Alle diensten van FD Autoservice Zaandam: APK, onderhoud, reparaties, banden, diagnose en airco. Check direct hoelang je nog hebt tot je APK verloopt met je kenteken.">
+<meta name="keywords" content="APK Zaandam, autogarage Zaandam, onderhoud, bandenservice, diagnose, airco service, wanneer APK verloopt, APK check kenteken">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://fdautoservice.nl/diensten">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@1,9..144,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#101014;--primary-light:#F1F1F4;
+        --accent:#D7261E;--accent-hover:#B81B14;
+    /* Rood als hierarchie, niet als thema.
+       --accent      alleen voor primaire knoppen en het telefoonnummer
+       --accent-mute labels, eyebrows en iconen: herkenbaar maar rustig
+       --accent-soft randen en achtergrondvlakjes */
+    --accent-mute:#B3312A;--accent-soft:rgba(215,38,30,.10);
+    --bg:#FFFFFF;--bg-soft:#F6F6F8;--bg-card:#FFFFFF;--border:#E4E4EA;
+    --text:rgba(16,16,20,.72);--text-strong:#101014;--success:#17784A;
+    --muted:rgba(16,16,20,.56);--maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{color:#101014;font-weight:900;letter-spacing:-.025em;margin:0 0 .4em}
+  h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:.98}
+  h2{font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.05}
+  h3{font-size:1.15rem}
+  .serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;color:var(--accent-mute)}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* Header */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(16,16,20,.053);backdrop-filter:blur(14px);border-bottom:1px solid rgba(16,16,20,.136)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:#101014;font-size:1.05rem;text-decoration:none}
+  .logo-mark{width:44px;height:44px;border-radius:8px;background:#000;display:grid;place-items:center;font-weight:900;letter-spacing:-.05em;font-size:1.05rem;position:relative;overflow:hidden;border:1px solid #ECECF1}
+  .logo-mark::before{content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);width:28px;height:5px;background:linear-gradient(90deg,transparent 0%,#fff 30%,#fff 70%,transparent 100%);border-radius:50%;opacity:.85;clip-path:polygon(0 50%,15% 0,85% 0,100% 50%,100% 100%,0 100%)}
+  .logo-mark .fd{color:var(--accent);margin-top:8px;font-size:.95rem;line-height:1}
+  .logo span small{display:block;font-weight:500;font-size:.7rem;color:rgba(16,16,20,.644);letter-spacing:.06em;text-transform:uppercase;margin-top:-2px}
+  .nav-back{color:rgba(16,16,20,.718);font-size:.86rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+  .nav-back:hover{color:#101014}
+
+  /* ============================================================
+     Hero — vult het eerste scherm
+     De kop stond eerder in een strook van een paar honderd pixels, met de
+     APK-check er direct onder half in beeld. Nu krijgt "Alles voor je auto,
+     onder één dak" het hele scherm, met het telefoonnummer er meteen bij.
+     Wat eronder staat zie je pas als je scrolt; de pijl onderin laat zien
+     dat daar nog iets is.
+     ============================================================ */
+  .di-hero{
+    min-height:100svh;display:flex;align-items:center;
+    padding:96px 0 120px;position:relative;overflow:hidden;
+  }
+  .di-hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 800px 400px at 90% 100%, rgba(215,38,30,.12) 0%, transparent 60%),
+      radial-gradient(ellipse 600px 300px at 10% 20%, rgba(215,38,30,.05) 0%, transparent 60%);
+  }
+  .di-hero .wrap{position:relative;z-index:1}
+  .di-eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--accent-mute);font-size:.74rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;margin-bottom:24px}
+  .di-eyebrow::before{content:"";display:inline-block;width:32px;height:1px;background:var(--accent-mute)}
+  .di-hero h1{max-width:22ch;margin-bottom:20px}
+  .di-hero > .wrap > p{color:rgba(16,16,20,.754);max-width:64ch;font-size:1.15rem;line-height:1.6;margin:0}
+  .di-hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem)}
+
+  /* Knoppen in de hero: afspraak plus het telefoonnummer, zodat bellen
+     niet pas onderaan de pagina in beeld komt. */
+  .di-hero-acties{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:34px}
+  .di-hero-btn{
+    display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;
+    font-weight:800;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;
+    text-decoration:none;transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .di-hero-btn svg{width:17px;height:17px;flex-shrink:0}
+  .di-hero-btn:hover{transform:translateY(-2px)}
+  .di-hero-afspraak{background:var(--accent);color:#fff;box-shadow:0 14px 30px -12px rgba(215,38,30,.55)}
+  .di-hero-afspraak:hover{background:var(--accent-hover)}
+  .di-hero-bel{background:#fff;color:var(--text-strong);border:1.5px solid var(--border)}
+  .di-hero-bel:hover{border-color:var(--accent);color:var(--accent)}
+  .di-hero-bel .nr{font-size:1rem;letter-spacing:-.01em;text-transform:none}
+  .di-hero-note{margin:16px 0 0;font-size:.9rem;color:var(--muted)}
+  .di-hero-note b{color:var(--text-strong);font-weight:700}
+
+  /* Pijl onderin: laat zien dat er onder de vouw nog meer staat. */
+  .di-scroll{
+    position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:2;
+    display:inline-flex;flex-direction:column;align-items:center;gap:8px;
+    color:var(--muted);font-size:.7rem;font-weight:700;letter-spacing:.18em;
+    text-transform:uppercase;text-decoration:none;
+  }
+  .di-scroll:hover{color:var(--accent)}
+  .di-scroll svg{width:22px;height:22px;animation:diWip 1.9s ease-in-out infinite}
+  @keyframes diWip{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+  @media(prefers-reduced-motion:reduce){.di-scroll svg{animation:none}}
+  @media(max-height:640px){.di-hero{min-height:auto;padding:64px 0 76px}.di-scroll{display:none}}
+
+  /* Section base */
+  section{padding:80px 0}
+  @media(max-width:760px){section{padding:60px 0}}
+  .sec-head{max-width:640px;margin:0 auto 48px;text-align:center}
+  .sec-head .eyebrow{color:var(--accent-mute);font-size:.72rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;margin-bottom:14px;display:inline-block}
+  .sec-head h2{margin:0 0 14px}
+  .sec-head p{color:rgba(16,16,20,.681);font-size:1rem;margin:0}
+
+  /* APK check block — split layout */
+  .apk-block{
+    background:linear-gradient(180deg,#F6F6F8 0%,#FAFAFB 100%);
+    border:1px solid var(--border);border-radius:24px;
+    padding:56px;position:relative;overflow:hidden;
+    box-shadow:0 40px 100px -30px rgba(16,16,20,.156);
+  }
+  .apk-block::before{
+    content:"";position:absolute;top:-30%;right:-15%;width:520px;height:520px;
+    background:radial-gradient(circle,rgba(215,38,30,.14) 0%,transparent 65%);
+    pointer-events:none;
+  }
+  @media(max-width:760px){.apk-block{padding:36px 24px}}
+  .apk-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+  @media(max-width:900px){.apk-grid{grid-template-columns:1fr;gap:40px}}
+
+  .apk-intro .apk-lbl{color:var(--accent-mute);font-size:.74rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;margin-bottom:16px;display:inline-block}
+  .apk-intro h2{margin-bottom:16px;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.1}
+  .apk-intro p{color:rgba(16,16,20,.754);font-size:1rem;line-height:1.65;margin:0 0 24px}
+  .apk-intro-bullets{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:540px){.apk-intro-bullets{grid-template-columns:1fr}}
+  .apk-intro-bullets li{display:flex;align-items:center;gap:10px;color:rgba(16,16,20,.754);font-size:.92rem}
+  .apk-intro-bullets svg{color:var(--accent-mute);flex-shrink:0}
+  .apk-cta-primary{
+    display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;
+    background:var(--accent);color:#fff;font-weight:800;font-size:.82rem;letter-spacing:.1em;
+    text-transform:uppercase;text-decoration:none;
+    box-shadow:0 14px 30px -8px rgba(215,38,30,.5);transition:all .25s ease;
+  }
+  .apk-cta-primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
+
+  /* Kenteken + result card */
+  .apk-check-card{
+    background:#FFFFFF;border:1px solid var(--border);border-radius:20px;
+    box-shadow:0 8px 30px -12px rgba(16,16,20,.10);
+    padding:32px 28px;backdrop-filter:blur(10px);
+  }
+  .apk-check-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--accent-mute);font-size:.66rem;font-weight:800;letter-spacing:.22em;
+    text-transform:uppercase;margin-bottom:12px;
+    padding:5px 12px;border-radius:999px;background:rgba(215,38,30,.10);border:1px solid rgba(215,38,30,.25);
+  }
+  .apk-check-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-mute);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+  .apk-check-card h3{margin:0 0 8px;font-size:1.2rem;color:#101014}
+  .apk-check-card > p.intro{color:rgba(16,16,20,.681);font-size:.92rem;margin:0 0 22px}
+
+  /* NL plate input */
+  .plate-wrap{
+    display:flex;align-items:stretch;
+    border-radius:10px;overflow:hidden;
+    box-shadow:0 16px 40px -12px rgba(215,38,30,.35);
+    max-width:100%;
+  }
+  .plate-flag{
+    background:#0d47a1;color:#FFCA28;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
+    padding:0 14px;font-weight:900;font-size:.8rem;letter-spacing:.1em;
+    flex-shrink:0;
+  }
+  .plate-flag::before{content:"★★★";font-size:.55rem;color:#FFCA28;letter-spacing:1px;margin-bottom:2px}
+  .plate-flag::after{content:"NL";font-family:'Inter',sans-serif;font-weight:900;font-size:1.05rem}
+  /* min-width:0 is essentieel — zonder dit weigert het invoerveld te krimpen
+     en duwt het de hele kaart buiten beeld op telefoons */
+  .plate-input{
+    flex:1 1 0;min-width:0;width:100%;
+    padding:18px 12px;font-family:'Inter',sans-serif;font-weight:900;
+    font-size:1.4rem;text-transform:uppercase;text-align:center;letter-spacing:.12em;
+    background:#FFC30B;color:#000;border:0;
+  }
+  .plate-input:focus{outline:none;background:#FFD640}
+  .plate-input::placeholder{color:rgba(0,0,0,.35);letter-spacing:.1em}
+  .plate-btn{
+    padding:0 20px;background:var(--accent);color:#fff;border:0;cursor:pointer;
+    font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
+    transition:background .2s ease;display:flex;align-items:center;gap:6px;
+    flex-shrink:0;white-space:nowrap;
+  }
+  .plate-btn:hover{background:var(--accent-hover)}
+  .plate-btn svg{width:16px;height:16px}
+  .plate-hint{margin:12px 0 0;font-size:.78rem;color:rgba(16,16,20,.368);text-align:center}
+  /* Op smalle telefoons: knop onder het kentekenveld ipv ernaast */
+  @media(max-width:430px){
+    .plate-wrap{flex-wrap:wrap;box-shadow:none}
+    .plate-flag{border-radius:10px 0 0 10px}
+    .plate-input{font-size:1.25rem;letter-spacing:.08em;padding:16px 8px;border-radius:0 10px 10px 0}
+    .plate-btn{width:100%;justify-content:center;padding:15px 20px;margin-top:10px;border-radius:10px}
+  }
+
+  /* Loading + Error */
+  .apk-loading{display:none;text-align:center;padding:24px 0;color:rgba(16,16,20,.644);font-size:.9rem}
+  .apk-loading.show{display:block}
+  .apk-loading::before{
+    content:"";display:inline-block;width:22px;height:22px;
+    border:2px solid rgba(16,16,20,.18);border-top-color:var(--accent);
+    border-radius:50%;animation:spin 1s linear infinite;vertical-align:middle;margin-right:10px;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .apk-error{
+    display:none;background:rgba(215,38,30,.10);border:1px solid rgba(215,38,30,.35);
+    color:#FF7A6E;padding:14px 16px;border-radius:10px;margin-top:16px;font-size:.88rem;text-align:center;
+  }
+  .apk-error.show{display:block}
+
+  /* APK result */
+  .apk-result{display:none;margin-top:22px}
+  .apk-result.show{display:block;animation:slideIn .4s ease}
+  @keyframes slideIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .apk-result-plate{
+    display:flex;align-items:center;gap:10px;margin-bottom:16px;
+    padding-bottom:14px;border-bottom:1px solid rgba(16,16,20,.102);
+  }
+  .apk-result-plate .mini-plate{
+    display:inline-flex;overflow:hidden;border-radius:6px;font-weight:900;
+  }
+  .apk-result-plate .mini-plate .f{background:#0d47a1;color:#FFCA28;padding:0 7px;font-size:.62rem;display:flex;align-items:center;letter-spacing:.06em}
+  .apk-result-plate .mini-plate .n{background:#FFC30B;color:#000;padding:5px 10px;font-size:.85rem;letter-spacing:.08em}
+  .apk-result-plate .car-info{color:#101014;font-size:.9rem;font-weight:700;line-height:1.2}
+  .apk-result-plate .car-info small{display:block;color:rgba(16,16,20,.607);font-weight:500;font-size:.78rem;margin-top:2px}
+
+  .apk-result-count{
+    background:rgba(16,16,20,.024);border:1px solid rgba(16,16,20,.102);
+    border-radius:14px;padding:20px 22px;margin-bottom:14px;
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .apk-result-num{font-size:3.2rem;font-weight:900;color:#101014;letter-spacing:-.04em;line-height:1;font-family:'Inter',sans-serif}
+  .apk-result-unit{color:rgba(16,16,20,.644);font-size:1rem;font-weight:600}
+  .apk-result-label{color:rgba(16,16,20,.644);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin:6px 0 0;display:block}
+  .apk-result-count[data-urgency="expired"] .apk-result-num{color:#FF4B44}
+  .apk-result-count[data-urgency="urgent"] .apk-result-num{color:#FF9800}
+  .apk-result-count[data-urgency="soon"] .apk-result-num{color:#FFC107}
+  .apk-result-count[data-urgency="ok"] .apk-result-num{color:#26D07C}
+
+  .apk-result-advice{
+    padding:14px 16px;border-radius:10px;font-size:.86rem;line-height:1.5;
+    background:rgba(16,16,20,.019);border:1px solid rgba(16,16,20,.085);color:rgba(16,16,20,.69);
+    margin-bottom:16px;
+  }
+  .apk-result-advice[data-urgency="expired"]{background:rgba(255,75,68,.10);border-color:rgba(255,75,68,.30);color:#FFBAB8}
+  .apk-result-advice[data-urgency="urgent"]{background:rgba(255,152,0,.10);border-color:rgba(255,152,0,.30);color:#FFCC80}
+
+  .apk-result-cta{
+    display:inline-flex;align-items:center;justify-content:center;width:100%;
+    padding:14px 22px;border-radius:999px;
+    background:var(--accent);color:#fff;font-weight:800;font-size:.82rem;letter-spacing:.1em;
+    text-transform:uppercase;text-decoration:none;
+    box-shadow:0 12px 26px -8px rgba(215,38,30,.5);transition:all .25s ease;
+  }
+  .apk-result-cta:hover{background:var(--accent-hover);transform:translateY(-2px)}
+
+  /* Services grid */
+  .services-block{background:var(--bg-soft);border-top:1px solid rgba(16,16,20,.085);border-bottom:1px solid rgba(16,16,20,.085)}
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:920px){.services{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.services{grid-template-columns:1fr}}
+  .service{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
+    padding:32px 28px;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;gap:14px;
+    text-decoration:none;color:inherit;
+    transition:all .3s ease;
+  }
+  .service:hover{transform:translateY(-4px);border-color:rgba(215,38,30,.4);box-shadow:0 24px 50px -15px rgba(16,16,20,.13)}
+  .service .price-badge{
+    position:absolute;top:20px;right:20px;
+    padding:5px 10px;border-radius:6px;
+    background:rgba(215,38,30,.10);color:var(--accent);
+    font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  }
+  .service .ico{
+    width:48px;height:48px;border-radius:12px;
+    background:rgba(215,38,30,.10);color:var(--accent);
+    display:grid;place-items:center;margin-bottom:6px;
+  }
+  .service h3{margin:0;color:#101014;font-size:1.15rem}
+  .service p{color:rgba(16,16,20,.699);font-size:.94rem;line-height:1.55;margin:0;flex:1}
+  .service .arrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--accent);font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+    margin-top:auto;padding-top:12px;border-top:1px solid rgba(16,16,20,.085);
+  }
+
+  /* CTA */
+  .final-cta{text-align:center;padding:80px 0}
+  .final-cta h2{margin-bottom:12px}
+  .final-cta p{color:rgba(16,16,20,.681);max-width:52ch;margin:0 auto 28px;font-size:1.05rem}
+  .final-cta-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 32px;border-radius:999px;
+    background:var(--accent);color:#fff;font-weight:800;font-size:.86rem;letter-spacing:.1em;
+    text-transform:uppercase;text-decoration:none;
+    box-shadow:0 14px 30px -8px rgba(215,38,30,.55);transition:all .25s ease;
+  }
+  .final-cta-btn:hover{background:var(--accent-hover);transform:translateY(-2px)}
+
+  footer{padding:32px 0;border-top:1px solid rgba(16,16,20,.102);font-size:.86rem;color:rgba(16,16,20,.57);text-align:center}
+  footer strong{color:#101014}
+  footer a{color:rgba(16,16,20,.754)}
+
+</style>
+
+<style>
+  .site-foot{padding:36px 0;border-top:1px solid rgba(16,16,20,.119);font-size:.86rem;color:rgba(16,16,20,.57)}
+  .site-foot .fw{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  .site-foot strong{color:rgba(16,16,20,.718)}
+  .site-foot a{color:rgba(16,16,20,.681);text-decoration:none}
+  .site-foot a:hover{color:#D7261E}
+  .site-foot .legal a + a::before{content:"·";margin:0 8px;color:rgba(16,16,20,.23)}
+
+  /* ============================================================
+     MOBIELE VERFIJNING — bewust als laatste zodat het overschrijft
+     ============================================================ */
+  @media(max-width:760px){
+    .di-hero{padding:64px 0 150px}
+    .di-hero-acties{gap:10px}
+    .di-hero-btn{width:100%;justify-content:center}
+    /* Onderaan mobiel staat de vaste bel/WhatsApp-balk al; de pijl zou
+       daar bovenop vallen, dus die tonen we alleen op groter scherm. */
+    .di-scroll{display:none}
+    section{padding:48px 0}
+    .wrap{padding:0 20px}
+    .apk-block{padding:28px 20px;border-radius:18px}
+    .apk-grid{gap:28px}
+    .apk-check-card{padding:24px 18px}
+    .sec-head{margin-bottom:28px}
+    .sec-head h2{font-size:clamp(1.5rem,7vw,2rem);line-height:1.15}
+    .service{padding:24px 20px}
+    .services{gap:12px}
+    .final-cta{padding:40px 22px}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 18px}
+    .apk-cta-primary,.final-cta-btn{width:100%;justify-content:center}
+    .site-foot a{display:inline-block;padding:9px 0}
+  }
+</style>
+<!-- Cookie consent + Google Consent Mode v2 — moet vóór Tag Manager staan -->
+<script src="cookie-consent.js"></script>
+<script src="meting.js" defer></script>
+</head>
+<body data-fd-pagina="diensten">
+
+<section class="di-hero">
+  <div class="wrap">
+    <span class="di-eyebrow">Diensten</span>
+    <h1>Alles voor je auto, <span class="serif">onder één dak.</span></h1>
+    <p>Van APK tot onderhoud, van reparaties tot bandenservice, van diagnose tot airco. Eén werkplaats, één team, één duidelijke prijs.</p>
+    <div class="di-hero-acties">
+      <a class="di-hero-btn di-hero-afspraak" href="/afspraak">Afspraak maken</a>
+      <a class="di-hero-btn di-hero-bel" href="tel:+31752013142"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="nr" data-fd="tel">075 - 201 3142</span></a>
+    </div>
+    <p class="di-hero-note"><b data-fd-status data-fd="status-label">Nu open</b> · Westzijde 158C, Zaandam · vaak deze week terecht</p>
+  </div>
+  <a class="di-scroll" href="#apk-check" aria-label="Naar de APK-check">
+    <span>Bekijk meer</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+  </a>
+</section>
+
+<!-- APK CHECK -->
+<section id="apk-check">
+  <div class="wrap">
+    <div class="apk-block">
+      <div class="apk-grid">
+        <div class="apk-intro">
+          <span class="apk-lbl">APK keuring</span>
+          <h2>Check hoelang je nog hebt tot je APK verloopt.</h2>
+          <p>Vul je kenteken in en wij halen automatisch de vervaldatum op via de RDW. Zie direct of je nog tijd hebt of dat het tijd wordt om een afspraak te maken.</p>
+          <ul class="apk-intro-bullets">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Vaste APK-prijs: €60</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Herkeuring binnen 8 weken gratis</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Vaak deze week terecht</li>
+          </ul>
+          <a class='apk-cta-primary' href='/afspraak'>Plan direct een APK →</a>
+        </div>
+
+        <div class="apk-check-card">
+          <span class="apk-check-eyebrow">Live · via RDW</span>
+          <h3>Wanneer verloopt jouw APK?</h3>
+          <p class="intro">Vul je kenteken in en wij kijken direct wanneer je APK verloopt.</p>
+          <form class="plate-wrap" id="apkPlateForm" autocomplete="off">
+            <div class="plate-flag"></div>
+            <input type="text" class="plate-input" id="apkPlate" placeholder="12ABC3" maxlength="8" autocomplete="off" spellcheck="false" required>
+            <button type="submit" class="plate-btn" id="apkLookupBtn">
+              Check
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+          <p class="plate-hint">Tip: streepjes hoeven niet</p>
+          <div class="apk-loading" id="apkLoading">Even zoeken bij RDW…</div>
+          <div class="apk-error" id="apkError"></div>
+          <div class="apk-result" id="apkResult">
+            <div class="apk-result-plate">
+              <div class="mini-plate"><span class="f">NL</span><span class="n" id="apkPlateOut"></span></div>
+              <div class="car-info" id="apkCarInfo"><small id="apkCarSub"></small></div>
+            </div>
+            <div class="apk-result-count" id="apkResultCount">
+              <span class="apk-result-num" id="apkDays"></span>
+              <span class="apk-result-unit" id="apkUnit">dagen</span>
+            </div>
+            <span class="apk-result-label" id="apkResultLabel">tot je APK verloopt</span>
+            <div class="apk-result-advice" id="apkAdvice"></div>
+            <a class='apk-result-cta' href='/afspraak' id='apkCta'>Plan je APK afspraak →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="services-block">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Onze diensten</span>
+      <h2>Wat we doen, <span class="serif">voor alle merken</span></h2>
+      <p>Klik op een dienst voor meer info of plan direct een afspraak.</p>
+    </div>
+    <div class="services">
+      <a class='service' href='/apk-keuring'>
+        <span class="price-badge">€60 vaste prijs</span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>APK keuring</h3>
+        <p>Snel, eerlijk, herkeuring gratis. Wij vertellen je precies wat goed is, en wat écht moet.</p>
+        <span class="arrow">Plan afspraak →</span>
+      </a>
+
+      <a class='service' href='/onderhoud'>
+        <span class="price-badge">Vanaf €219</span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <h3>Onderhoud & beurt</h3>
+        <p>Klein of groot onderhoud volgens fabrieksvoorschrift, met behoud van garantie. Voor alle merken.</p>
+        <span class="arrow">Bereken prijs →</span>
+      </a>
+
+      <a class='service' href='/afspraak'>
+        <span class="price-badge">Op maat</span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Autoreparatie</h3>
+        <p>Van remmen tot uitlaat, van diagnose tot vervangingen. We doen wat nodig is en niets meer. Altijd eerst akkoord op de prijs.</p>
+        <span class="arrow">Bel of WhatsApp →</span>
+      </a>
+
+      <a class='service' href='/bandenservice'>
+        <span class="price-badge">€30/band ex BTW</span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg></div>
+        <h3>Banden vervangen</h3>
+        <p>Elke maat, €30 ex BTW per band. Snel geregeld terwijl je een koffie drinkt.</p>
+        <span class="arrow">Plan afspraak →</span>
+      </a>
+
+      <a class='service' href='/afspraak'>
+        <span class="price-badge">€30 ex BTW</span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>Diagnose & uitlezen</h3>
+        <p>Lampje aan? Vreemd geluid? We lezen je auto uit en leggen in normaal Nederlands uit wat er aan de hand is.</p>
+        <span class="arrow">Plan diagnose →</span>
+      </a>
+
+      <a class='service' href='/airco-service'>
+        <span class="price-badge">€150 ex BTW</span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12a10 10 0 1 0 20 0 10 10 0 1 0-20 0z"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
+        <h3>Airco service</h3>
+        <p>Check, vullen, gas + olie in één service, €150 ex BTW. Warmte in de zomer is niet nodig, we lossen het snel op.</p>
+        <span class="arrow">Plan afspraak →</span>
+      </a>
+
+      <a class='service' href='/afspraak'>
+        <span class="price-badge">€50/koplamp ex BTW</span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 5 3 6.5V19a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3.5c1-1.5 3-3.5 3-6.5a7 7 0 0 0-7-7z"/><line x1="9" y1="18" x2="15" y2="18"/></svg></div>
+        <h3>Koplampen polijsten</h3>
+        <p>Doffe of vergeelde koplampen weer helder maken. Beter zicht, veiliger rijden, direct verschil.</p>
+        <span class="arrow">Plan afspraak →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Weten wat het voor <span class="serif">jouw auto</span> kost?</h2>
+    <p>Bereken direct de prijs voor onderhoud of plan een afspraak, je krijgt binnen 24 uur bevestiging.</p>
+    <a class='final-cta-btn' href='/afspraak'>Maak een afspraak →</a>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="fw">
+    <span>&copy; 2026 <strong>FD Autoservice</strong> &middot; Westzijde 158C, Zaandam &middot; <a href="tel:+31752013142">075 - 201 3142</a> &middot; <a href="mailto:contact@fdautoservice.nl">contact@fdautoservice.nl</a><br>KvK 94702551</span>
+    <span class="legal">
+      <a href='/privacyverklaring'>Privacyverklaring</a>
+      <a href='/cookiebeleid'>Cookiebeleid</a>
+      <a href='/algemene-voorwaarden'>Algemene voorwaarden</a>
+      <a href="#" data-cookie-settings>Cookievoorkeuren</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+/* APK check via RDW kenteken lookup */
+(function(){
+  const form = document.getElementById('apkPlateForm');
+  const input = document.getElementById('apkPlate');
+  const btn = document.getElementById('apkLookupBtn');
+  const loading = document.getElementById('apkLoading');
+  const errorEl = document.getElementById('apkError');
+  const resultEl = document.getElementById('apkResult');
+  const plateOut = document.getElementById('apkPlateOut');
+  const carInfo = document.getElementById('apkCarInfo');
+  const carSub = document.getElementById('apkCarSub');
+  const daysEl = document.getElementById('apkDays');
+  const unitEl = document.getElementById('apkUnit');
+  const labelEl = document.getElementById('apkResultLabel');
+  const countBox = document.getElementById('apkResultCount');
+  const adviceEl = document.getElementById('apkAdvice');
+
+  function normalizePlate(p){ return (p || '').toUpperCase().replace(/[^A-Z0-9]/g, ''); }
+  /* Voorkomt "Fiat Fiat 500": de RDW zet het merk soms al in de handelsbenaming. */
+  function combineerMerkModel(merk, model){
+    const m = (merk || '').trim();
+    const mo = (model || '').trim();
+    if(!m) return mo;
+    if(!mo) return m;
+    if(mo.toLowerCase().startsWith(m.toLowerCase())) return mo;
+    return m + ' ' + mo;
+  }
+  function formatPlate(p){
+    // Simpele NL kenteken formatter, twee groepen streepjes
+    if(p.length <= 6) return p;
+    return p.replace(/(.{2})(.{2})(.{2})/, '$1-$2-$3');
+  }
+
+  input.addEventListener('input', () => {
+    const clean = normalizePlate(input.value);
+    if(clean !== input.value.toUpperCase()) input.value = clean;
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const plate = normalizePlate(input.value);
+    if(plate.length < 4){
+      showError('Vul een geldig kenteken in.');
+      return;
+    }
+
+    resultEl.classList.remove('show');
+    errorEl.classList.remove('show');
+    loading.classList.add('show');
+    btn.disabled = true;
+
+    try {
+      const url = `https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken=${encodeURIComponent(plate)}`;
+      const res = await fetch(url);
+      if(!res.ok) throw new Error('RDW ' + res.status);
+      const data = await res.json();
+      if(!data.length){
+        showError('Geen auto gevonden met dit kenteken. Controleer of je het goed hebt getypt.');
+        return;
+      }
+
+      const car = data[0];
+      renderResult(plate, car);
+    } catch(err){
+      console.error(err);
+      showError('Kon RDW niet bereiken. Probeer opnieuw of plan direct een afspraak.');
+    } finally {
+      loading.classList.remove('show');
+      btn.disabled = false;
+    }
+  });
+
+  function renderResult(plate, car){
+    // Vervaldatum APK format: YYYYMMDD als string
+    const rawDate = car.vervaldatum_apk;
+    if(!rawDate || rawDate.length !== 8){
+      showError('Deze auto heeft geen bekende APK-vervaldatum. Neem contact met ons op.');
+      return;
+    }
+    const year = parseInt(rawDate.slice(0,4), 10);
+    const month = parseInt(rawDate.slice(4,6), 10);
+    const day = parseInt(rawDate.slice(6,8), 10);
+    const expDate = new Date(year, month - 1, day);
+    const now = new Date();
+    now.setHours(0,0,0,0);
+    expDate.setHours(0,0,0,0);
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const daysDiff = Math.round((expDate - now) / msPerDay);
+
+    // Merk + model
+    const merk = (car.merk || '').replace(/\b\w/g, c => c.toUpperCase());
+    const model = (car.handelsbenaming || '').replace(/\b\w/g, c => c.toUpperCase());
+    const bouwjaar = car.datum_eerste_toelating ? car.datum_eerste_toelating.slice(0,4) : '';
+
+    plateOut.textContent = formatPlate(plate);
+    carInfo.innerHTML = `${combineerMerkModel(merk, model)}<small>${bouwjaar} · APK verloopt ${day.toString().padStart(2,'0')}-${month.toString().padStart(2,'0')}-${year}</small>`;
+
+    let urgency, adviceHtml, unit, absDays;
+    if(daysDiff < 0){
+      absDays = Math.abs(daysDiff);
+      urgency = 'expired';
+      unit = absDays === 1 ? 'dag' : 'dagen';
+      labelEl.textContent = 'GELEDEN, APK is verlopen';
+      adviceHtml = `⚠️ <strong>Rijden zonder geldige APK is niet toegestaan.</strong> Je riskeert een boete en je verzekering kan uitkeringen weigeren bij een ongeval. Plan snel een afspraak, wij helpen je vandaag of morgen.`;
+    } else if(daysDiff === 0){
+      absDays = 0;
+      urgency = 'expired';
+      unit = '';
+      labelEl.textContent = 'JE APK VERLOOPT VANDAAG';
+      adviceHtml = `🚨 <strong>Je APK loopt vandaag af.</strong> Bel ons direct, we proberen je vandaag nog te helpen.`;
+    } else if(daysDiff <= 14){
+      absDays = daysDiff;
+      urgency = 'urgent';
+      unit = absDays === 1 ? 'dag' : 'dagen';
+      labelEl.textContent = 'tot je APK verloopt, plan nu';
+      adviceHtml = `⏰ <strong>Nog maar ${absDays} ${unit}.</strong> Plan deze week nog een afspraak zodat je op tijd bent.`;
+    } else if(daysDiff <= 60){
+      absDays = daysDiff;
+      urgency = 'soon';
+      unit = 'dagen';
+      labelEl.textContent = 'tot je APK verloopt';
+      adviceHtml = `✅ Goed moment om in te plannen. Je kunt je APK tot 2 maanden van tevoren laten doen, de nieuwe APK gaat dan in op de oude vervaldatum.`;
+    } else {
+      absDays = daysDiff;
+      urgency = 'ok';
+      unit = 'dagen';
+      labelEl.textContent = 'tot je APK verloopt';
+      const maanden = Math.round(daysDiff / 30);
+      adviceHtml = `👍 Nog ruim de tijd (ongeveer ${maanden} maanden). We sturen je een reminder als het bijna zover is, zet ons vast in je agenda.`;
+    }
+
+    daysEl.textContent = absDays.toLocaleString('nl-NL');
+    unitEl.textContent = unit;
+    countBox.dataset.urgency = urgency;
+    adviceEl.dataset.urgency = urgency;
+    adviceEl.innerHTML = adviceHtml;
+
+    resultEl.classList.add('show');
+  }
+
+  function showError(msg){
+    errorEl.textContent = msg;
+    errorEl.classList.add('show');
+    resultEl.classList.remove('show');
+  }
+})();
+</script>
+<script src="site-data.js" defer></script>
+<script src="site-header.js" defer></script>
+<script src="contact-balk.js" defer></script>
+</body>
+</html>

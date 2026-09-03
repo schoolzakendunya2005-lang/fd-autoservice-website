@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=ff84e051-7c06-4847-9784-ca019c047249
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=ff84e051-7c06-4847-9784-ca019c047249">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>Over FD Autoservice | Eerlijke autogarage in Zaandam sinds 2020</title>
+<meta name="description" content="Maak kennis met FD Autoservice, al ruim 5 jaar dé eerlijke autogarage in Zaandam. APK, onderhoud, reparatie en banden door vakmensen die je auto kennen. ★ 5,0 op Marktplaats · 148 ervaringen.">
+<meta name="keywords" content="over FD Autoservice, eerlijke autogarage Zaandam, garage Zaandam ervaring, monteur Zaandam, autobedrijf Westzijde Zaandam, FD Autoservice geschiedenis">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://fdautoservice.nl/over-ons">
+
+<meta name="geo.region" content="NL-NH">
+<meta name="geo.placename" content="Zaandam">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="FD Autoservice">
+<meta property="og:url" content="https://fdautoservice.nl/over-ons">
+<meta property="og:title" content="Over FD Autoservice | Eerlijke autogarage Zaandam">
+<meta property="og:description" content="Sinds 2020 dé eerlijke autogarage in Zaandam. 1.500+ auto's, 148 ervaringen, 0 verrassingen.">
+<meta property="og:image" content="https://fdautoservice.nl/og-fd-autoservice.jpg">
+
+<meta name="theme-color" content="#FFFFFF">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"AboutPage",
+  "name":"Over FD Autoservice",
+  "url":"https://fdautoservice.nl/over-ons",
+  "about":{"@type":"AutoRepair","name":"FD Autoservice","foundingDate":"2020","address":{"@type":"PostalAddress","streetAddress":"Westzijde 158C","addressLocality":"Zaandam","postalCode":"1506 EK","addressCountry":"NL"}}
+}
+</script>
+
+<style>
+  :root{
+    --primary:#101014;--primary-light:#F1F1F4;
+        --accent:#D7261E;--accent-hover:#B81B14;
+    /* Rood als hierarchie, niet als thema.
+       --accent      alleen voor primaire knoppen en het telefoonnummer
+       --accent-mute labels, eyebrows en iconen: herkenbaar maar rustig
+       --accent-soft randen en achtergrondvlakjes */
+    --accent-mute:#B3312A;--accent-soft:rgba(215,38,30,.10);
+    --bg:#FFFFFF;--bg-soft:#F6F6F8;--bg-card:#FFFFFF;--border:#E4E4EA;
+    --text:rgba(16,16,20,.72);--text-strong:#101014;--success:#17784A;
+    --shadow-card:0 2px 18px rgba(16,16,20,.07);
+    --shadow-cta:0 6px 18px rgba(215,38,30,.28);
+    --muted:rgba(16,16,20,.56);--maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{color:#101014}
+  h1,h2,h3,h4{color:var(--text-strong);line-height:1.05;margin:0 0 .4em;font-weight:900;letter-spacing:-.025em}
+  h1{font-size:clamp(2.6rem,6.5vw,5.6rem);letter-spacing:-.035em;line-height:.95}
+  h2{font-size:clamp(2rem,4vw,3.4rem);letter-spacing:-.03em}
+  h3{font-size:1.2rem;font-weight:800;letter-spacing:-.01em}
+  .serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;color:var(--accent-mute);letter-spacing:-.04em}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* Header — zelfde stijl als offerte/home */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:transparent;backdrop-filter:none;transition:all .3s ease}
+  .nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:22px 0;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:#101014;font-size:1.05rem;text-decoration:none}
+  .logo-mark{width:44px;height:44px;border-radius:8px;background:#000;display:grid;place-items:center;font-weight:900;letter-spacing:-.05em;font-size:1.05rem;position:relative;overflow:hidden;border:1px solid #ECECF1}
+  .logo-mark .fd{color:var(--accent);line-height:1;margin-top:8px;font-size:.95rem}
+  .logo-mark::before{content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);width:28px;height:5px;background:linear-gradient(90deg,transparent 0%,#fff 30%,#fff 70%,transparent 100%);border-radius:50%;opacity:.85;clip-path:polygon(0 50%, 15% 0, 85% 0, 100% 50%, 100% 100%, 0 100%)}
+  .logo span{color:#101014}
+  .logo span small{color:rgba(16,16,20,.644);display:block;font-weight:500;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;margin-top:-2px}
+  nav ul{display:flex;justify-content:center;list-style:none;gap:28px;margin:0;padding:0;flex-wrap:nowrap}
+  nav ul li{white-space:nowrap}
+  nav ul a{color:rgba(16,16,20,.782);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;padding:8px 0;position:relative;text-decoration:none;white-space:nowrap;display:inline-block}
+  @media(max-width:1100px){nav ul{gap:20px}nav ul a{font-size:.72rem;letter-spacing:.1em}}
+  nav ul a:hover{color:#101014}
+  nav ul a.active{color:#101014}
+  nav ul a.active::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent)}
+  .nav-actions{display:flex;align-items:center;gap:14px}
+  .nav-phone{display:flex;align-items:center;gap:8px;color:#101014;font-weight:600;font-size:.85rem;text-decoration:none}
+  .nav-phone svg{color:var(--accent)}
+  .btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:11px 18px;border-radius:999px;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:#fff;box-shadow:var(--shadow-cta);text-decoration:none;transition:background .25s ease}
+  .btn-primary:hover{background:var(--accent-hover)}
+  @media(max-width:920px){nav ul{display:none}.nav-phone span{display:none}.nav{grid-template-columns:auto auto}}
+
+  /* Hero — split layout met werkplaats-foto: tekst links, beeld rechts */
+  .about-hero{
+    padding:56px 0 76px;position:relative;overflow:hidden;
+    background:#FFFFFF;color:#101014;
+  }
+  .about-hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 700px 400px at 85% 20%, rgba(215,38,30,.10) 0%, transparent 60%),
+      radial-gradient(ellipse 500px 300px at 5% 100%, rgba(215,38,30,.05) 0%, transparent 60%);
+  }
+  .about-hero .wrap{position:relative;z-index:1}
+  .about-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+  @media(max-width:960px){.about-hero-grid{grid-template-columns:1fr;gap:50px}}
+
+  .about-hero-text .eyebrow{
+    color:var(--accent-mute);font-size:.74rem;font-weight:800;
+    letter-spacing:.26em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:14px;margin-bottom:22px;
+  }
+  .about-hero-text .eyebrow::before{content:"";display:inline-block;width:32px;height:1px;background:var(--accent-mute)}
+  .about-hero-text h1{
+    color:#101014;max-width:16ch;margin:0 0 22px;
+    font-size:clamp(2.2rem,4.5vw,3.6rem);
+    letter-spacing:-.03em;line-height:1;font-weight:900;
+  }
+  .about-hero-text h1 .serif{font-size:1.02em;font-weight:300}
+  .about-hero-text > p{color:rgba(16,16,20,.773);max-width:48ch;font-size:1.05rem;line-height:1.65;margin:0 0 28px}
+
+  /* Trust stats onder de intro tekst */
+  .about-hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-top:24px;border-top:1px solid rgba(16,16,20,.136);margin-top:6px}
+  @media(max-width:520px){.about-hero-stats{grid-template-columns:1fr 1fr;gap:20px}}
+  .about-hero-stat{display:flex;flex-direction:column;gap:4px}
+  .about-hero-stat .num{font-size:1.9rem;font-weight:900;color:#101014;letter-spacing:-.03em;line-height:1;font-family:'Inter',sans-serif}
+  .about-hero-stat .num .accent{color:var(--accent-mute)}
+  .about-hero-stat .lbl{font-size:.72rem;color:rgba(16,16,20,.644);font-weight:600;letter-spacing:.12em;text-transform:uppercase;line-height:1.3}
+
+  /* Werkplaats visual rechts — dark gradient met FD merk-mark */
+  .about-hero-visual{
+    position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(215,38,30,.28) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 85%, rgba(215,38,30,.15) 0%, transparent 60%),
+      linear-gradient(165deg, #FFFFFF 0%, #F1F1F4 100%);
+    box-shadow:0 40px 100px -30px rgba(16,16,20,.16),0 0 0 1px rgba(16,16,20,.012) inset;
+    display:grid;place-items:center;
+  }
+  @media(max-width:960px){.about-hero-visual{aspect-ratio:16/10;max-height:420px}}
+  .about-hero-visual::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,transparent 55%,rgba(16,16,20,.55) 100%);
+  }
+  .about-hero-mark{
+    position:relative;z-index:1;text-align:center;
+  }
+  .about-hero-mark .fd-big{
+    font-family:'Inter',sans-serif;font-weight:900;
+    font-size:clamp(6rem,14vw,10rem);
+    color:#101014;letter-spacing:-.07em;line-height:1;
+    text-shadow:0 20px 60px rgba(215,38,30,.4);
+    display:block;
+  }
+  .about-hero-mark .fd-tag{
+    display:block;margin-top:14px;font-size:.72rem;letter-spacing:.35em;
+    text-transform:uppercase;color:rgba(16,16,20,.644);font-weight:700;
+  }
+  /* Overlay met naam + tag */
+  .about-hero-badge{
+    position:absolute;left:22px;bottom:22px;z-index:2;
+    display:flex;align-items:center;gap:12px;
+    background:rgba(255,255,255,.88);backdrop-filter:blur(14px);
+    padding:12px 16px;border-radius:12px;border:1px solid rgba(16,16,20,.136);
+  }
+  .about-hero-badge .dot{width:8px;height:8px;border-radius:50%;background:#26D07C;box-shadow:0 0 12px rgba(38,208,124,.7);animation:pulse2 2s infinite}
+  @keyframes pulse2{0%,100%{opacity:1}50%{opacity:.5}}
+  .about-hero-badge .txt{font-size:.82rem;color:#101014;font-weight:600}
+  .about-hero-badge .txt small{display:block;font-size:.68rem;color:rgba(16,16,20,.607);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:1px}
+
+  /* Rood ster-block boven de foto */
+  .about-hero-rating{
+    position:absolute;right:-16px;top:24px;z-index:3;
+    background:linear-gradient(135deg,var(--accent) 0%,#B81B14 100%);color:#fff;
+    padding:14px 20px;border-radius:14px;
+    box-shadow:0 18px 40px -8px rgba(215,38,30,.5),0 0 0 1px rgba(16,16,20,.024) inset;
+    display:flex;align-items:center;gap:12px;
+    transform:rotate(3deg);
+  }
+  @media(max-width:520px){.about-hero-rating{right:12px;top:12px;padding:10px 14px}}
+  .about-hero-rating .stars{font-size:1.15rem;letter-spacing:2px;line-height:1}
+  .about-hero-rating .rate{display:flex;flex-direction:column;line-height:1.1}
+  .about-hero-rating .rate strong{font-size:1.1rem;font-weight:900;letter-spacing:-.01em}
+  .about-hero-rating .rate small{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.85}
+
+  /* Section base */
+  section{padding:120px 0;position:relative;overflow:hidden}
+  @media(max-width:760px){section{padding:80px 0}}
+  section.alt{background:
+    radial-gradient(circle at 10% 10%, rgba(215,38,30,.02) 0%, transparent 30%),
+    var(--bg-soft)}
+  .sec-head{margin-bottom:64px;max-width:820px}
+  .sec-head .eyebrow{
+    color:var(--accent-mute);font-size:.74rem;font-weight:800;
+    letter-spacing:.26em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:14px;margin-bottom:24px;
+  }
+  .sec-head .eyebrow::before{content:"";display:inline-block;width:32px;height:1px;background:var(--accent-mute)}
+  .sec-head h2{text-transform:uppercase;font-size:clamp(2.4rem,5vw,4.4rem);letter-spacing:-.035em;line-height:1;margin:0 0 22px}
+  .sec-head h2 .serif{text-transform:none;font-size:1.05em}
+  .sec-head p{font-size:1.1rem;line-height:1.6;color:var(--text);max-width:56ch}
+
+  /* Story section met side-by-side */
+  .story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+  @media(max-width:920px){.story-grid{grid-template-columns:1fr;gap:36px}}
+  .story-text p{font-size:1.06rem;line-height:1.7;color:var(--text);margin:0 0 18px}
+  .story-text p strong{color:var(--text-strong)}
+  .story-visual{
+    margin:0;                       /* figure heeft standaard marge — die moet weg */
+    aspect-ratio:4/5;border-radius:18px;overflow:hidden;
+    background:linear-gradient(155deg, #FFFFFF 0%, #FFFFFF 100%);
+    position:relative;
+    box-shadow:0 30px 60px -20px rgba(16,16,20,.126);
+    border:1px solid var(--border);
+  }
+  /* picture vult de kaart, de img zit er normaal in.
+     Absoluut positioneren van de img zelf zorgde ervoor dat
+     lazy-loading nooit afging en de foto dus leeg bleef. */
+  .story-visual picture{
+    position:absolute;inset:0;display:block;
+  }
+  .story-visual img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center 40%;
+    display:block;
+  }
+  /* Verloop onderin zodat het onderschrift leesbaar blijft op de foto */
+  .story-visual::after{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg, rgba(16,16,20,.25) 0%, transparent 30%, transparent 52%, rgba(16,16,20,.85) 100%);
+  }
+  .story-visual .stamp{
+    position:absolute;top:18px;left:18px;z-index:2;
+    padding:6px 14px;border-radius:999px;
+    background:rgba(255,255,255,.88);backdrop-filter:blur(8px);
+    border:1px solid rgba(16,16,20,.18);
+    color:rgba(16,16,20,.81);
+    font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  }
+  .story-visual-cap{
+    position:absolute;bottom:24px;left:24px;right:24px;z-index:2;
+    color:#101014;font-size:.86rem;letter-spacing:.02em;font-weight:500;
+    text-shadow:0 2px 12px rgba(16,16,20,.156);
+  }
+  .story-visual-cap strong{display:block;font-size:1.05rem;font-weight:800;margin-bottom:3px}
+
+  /* Values pillars */
+  .values{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  @media(max-width:920px){.values{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.values{grid-template-columns:1fr}}
+  .value{
+    padding:36px 28px;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
+    position:relative;overflow:hidden;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease;
+  }
+  .value:hover{transform:translateY(-6px);border-color:var(--accent)}
+  .value .num{
+    position:absolute;top:24px;right:28px;
+    color:rgba(215,38,30,.12);font-size:3.8rem;font-weight:900;line-height:1;letter-spacing:-.06em;
+  }
+  .value .ico{
+    width:48px;height:48px;border-radius:12px;background:var(--bg-soft);color:var(--accent);
+    display:grid;place-items:center;margin-bottom:22px;position:relative;z-index:1;
+  }
+  .value h3{font-size:1.15rem;margin-bottom:10px;position:relative;z-index:1}
+  .value p{font-size:.96rem;line-height:1.6;margin:0;position:relative;z-index:1}
+
+  /* Facts strip */
+  .facts{
+    background:var(--bg-soft);color:#101014;padding:80px 0;
+    position:relative;overflow:hidden;
+  }
+  .facts::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(circle at 50% 50%, rgba(215,38,30,.10) 0%, transparent 60%);
+  }
+  .facts .wrap{position:relative;z-index:1}
+  .facts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+  @media(max-width:760px){.facts-grid{grid-template-columns:repeat(2,1fr);gap:24px}}
+  .fact{text-align:center}
+  .fact .num{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:900;color:#101014;letter-spacing:-.03em;line-height:1}
+  .fact .num .accent{color:var(--accent-mute)}
+  .fact .lbl{margin-top:10px;font-size:.86rem;color:rgba(16,16,20,.681);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+
+  /* Socials section — "Volg ons mee in de werkplaats" */
+  .socials-section{
+    padding:120px 0;background:var(--bg);position:relative;overflow:hidden;
+  }
+  @media(max-width:760px){.socials-section{padding:80px 0}}
+  .socials-section::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(circle at 10% 10%, rgba(215,38,30,.10) 0%, transparent 40%),
+      radial-gradient(circle at 90% 90%, rgba(215,38,30,.08) 0%, transparent 40%);
+  }
+  .socials-section .wrap{position:relative;z-index:1}
+  .socials-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px;
+  }
+  @media(max-width:920px){.socials-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
+  @media(max-width:520px){.socials-grid{grid-template-columns:1fr}}
+  .social-card{
+    background:var(--bg-card);border:1px solid var(--border);
+    border-radius:18px;padding:32px 28px;
+    text-decoration:none;color:inherit;
+    display:flex;flex-direction:column;gap:14px;
+    position:relative;overflow:hidden;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease, box-shadow .35s ease;
+    min-height:280px;
+  }
+  .social-card::before{
+    content:"";position:absolute;top:0;right:0;
+    width:180px;height:180px;border-radius:50%;
+    transform:translate(40%, -40%);opacity:.12;
+    transition:opacity .35s ease, transform .5s cubic-bezier(.2,.8,.2,1);
+    filter:blur(20px);
+  }
+  .social-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -15px rgba(16,16,20,.13)}
+  .social-card:hover::before{opacity:.35;transform:translate(20%, -20%)}
+  /* Platform-specific accents */
+  .social-card[data-platform="tiktok"]:hover{border-color:#ff0050}
+  .social-card[data-platform="tiktok"]::before{background:linear-gradient(135deg, #ff0050 0%, #00f2ea 100%)}
+  .social-card[data-platform="instagram"]:hover{border-color:#E1306C}
+  .social-card[data-platform="instagram"]::before{background:linear-gradient(135deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%)}
+  .social-card[data-platform="facebook"]:hover{border-color:#1877F2}
+  .social-card[data-platform="facebook"]::before{background:#1877F2}
+  .social-card[data-platform="whatsapp"]:hover{border-color:#25D366}
+  .social-card[data-platform="whatsapp"]::before{background:#25D366}
+  .social-ico{
+    width:54px;height:54px;border-radius:14px;
+    background:rgba(16,16,20,.037);
+    display:grid;place-items:center;color:#101014;
+    position:relative;z-index:1;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), background .35s ease;
+  }
+  .social-card:hover .social-ico{transform:rotate(-8deg) scale(1.08)}
+  .social-card[data-platform="tiktok"]:hover .social-ico{background:#fff;color:#000}
+  .social-card[data-platform="instagram"]:hover .social-ico{background:linear-gradient(135deg,#F58529,#DD2A7B);color:#101014}
+  .social-card[data-platform="facebook"]:hover .social-ico{background:#1877F2;color:#101014}
+  .social-card[data-platform="whatsapp"]:hover .social-ico{background:#25D366;color:#101014}
+  .social-ico svg{width:24px;height:24px}
+  .social-card h3{
+    font-size:1.35rem;margin:0;font-weight:900;letter-spacing:-.02em;
+    position:relative;z-index:1;
+  }
+  .social-handle{
+    color:var(--accent);font-size:.86rem;font-weight:700;
+    font-family:'Menlo','Monaco',monospace;letter-spacing:-.02em;
+    position:relative;z-index:1;
+  }
+  .social-desc{
+    font-size:.94rem;color:rgba(16,16,20,.699);line-height:1.5;flex:1;
+    position:relative;z-index:1;
+  }
+  .social-cta{
+    display:inline-flex;align-items:center;justify-content:space-between;
+    margin-top:auto;padding-top:18px;border-top:1px solid rgba(16,16,20,.136);
+    font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#101014;
+    position:relative;z-index:1;
+    transition:color .25s ease;
+  }
+  .social-card:hover .social-cta{color:var(--accent)}
+  .social-cta svg{transition:transform .25s ease}
+  .social-card:hover .social-cta svg{transform:translate(4px, -4px)}
+  .social-pill{
+    display:inline-block;
+    font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    padding:4px 10px;border-radius:999px;
+    background:rgba(16,16,20,.037);color:rgba(16,16,20,.754);
+    margin-bottom:4px;
+    position:relative;z-index:1;
+    align-self:flex-start;
+  }
+
+  /* CTA final */
+  .about-cta{
+    padding:120px 0;background:#FFFFFF;color:#101014;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .about-cta::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 100%, rgba(215,38,30,.25) 0%, transparent 60%);
+  }
+  .about-cta .wrap{position:relative;z-index:1}
+  .about-cta h2{color:#101014;font-size:clamp(2rem,4.5vw,3.8rem);text-transform:uppercase;letter-spacing:-.03em;margin-bottom:18px}
+  .about-cta h2 .serif{font-size:1.05em;text-transform:none}
+  .about-cta p{color:rgba(16,16,20,.681);font-size:1.1rem;max-width:50ch;margin:0 auto 32px}
+  .btn-pill{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    background:var(--accent);color:#fff;padding:18px 36px;border-radius:999px;
+    font-weight:800;font-size:.88rem;letter-spacing:.12em;text-transform:uppercase;
+    text-decoration:none;
+    box-shadow:0 18px 40px -10px rgba(215,38,30,.55),0 0 0 1px rgba(16,16,20,.024) inset;
+    transition:all .25s ease;
+  }
+  .btn-pill:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 22px 50px -10px rgba(215,38,30,.7)}
+
+  /* Kaart in "Waar je ons vindt".
+     Stond hier eerst een Marktplaats-foto, maar die URL ging dood
+     zodra de advertentie offline ging. Een kaart is hier logischer
+     en blijft werken. Laadt pas na cookie-toestemming. */
+  .where-map{
+    aspect-ratio:4/5;border-radius:18px;overflow:hidden;
+    background:#FFFFFF;border:1px solid var(--border);
+    position:relative;
+    box-shadow:0 30px 60px -20px rgba(16,16,20,.126);
+  }
+  .where-map iframe{display:block;width:100%;height:100%}
+  .where-map-cta{
+    position:absolute;bottom:18px;left:18px;right:18px;z-index:2;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    background:var(--accent);color:#fff;text-decoration:none;
+    padding:13px 18px;border-radius:10px;
+    font-size:.84rem;font-weight:700;letter-spacing:.04em;
+    box-shadow:0 12px 30px -8px rgba(215,38,30,.5);
+    transition:background .2s ease;
+  }
+  .where-map-cta:hover{background:var(--accent-hover)}
+  @media(max-width:760px){
+    .where-map{aspect-ratio:4/3}
+  }
+
+  /* Footer */
+  footer{background:var(--bg-soft);color:rgba(16,16,20,.681);padding:48px 0 32px;font-size:.92rem;border-top:1px solid rgba(16,16,20,.102)}
+  footer .foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:center}
+  footer a{color:rgba(16,16,20,.754);text-decoration:none}
+  footer a:hover{color:#101014}
+  footer strong{color:#101014;font-weight:700}
+
+  /* Floating mobile CTAs */
+
+</style>
+
+<style>
+  .site-foot{padding:36px 0;border-top:1px solid rgba(16,16,20,.119);font-size:.86rem;color:rgba(16,16,20,.57)}
+  .site-foot .fw{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  .site-foot strong{color:rgba(16,16,20,.718)}
+  .site-foot a{color:rgba(16,16,20,.681);text-decoration:none}
+  .site-foot a:hover{color:#D7261E}
+  .site-foot .legal a + a::before{content:"·";margin:0 8px;color:rgba(16,16,20,.23)}
+
+  /* ============================================================
+     MOBIELE VERFIJNING — bewust als laatste zodat het overschrijft
+     ============================================================ */
+  @media(max-width:760px){
+    section{padding:52px 0}
+    .wrap{padding:0 20px}
+    .about-hero{padding-top:36px;padding-bottom:44px}
+    .about-hero-grid{gap:28px}
+    .about-hero-stats{gap:16px}
+    .sec-head{margin-bottom:28px}
+    .sec-head h2{font-size:clamp(1.5rem,7vw,2rem);line-height:1.15}
+    .story-grid{gap:28px}
+    .facts-grid{gap:20px}
+    .values{gap:14px}
+    .value{padding:24px 20px}
+    .socials-grid{gap:12px}
+    .social-card{padding:22px 20px}
+    .about-cta{padding:40px 22px}
+    .site-foot{padding-bottom:84px}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 18px}
+    .btn-pill,.about-cta a{width:100%;justify-content:center}
+    .site-foot a{display:inline-block;padding:9px 0}
+  }
+</style>
+<!-- Cookie consent + Google Consent Mode v2 — moet vóór Tag Manager staan -->
+<script src="cookie-consent.js"></script>
+<script src="meting.js" defer></script>
+<link rel="stylesheet" href="kaart.css">
+</head>
+<body data-fd-pagina="over-ons">
+
+<!-- HEADER -->
+<!-- HERO -->
+<section class="about-hero">
+  <div class="wrap">
+    <div class="about-hero-grid">
+      <div class="about-hero-text">
+        <span class="eyebrow">Over ons</span>
+        <h1>Een garage van <span class="serif">vakmensen,</span> niet ketenwerkers.</h1>
+        <p>Sinds 2020 zijn we de plek in Zaandam waar mensen terugkomen. Niet omdat we het goedkoopste zijn, maar omdat we eerlijk zijn over wat je auto wel én niet nodig heeft. Geen verkooppraatjes, gewoon vakwerk uit één werkplaats.</p>
+        <div class="about-hero-stats">
+          <div class="about-hero-stat">
+            <span class="num"><span class="accent">5</span>+</span>
+            <span class="lbl">Jaar in Zaandam</span>
+          </div>
+          <div class="about-hero-stat">
+            <span class="num">132</span>
+            <span class="lbl">Reviews · 5,0★</span>
+          </div>
+          <div class="about-hero-stat">
+            <span class="num">1<span style="opacity:.4">/</span>1</span>
+            <span class="lbl">Vast contact</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-hero-visual">
+        <div class="about-hero-mark">
+          <span class="fd-big">FD</span>
+          <span class="fd-tag">Est. 2020 · Zaandam</span>
+        </div>
+        <div class="about-hero-rating">
+          <div class="stars">★★★★★</div>
+          <div class="rate">
+            <strong>5,0 / 5</strong>
+            <small>132 reviews</small>
+          </div>
+        </div>
+        <div class="about-hero-badge">
+          <span class="dot"></span>
+          <span class="txt"><small>Werkplaats</small>Westzijde 158C, Zaandam</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Ons verhaal</span>
+      <h2>Geboren uit één <span class="serif">simpele frustratie:</span></h2>
+      <p>Onze oprichter werkte jaren bij grote autoketens en zag te vaak hoe klanten betaalden voor reparaties die niet nodig waren. Dat moest anders.</p>
+    </div>
+
+    <div class="story-grid">
+      <div class="story-text">
+        <p><strong>FD Autoservice opende in 2020 z'n deuren aan de Westzijde 158C in Zaandam</strong> met één missie: een garage worden waar je vrienden naartoe zou sturen. Geen meerwerk-trucs, geen wisselende monteurs die jouw auto niet kennen, geen prijslijst die plotseling verandert.</p>
+        <p>In de afgelopen vijf jaar hebben we ruim <strong>1.500 auto's</strong> over onze brug gehad. Mensen uit Zaandam, Wormerveer, Krommenie en Amsterdam-Noord vinden bij ons hetzelfde: een vaste contactpersoon, eerlijke prijzen vooraf, en een werkplaats waar je gewoon kunt binnenlopen om mee te kijken.</p>
+        <p>Onze <strong>★ 5,0 op Marktplaats met 148 ervaringen</strong> is geen prestatie. Het is een gevolg. Wat we daar boven willen scoren, is voorspelbaarheid. Dat je weet: bij FD krijg ik geen verrassingen.</p>
+        <p>Onze kern is de werkplaats: APK, onderhoud, reparatie, banden en airco. Daarnaast staan er af en toe een paar auto's bij ons te koop, allemaal eerst door onszelf nagekeken. Wat we niet doen is je iets aanpraten, in de werkplaats niet en op het plein niet.</p>
+      </div>
+      <figure class="story-visual">
+        <picture>
+          <source srcset="team-fd-autoservice.webp" type="image/webp">
+          <img src="team-fd-autoservice.jpg" width="940" height="1175" decoding="async" fetchpriority="low"
+               alt="Het team van FD Autoservice voor de werkplaats aan de Westzijde 158C in Zaandam">
+        </picture>
+        <span class="stamp">Est. 2020 · Zaandam</span>
+        <figcaption class="story-visual-cap">
+          <strong>Westzijde 158C</strong>
+          1506 EK Zaandam
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Waar we voor staan</span>
+      <h2>Vier waardes, <span class="serif">niets ingewikkelder.</span></h2>
+    </div>
+
+    <div class="values">
+      <div class="value">
+        <span class="num">01</span>
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h3>Eerlijk advies</h3>
+        <p>We vervangen niets dat nog goed werkt. Wat moet, moet. Wat kan wachten, wacht.</p>
+      </div>
+      <div class="value">
+        <span class="num">02</span>
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Geen verrassingen</h3>
+        <p>De prijs die je vooraf krijgt, is de prijs die je betaalt. Punt.</p>
+      </div>
+      <div class="value">
+        <span class="num">03</span>
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Vast contact</h3>
+        <p>Je belt en krijgt meteen iemand uit de werkplaats. Geen wachtrijen, geen callcenter.</p>
+      </div>
+      <div class="value">
+        <span class="num">04</span>
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Lokaal voor Zaandam</h3>
+        <p>Een echte werkplaats aan de Westzijde, niet een franchise van boven Amsterdam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACTS -->
+<section class="facts">
+  <div class="wrap">
+    <div class="facts-grid">
+      <div class="fact">
+        <div class="num">2020</div>
+        <div class="lbl">Opgericht</div>
+      </div>
+      <div class="fact">
+        <div class="num">1.500<span class="accent">+</span></div>
+        <div class="lbl">Auto's geholpen</div>
+      </div>
+      <div class="fact">
+        <div class="num">148</div>
+        <div class="lbl">Reviews · 5,0 ★</div>
+      </div>
+      <div class="fact">
+        <div class="num">€<span class="accent">0</span></div>
+        <div class="lbl">Verborgen kosten</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Waar je ons vindt</span>
+      <h2>Westzijde 158C, <span class="serif">hartje Zaandam.</span></h2>
+      <p>Goed bereikbaar met auto, fiets én bus, parkeren voor de deur, koffie binnen. Loop gerust naar binnen tijdens openingstijden.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center" class="story-grid">
+      <div>
+        <div style="margin-bottom:32px">
+          <div style="font-size:.74rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">ADRES</div>
+          <div style="font-size:1.3rem;color:var(--text-strong);font-weight:700;line-height:1.4">Westzijde 158C<br>1506 EK Zaandam</div>
+        </div>
+        <div style="margin-bottom:32px">
+          <div style="font-size:.74rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">OPENINGSTIJDEN</div>
+          <div style="font-size:1.1rem;color:var(--text-strong);font-weight:600;line-height:1.5">Ma t/m vr · 09:00 tot 18:00<br>Zaterdag · 10:00 tot 17:00</div>
+        </div>
+        <div>
+          <div style="font-size:.74rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">BEREIKBAAR</div>
+          <a href="tel:+31752013142" style="display:block;color:var(--text-strong);font-weight:700;font-size:1.1rem;text-decoration:none;margin-bottom:6px">075 - 201 3142</a>
+          <a href="mailto:contact@fdautoservice.nl" style="display:block;color:var(--text);font-weight:500;font-size:1rem;text-decoration:none">contact@fdautoservice.nl</a>
+        </div>
+      </div>
+      <div class="where-map" aria-label="Kaart van FD Autoservice, Westzijde 158C, Zaandam">
+        <!-- Kaart met vaste kaartbeelden van OpenStreetMap. Geen iframe, geen
+             JavaScript, geen cookies en geen WebGL: hij laadt dus altijd, ook
+             als de bezoeker cookies weigert of een oudere telefoon heeft.
+             Eerder zat hier een Google Maps-embed achter de cookiemuur,
+             waardoor wie weigerde een leeg vlak zag in plaats van waar wij zitten. -->
+        <div class="fd-kaart">
+          <div class="fd-kaart-tegels" style="--fd-kaart-x:608.3px;--fd-kaart-y:321.9px">
+            <img src="https://tile.openstreetmap.org/16/33643/21514.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:0px;top:0px">
+            <img src="https://tile.openstreetmap.org/16/33644/21514.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:256px;top:0px">
+            <img src="https://tile.openstreetmap.org/16/33645/21514.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:512px;top:0px">
+            <img src="https://tile.openstreetmap.org/16/33646/21514.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:768px;top:0px">
+            <img src="https://tile.openstreetmap.org/16/33647/21514.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:1024px;top:0px">
+            <img src="https://tile.openstreetmap.org/16/33643/21515.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:0px;top:256px">
+            <img src="https://tile.openstreetmap.org/16/33644/21515.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:256px;top:256px">
+            <img src="https://tile.openstreetmap.org/16/33645/21515.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:512px;top:256px">
+            <img src="https://tile.openstreetmap.org/16/33646/21515.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:768px;top:256px">
+            <img src="https://tile.openstreetmap.org/16/33647/21515.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:1024px;top:256px">
+            <img src="https://tile.openstreetmap.org/16/33643/21516.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:0px;top:512px">
+            <img src="https://tile.openstreetmap.org/16/33644/21516.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:256px;top:512px">
+            <img src="https://tile.openstreetmap.org/16/33645/21516.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:512px;top:512px">
+            <img src="https://tile.openstreetmap.org/16/33646/21516.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:768px;top:512px">
+            <img src="https://tile.openstreetmap.org/16/33647/21516.png" alt="" width="256" height="256" loading="lazy" decoding="async" style="left:1024px;top:512px">
+          </div>
+          <span class="fd-kaart-pin" aria-hidden="true"></span>
+          <span class="fd-kaart-adres">Westzijde 158C, Zaandam</span>
+          <a class="fd-kaart-bron" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">&copy; OpenStreetMap</a>
+        </div>
+        <a class="where-map-cta" href="https://www.google.com/maps/dir/?api=1&destination=Westzijde+158C+1506+EK+Zaandam" target="_blank" rel="noopener">
+          <span>Routebeschrijving openen</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7"/><path d="M8 7 L17 7 L17 16"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIALS — "Volg ons mee in de werkplaats" -->
+<section class="socials-section">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:left;max-width:760px">
+      <span class="eyebrow">Volg ons mee</span>
+      <h2>Achter de schermen <span class="serif">in de werkplaats.</span></h2>
+      <p>Elke week delen we wat er bij ons gebeurt, van klanten met hun nieuwe APK-sticker tot tijdlapse-video's van pittige reparaties. Volg ons via het kanaal dat jij het liefst gebruikt.</p>
+    </div>
+
+    <div class="socials-grid">
+      <a class="social-card" data-platform="tiktok" href="https://www.tiktok.com/@fd.autoservice" target="_blank" rel="noopener">
+        <span class="social-pill">Video's & tijdlapses</span>
+        <div class="social-ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+        </div>
+        <h3>TikTok</h3>
+        <span class="social-handle">@fdautoservice</span>
+        <p class="social-desc">Korte video's van reparaties, tips waar je auto echt op moet letten, en humor uit de werkplaats.</p>
+        <span class="social-cta">
+          Volg op TikTok
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7"/><path d="M8 7 L17 7 L17 16"/></svg>
+        </span>
+      </a>
+
+      <a class="social-card" data-platform="instagram" href="https://www.instagram.com/f.dautoservice/" target="_blank" rel="noopener">
+        <span class="social-pill">Foto's & reels</span>
+        <div class="social-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Instagram</h3>
+        <span class="social-handle">@fdautoservice</span>
+        <p class="social-desc">Mooie foto's van auto's voor en na, klantverhalen, en behind-the-scenes uit Zaandam.</p>
+        <span class="social-cta">
+          Volg op Instagram
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7"/><path d="M8 7 L17 7 L17 16"/></svg>
+        </span>
+      </a>
+
+      <a class="social-card" data-platform="facebook" href="https://www.facebook.com/fdautoservice/" target="_blank" rel="noopener">
+        <span class="social-pill">Reviews & nieuws</span>
+        <div class="social-ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+        <h3>Facebook</h3>
+        <span class="social-handle">/fdautoservice</span>
+        <p class="social-desc">Reviews van tevreden klanten, aanbiedingen voor het seizoen, en updates over de werkplaats.</p>
+        <span class="social-cta">
+          Like onze pagina
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7"/><path d="M8 7 L17 7 L17 16"/></svg>
+        </span>
+      </a>
+
+      <a class="social-card" data-platform="whatsapp" href="https://wa.me/31629123444" target="_blank" rel="noopener">
+        <span class="social-pill">Direct contact</span>
+        <div class="social-ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        </div>
+        <h3>WhatsApp</h3>
+        <span class="social-handle">06 29 12 34 44</span>
+        <p class="social-desc">Snel een vraag? Foto van een schade? Stuur 'm gewoon, we reageren meestal binnen een uur tijdens werkuren.</p>
+        <span class="social-cta">
+          Stuur ons een appje
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7"/><path d="M8 7 L17 7 L17 16"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <div class="wrap">
+    <h2>Klaar voor een <span class="serif">eerlijke prijs?</span></h2>
+    <p>Plan in 30 seconden een afspraak. Auto langsbrengen 's morgens, klaar dezelfde dag.</p>
+    <a class='btn-pill' href='/afspraak'>Maak een afspraak</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-foot">
+  <div class="fw">
+    <span>&copy; 2026 <strong>FD Autoservice</strong> &middot; Westzijde 158C, Zaandam &middot; <a href="tel:+31752013142">075 - 201 3142</a> &middot; <a href="mailto:contact@fdautoservice.nl">contact@fdautoservice.nl</a><br>KvK 94702551</span>
+    <span class="legal">
+      <a href='/privacyverklaring'>Privacyverklaring</a>
+      <a href='/cookiebeleid'>Cookiebeleid</a>
+      <a href='/algemene-voorwaarden'>Algemene voorwaarden</a>
+      <a href="#" data-cookie-settings>Cookievoorkeuren</a>
+    </span>
+  </div>
+</footer>
+
+<!-- Floating CTAs mobile -->
+<script>
+  const header = document.getElementById('header');
+  document.addEventListener('scroll', () => {
+  }, {passive:true});
+</script>
+<script src="site-data.js" defer></script>
+<script src="site-header.js" defer></script>
+<script src="contact-balk.js" defer></script>
+</body>
+</html>

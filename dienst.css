@@ -1,0 +1,246 @@
+/* ==========================================================================
+   FD Autoservice — gedeelde stijl voor de dienstpagina's
+   (APK, airco, banden, onderhoud)
+
+   Uitgangspunt van deze pagina's: iemand die uit een advertentie komt moet
+   zonder te scrollen zien wat het kost en hoe hij ons bereikt. Prijs en
+   telefoonnummer staan daarom in het eerste scherm, op mobiel én desktop.
+   ========================================================================== */
+
+:root{
+  --primary:#101014;--primary-light:#F1F1F4;
+      --accent:#D7261E;--accent-hover:#B81B14;
+    /* Rood als hierarchie, niet als thema.
+       --accent      alleen voor primaire knoppen en het telefoonnummer
+       --accent-mute labels, eyebrows en iconen: herkenbaar maar rustig
+       --accent-soft randen en achtergrondvlakjes */
+    --accent-mute:#B3312A;--accent-soft:rgba(215,38,30,.10);
+  --bg:#FFFFFF;--bg-soft:#F6F6F8;--bg-card:#FFFFFF;--border:#E4E4EA;
+  --text:rgba(16,16,20,.72);--text-strong:#101014;--success:#17784A;
+  --muted:rgba(16,16,20,.56);--maxw:1200px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  color:var(--text);background:var(--bg);
+  line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{color:#101014;font-weight:900;letter-spacing:-.025em;margin:0 0 .4em}
+h1{font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.02;letter-spacing:-.035em}
+h2{font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.15}
+h3{font-size:1.1rem}
+p{margin:0 0 16px}
+a{color:var(--accent);text-decoration:none}
+.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;color:var(--accent-mute)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- Hero ---------- */
+.d-hero{padding:70px 0 64px;position:relative;overflow:hidden}
+.d-hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 800px 420px at 88% 15%, rgba(215,38,30,.13) 0%, transparent 62%),
+    radial-gradient(ellipse 600px 320px at 5% 90%, rgba(215,38,30,.05) 0%, transparent 60%);
+}
+.d-hero .wrap{position:relative;z-index:1}
+.d-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:start}
+@media(max-width:940px){.d-hero-grid{grid-template-columns:1fr;gap:36px}}
+
+.d-eyebrow{
+  display:inline-flex;align-items:center;gap:13px;
+  color:var(--accent-mute);font-size:.72rem;font-weight:800;
+  letter-spacing:.24em;text-transform:uppercase;margin-bottom:20px;
+}
+.d-eyebrow::before{content:"";width:30px;height:1px;background:var(--accent-mute)}
+.d-hero h1{margin-bottom:18px;max-width:15ch}
+.d-lead{font-size:1.08rem;line-height:1.65;color:rgba(16,16,20,.773);max-width:52ch;margin:0 0 26px}
+
+.d-bullets{list-style:none;margin:0 0 30px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:640px){.d-bullets{grid-template-columns:1fr}}
+.d-bullets li{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;color:rgba(16,16,20,.773);line-height:1.45}
+.d-bullets svg{width:16px;height:16px;color:var(--accent-mute);flex-shrink:0;margin-top:4px}
+
+.d-acties{display:flex;gap:12px;flex-wrap:wrap}
+.d-acties-mid{justify-content:center}
+.d-btn-primair,.d-btn-bel{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 28px;border-radius:999px;
+  font-weight:800;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;transition:all .22s ease;
+}
+.d-btn-primair{background:var(--accent);color:#fff;box-shadow:0 14px 34px -10px rgba(215,38,30,.6)}
+.d-btn-primair:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.d-btn-bel{background:transparent;color:#101014;border:1.5px solid var(--border)}
+.d-btn-bel:hover{border-color:#101014;background:rgba(16,16,20,.025)}
+.d-btn-bel svg{width:16px;height:16px;color:var(--accent)}
+.d-btn-vol{width:100%;margin-top:16px}
+@media(max-width:560px){
+  .d-acties{flex-direction:column}
+  .d-btn-primair,.d-btn-bel{width:100%}
+}
+
+/* ---------- Rechterkaart: prijs + kentekencheck ---------- */
+.d-kaart{
+  background:linear-gradient(180deg,#FFFFFF 0%,#F6F6F8 100%);
+  border:1px solid var(--border);border-radius:20px;
+  padding:0;overflow:hidden;
+  box-shadow:0 30px 80px -22px rgba(16,16,20,.16);
+}
+.d-prijsblok{
+  padding:26px 28px;border-bottom:1px solid var(--border);
+  background:rgba(215,38,30,.07);
+  display:flex;flex-direction:column;gap:3px;
+}
+.d-prijs-lbl{font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-mute)}
+.d-prijs{color:#101014;font-size:2.6rem;font-weight:900;letter-spacing:-.04em;line-height:1}
+.d-prijs-sub{font-size:.84rem;color:rgba(16,16,20,.607)}
+
+.d-check{padding:26px 28px}
+.d-check h2{font-size:1.12rem;margin:0 0 6px}
+.d-check-intro{font-size:.9rem;color:rgba(16,16,20,.644);margin:0 0 18px}
+
+/* Nederlands kentekenveld */
+.plate-wrap{
+  display:flex;align-items:stretch;max-width:100%;
+  border-radius:10px;overflow:hidden;
+  box-shadow:0 16px 40px -14px rgba(215,38,30,.4);
+}
+.plate-flag{
+  background:#0d47a1;color:#FFCA28;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  padding:0 13px;font-weight:900;letter-spacing:.1em;
+}
+.plate-flag::before{content:"★★★";font-size:.5rem;letter-spacing:1px;margin-bottom:2px}
+.plate-flag::after{content:"NL";font-weight:900;font-size:1rem}
+/* min-width:0 is essentieel, anders weigert het veld te krimpen op mobiel */
+.plate-input{
+  flex:1 1 0;min-width:0;width:100%;
+  padding:16px 10px;font-family:'Inter',sans-serif;font-weight:900;
+  font-size:1.3rem;text-transform:uppercase;text-align:center;letter-spacing:.1em;
+  background:#FFC30B;color:#000;border:0;
+}
+.plate-input:focus{outline:none;background:#FFD640}
+.plate-input::placeholder{color:rgba(0,0,0,.32)}
+.plate-btn{
+  flex-shrink:0;white-space:nowrap;
+  padding:0 18px;background:var(--accent);color:#fff;border:0;cursor:pointer;
+  font-family:'Inter',sans-serif;
+  font-weight:800;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;
+  display:flex;align-items:center;gap:6px;transition:background .2s ease;
+}
+.plate-btn:hover{background:var(--accent-hover)}
+.plate-btn svg{width:15px;height:15px}
+.plate-hint{margin:11px 0 0;font-size:.76rem;color:rgba(16,16,20,.386);text-align:center}
+@media(max-width:430px){
+  .plate-wrap{flex-wrap:wrap;box-shadow:none;overflow:visible}
+  .plate-flag{border-radius:10px 0 0 10px}
+  .plate-input{border-radius:0 10px 10px 0;font-size:1.2rem;padding:15px 8px}
+  .plate-btn{width:100%;justify-content:center;padding:14px 18px;margin-top:9px;border-radius:10px}
+}
+
+.d-laden{display:none;text-align:center;padding:20px 0;color:rgba(16,16,20,.626);font-size:.9rem}
+.d-fout{
+  display:none;margin-top:16px;padding:13px 16px;border-radius:10px;
+  background:rgba(215,38,30,.1);border:1px solid rgba(215,38,30,.3);
+  color:#101014;font-size:.88rem;
+}
+.d-uitslag{display:none;margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+.d-auto{color:#101014;font-weight:700;font-size:1rem;margin-bottom:14px}
+.d-auto small{display:block;font-weight:500;font-size:.82rem;color:rgba(16,16,20,.57);margin-top:3px}
+.d-dagen{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.d-dagen-num{color:var(--accent);font-size:2.4rem;font-weight:900;letter-spacing:-.03em;line-height:1}
+.d-dagen-lbl{font-size:.86rem;color:rgba(16,16,20,.662);font-weight:600}
+.d-advies{font-size:.9rem;line-height:1.55;color:rgba(16,16,20,.736);margin:0}
+
+/* ---------- Uitlegblokken ---------- */
+.d-uitleg{padding:64px 0;background:var(--bg-soft);border-top:1px solid rgba(16,16,20,.085);border-bottom:1px solid rgba(16,16,20,.085)}
+.d-uitleg .wrap{max-width:820px}
+.d-blok{margin-bottom:38px}
+.d-blok:last-child{margin-bottom:0}
+.d-blok h2{margin-bottom:12px}
+.d-blok p{font-size:1.02rem;line-height:1.75;margin:0}
+
+/* ---------- FAQ ---------- */
+.d-faq-sectie{padding:64px 0}
+.d-sec-head{max-width:640px;margin:0 0 34px}
+.d-sec-head h2{margin:0}
+.d-faq{max-width:820px}
+.d-faq details{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:12px;
+  margin-bottom:9px;overflow:hidden;transition:border-color .2s ease;
+}
+.d-faq details[open]{border-color:var(--accent)}
+.d-faq summary{
+  cursor:pointer;list-style:none;position:relative;
+  padding:18px 52px 18px 22px;
+  color:#101014;font-weight:700;font-size:1rem;line-height:1.4;
+}
+.d-faq summary::-webkit-details-marker{display:none}
+.d-faq summary::after{
+  content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);
+  color:var(--accent-mute);font-size:1.4rem;font-weight:400;transition:transform .25s ease;
+}
+.d-faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.d-faq-ans{padding:0 22px 20px;font-size:.96rem;line-height:1.7;color:rgba(16,16,20,.718)}
+
+/* ---------- Andere diensten ---------- */
+.d-ander{padding:64px 0;background:var(--bg-soft);border-top:1px solid rgba(16,16,20,.085)}
+.d-ander-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:760px){.d-ander-grid{grid-template-columns:1fr}}
+.d-ander-kaart{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:22px 24px;border-radius:14px;
+  background:var(--bg-card);border:1px solid var(--border);
+  color:#101014;font-weight:700;font-size:1rem;text-decoration:none;
+  transition:all .22s ease;
+}
+.d-ander-kaart:hover{border-color:var(--accent);transform:translateY(-2px);color:#101014}
+.d-ander-kaart svg{width:19px;height:19px;color:var(--accent-mute);flex-shrink:0}
+
+/* ---------- Slot ---------- */
+.d-slot-sectie{padding:64px 0 74px}
+.d-slot{
+  background:linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 100%);
+  border:1px solid var(--border);border-radius:20px;
+  padding:52px 40px;text-align:center;position:relative;overflow:hidden;
+}
+.d-slot::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(215,38,30,.5),transparent);
+}
+.d-slot h2{margin-bottom:12px}
+.d-slot p{max-width:46ch;margin:0 auto 26px;color:rgba(16,16,20,.736)}
+@media(max-width:560px){.d-slot{padding:38px 22px}}
+
+/* ---------- Footer ---------- */
+.site-foot{
+  border-top:1px solid rgba(16,16,20,.119);
+  padding:30px 0;font-size:.86rem;color:rgba(16,16,20,.57);
+}
+.site-foot .fw{
+  max-width:var(--maxw);margin:0 auto;padding:0 24px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;
+}
+.site-foot strong{color:rgba(16,16,20,.718)}
+.site-foot a{color:rgba(16,16,20,.681);text-decoration:none}
+.site-foot a:hover{color:var(--accent)}
+.site-foot .legal a + a::before{content:"·";margin:0 8px;color:rgba(16,16,20,.23)}
+
+/* ---------- Mobiele verfijning ---------- */
+@media(max-width:760px){
+  .d-hero{padding:44px 0 40px}
+  .d-uitleg,.d-faq-sectie,.d-ander{padding:48px 0}
+  .d-slot-sectie{padding:48px 0 56px}
+  .wrap{padding:0 20px}
+  .d-kaart{border-radius:16px}
+  .d-prijsblok,.d-check{padding:22px 20px}
+  .d-prijs{font-size:2.25rem}
+  .d-blok{margin-bottom:30px}
+  .site-foot a{display:inline-block;padding:8px 0}
+}
+@media(max-width:560px){
+  .wrap{padding:0 18px}
+  .d-hero h1{max-width:none}
+}

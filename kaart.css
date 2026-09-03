@@ -1,0 +1,82 @@
+/* ==========================================================================
+   FD Autoservice — kaart met onze locatie
+   --------------------------------------------------------------------------
+   Hier zat een Google Maps-embed achter de cookiemuur. Wie cookies weigerde
+   kreeg een leeg vlak te zien, precies bij de bezoeker die de weg zoekt.
+
+   Dit is nu een raster van vaste kaartbeelden van OpenStreetMap. Geen iframe,
+   geen JavaScript, geen cookies en geen WebGL, dus hij laadt altijd, op elk
+   toestel en ongeacht wat iemand in de cookiebanner kiest.
+
+   AANPASSEN
+   Verhuizen we? Dan moeten de tegels opnieuw berekend worden voor de nieuwe
+   coordinaten (zoomniveau 16) en moeten --fd-kaart-x en --fd-kaart-y mee,
+   dat zijn de pixels van het adres binnen het tegelraster.
+   ========================================================================== */
+
+.fd-kaart{
+  position:relative;
+  width:100%;
+  height:100%;
+  min-height:260px;
+  overflow:hidden;
+  border-radius:inherit;
+  background:#E8E4DC; /* de landkleur van OpenStreetMap, voor het geval een tegel nog laadt */
+}
+
+.fd-kaart-tegels{
+  position:absolute;
+  width:1280px;height:768px;
+  left:calc(50% - var(--fd-kaart-x));
+  top:calc(50% - var(--fd-kaart-y));
+  pointer-events:none;
+}
+.fd-kaart-tegels img{
+  position:absolute;
+  width:256px;height:256px;
+  display:block;
+  max-width:none; /* anders schaalt een algemene img-regel de tegels scheef */
+}
+
+/* Speld precies op Westzijde 158C, dat is het midden van de kaart. */
+.fd-kaart-pin{
+  position:absolute;left:50%;top:50%;
+  width:22px;height:22px;margin:-26px 0 0 -11px;
+  border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);
+  background:#D7261E;
+  border:2.5px solid #fff;
+  box-shadow:0 4px 10px rgba(16,16,20,.35);
+}
+.fd-kaart-pin::after{
+  content:"";position:absolute;left:50%;top:50%;
+  width:6px;height:6px;margin:-3px 0 0 -3px;
+  background:#fff;border-radius:50%;
+}
+
+.fd-kaart-adres{
+  position:absolute;left:14px;top:14px;
+  background:rgba(255,255,255,.94);
+  color:#101014;
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  font-size:.8rem;font-weight:700;
+  padding:7px 12px;border-radius:8px;
+  box-shadow:0 2px 10px rgba(16,16,20,.14);
+}
+
+/* Rechtsboven, want onderin ligt op de meeste pagina's de routeknop. */
+.fd-kaart-bron{
+  position:absolute;right:10px;top:14px;
+  background:rgba(255,255,255,.86);
+  color:#3B3B46 !important;
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  font-size:.66rem;font-weight:500;
+  padding:3px 7px;border-radius:5px;
+  text-decoration:none;
+}
+.fd-kaart-bron:hover{color:#101014 !important;text-decoration:underline}
+
+@media(max-width:620px){
+  .fd-kaart{min-height:230px}
+  .fd-kaart-adres{font-size:.74rem;padding:6px 10px;left:10px;top:10px}
+}

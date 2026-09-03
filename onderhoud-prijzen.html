@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=ff84e051-7c06-4847-9784-ca019c047249
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=ff84e051-7c06-4847-9784-ca019c047249">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Onderhoud prijzen berekenen | FD Autoservice Zaandam | Kenteken invoer</title>
+<meta name="description" content="Bereken direct de prijs voor onderhoud van jouw auto. Vul je kenteken in en zie prijs voor APK, kleine of grote beurt, plus add-ons. Vaste prijzen, geen verrassingen. FD Autoservice Zaandam.">
+<meta name="keywords" content="onderhoud kosten Zaandam, prijs auto onderhoud, wat kost APK Zaandam, kleine beurt prijs, grote beurt prijs">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://fdautoservice.nl/onderhoud-prijzen">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@1,9..144,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#101014;--primary-light:#F1F1F4;
+        --accent:#D7261E;--accent-hover:#B81B14;
+    /* Rood als hierarchie, niet als thema.
+       --accent      alleen voor primaire knoppen en het telefoonnummer
+       --accent-mute labels, eyebrows en iconen: herkenbaar maar rustig
+       --accent-soft randen en achtergrondvlakjes */
+    --accent-mute:#B3312A;--accent-soft:rgba(215,38,30,.10);
+    --bg:#FFFFFF;--bg-soft:#F6F6F8;--bg-card:#FFFFFF;--border:#E4E4EA;
+    --text:rgba(16,16,20,.72);--text-strong:#101014;--success:#17784A;
+    --muted:rgba(16,16,20,.56);--maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{color:#101014;font-weight:900;letter-spacing:-.025em;margin:0 0 .4em}
+  h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:.98}
+  h2{font-size:1.5rem}
+  h3{font-size:1.15rem}
+  .serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;color:var(--accent-mute)}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(16,16,20,.053);backdrop-filter:blur(14px);border-bottom:1px solid rgba(16,16,20,.136)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:#101014;font-size:1.05rem;text-decoration:none}
+  .logo-mark{width:44px;height:44px;border-radius:8px;background:#000;display:grid;place-items:center;font-weight:900;letter-spacing:-.05em;font-size:1.05rem;position:relative;overflow:hidden;border:1px solid #ECECF1}
+  .logo-mark::before{content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);width:28px;height:5px;background:linear-gradient(90deg,transparent 0%,#fff 30%,#fff 70%,transparent 100%);border-radius:50%;opacity:.85;clip-path:polygon(0 50%,15% 0,85% 0,100% 50%,100% 100%,0 100%)}
+  .logo-mark .fd{color:var(--accent);margin-top:8px;font-size:.95rem;line-height:1}
+  .logo span small{display:block;font-weight:500;font-size:.7rem;color:rgba(16,16,20,.644);letter-spacing:.06em;text-transform:uppercase;margin-top:-2px}
+  .nav-back{color:rgba(16,16,20,.718);font-size:.86rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+  .nav-back:hover{color:#101014}
+
+  /* Hero — split layout: intro links + kenteken kaart rechts */
+  .op-hero{padding:56px 0 66px;position:relative;overflow:hidden;min-height:auto}
+  .op-hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 900px 500px at 90% 100%, rgba(215,38,30,.13) 0%, transparent 55%),
+      radial-gradient(ellipse 500px 300px at 5% 10%, rgba(215,38,30,.05) 0%, transparent 60%);
+  }
+  .op-hero .wrap{position:relative;z-index:1}
+  .op-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  @media(max-width:960px){.op-hero-grid{grid-template-columns:1fr;gap:50px}}
+  .op-eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--accent-mute);font-size:.74rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;margin-bottom:24px}
+  .op-eyebrow::before{content:"";display:inline-block;width:32px;height:1px;background:var(--accent-mute)}
+  .op-hero h1{margin-bottom:22px}
+  .op-hero-intro > p{color:rgba(16,16,20,.773);max-width:52ch;font-size:1.08rem;margin:0 0 26px;line-height:1.65}
+  .op-hero-bullets{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+  .op-hero-bullets li{display:flex;align-items:flex-start;gap:12px;color:rgba(16,16,20,.782);font-size:.98rem;line-height:1.5}
+  .op-hero-bullets li svg{flex-shrink:0;color:var(--accent-mute);margin-top:3px}
+
+  /* Main section */
+  .op-section{padding:0 0 120px}
+
+  /* Kenteken input card */
+  .plate-card{
+    background:linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 100%);
+    border:1px solid var(--border);border-radius:24px;
+    padding:44px 40px;max-width:none;margin:0;text-align:center;
+    position:relative;overflow:hidden;
+    box-shadow:0 30px 80px -20px rgba(16,16,20,.156),0 0 0 1px rgba(16,16,20,.006) inset;
+  }
+  .plate-card::before{
+    content:"";position:absolute;top:-40%;right:-30%;width:400px;height:400px;
+    background:radial-gradient(circle, rgba(215,38,30,.09) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .plate-card::after{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(215,38,30,.4),transparent);
+  }
+  .plate-card > *{position:relative;z-index:1}
+  @media(max-width:560px){.plate-card{padding:32px 22px}}
+  .plate-card h2{margin-bottom:8px;font-size:1.35rem}
+  .plate-card > p{color:rgba(16,16,20,.718);font-size:.96rem;margin:0 auto 24px;max-width:44ch}
+  .plate-card-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--accent-mute);font-size:.68rem;font-weight:800;letter-spacing:.22em;
+    text-transform:uppercase;margin-bottom:14px;
+    padding:6px 14px;border-radius:999px;background:rgba(215,38,30,.10);border:1px solid rgba(215,38,30,.25);
+  }
+  .plate-card-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-mute);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+
+  /* Voorbeeld prijzen preview */
+  .op-preview{padding:70px 0;background:var(--bg-soft);border-top:1px solid rgba(16,16,20,.085);border-bottom:1px solid rgba(16,16,20,.085)}
+  .op-preview-head{max-width:640px;margin:0 auto 40px;text-align:center}
+  .op-preview-head h2{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.02em;margin-bottom:12px}
+  .op-preview-head p{color:rgba(16,16,20,.681);font-size:1rem;margin:0}
+  .op-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.op-preview-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}}
+  .op-preview-col{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
+    padding:28px 24px;position:relative;overflow:hidden;
+  }
+  .op-preview-col-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(16,16,20,.102)}
+  .op-preview-col-head .icon{
+    width:38px;height:38px;border-radius:10px;background:rgba(215,38,30,.10);
+    display:grid;place-items:center;color:var(--accent-mute);flex-shrink:0;
+  }
+  .op-preview-col-head .icon svg{width:20px;height:20px}
+  .op-preview-col-head .lbl{font-size:.68rem;font-weight:800;color:var(--accent-mute);letter-spacing:.18em;text-transform:uppercase}
+  .op-preview-col-head .cat{font-size:.98rem;font-weight:700;color:#101014;margin-top:2px;line-height:1.2}
+  .op-preview-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;font-size:.92rem}
+  .op-preview-row + .op-preview-row{border-top:1px solid rgba(16,16,20,.068)}
+  .op-preview-row .svc{color:rgba(16,16,20,.773)}
+  .op-preview-row .prc{color:#101014;font-weight:800;font-family:'Inter',sans-serif;letter-spacing:-.01em}
+
+  /* Hoe werkt het */
+  .op-how{padding:80px 0}
+  .op-how-head{text-align:center;max-width:640px;margin:0 auto 48px}
+  .op-how-head h2{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.02em;margin-bottom:12px}
+  .op-how-head p{color:rgba(16,16,20,.681);font-size:1rem;margin:0}
+  .op-how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:820px){.op-how-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+  .op-how-step{
+    position:relative;padding:32px 28px;
+    background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
+  }
+  .op-how-step .num{
+    position:absolute;top:-16px;left:28px;
+    width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;
+    display:grid;place-items:center;font-weight:900;font-size:.94rem;
+    box-shadow:0 8px 20px -4px rgba(215,38,30,.5);
+  }
+  .op-how-step h3{margin:8px 0 8px;font-size:1.15rem;letter-spacing:-.015em}
+  .op-how-step p{color:rgba(16,16,20,.681);font-size:.92rem;line-height:1.55;margin:0}
+
+  /* NL license plate style input */
+  .plate-input-wrap{
+    display:flex;align-items:stretch;max-width:min(420px,100%);margin:0 auto;
+    border-radius:12px;overflow:hidden;
+    box-shadow:0 20px 60px -15px rgba(215,38,30,.35);
+  }
+  .plate-flag{
+    background:#0d47a1;color:#FFCA28;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
+    padding:0 14px;font-weight:900;font-size:.8rem;letter-spacing:.1em;
+    flex-shrink:0;
+  }
+  .plate-flag::before{content:"★★★";font-size:.55rem;color:#FFCA28;letter-spacing:1px;margin-bottom:2px}
+  .plate-flag::after{content:"NL";font-family:'Inter',sans-serif;font-weight:900;font-size:1.05rem}
+  /* min-width:0 is essentieel — zonder dit weigert het invoerveld te krimpen
+     en duwt het de knop buiten beeld op telefoons */
+  .plate-input{
+    flex:1 1 0;min-width:0;width:100%;
+    padding:22px 20px;font-family:'Inter',sans-serif;font-weight:900;
+    font-size:1.8rem;text-transform:uppercase;text-align:center;letter-spacing:.15em;
+    background:#FFC30B;color:#000;border:0;
+    transition:background .2s ease;
+  }
+  .plate-input:focus{outline:none;background:#FFD640}
+  .plate-input::placeholder{color:rgba(0,0,0,.35);letter-spacing:.1em}
+  .plate-btn{
+    padding:0 24px;background:var(--accent);color:#fff;border:0;
+    font-weight:800;font-size:.86rem;letter-spacing:.08em;text-transform:uppercase;
+    cursor:pointer;transition:background .2s ease;
+    display:flex;align-items:center;gap:8px;
+    flex-shrink:0;white-space:nowrap;
+  }
+  .plate-btn:hover{background:var(--accent-hover)}
+  .plate-btn svg{width:18px;height:18px}
+  @media(max-width:480px){
+    .plate-input{font-size:1.3rem;padding:18px 14px}
+    .plate-btn{padding:0 16px;font-size:.76rem}
+    .plate-flag{padding:0 10px}
+    .plate-flag::after{font-size:.9rem}
+  }
+  /* Op smalle telefoons: knop onder het kentekenveld ipv ernaast */
+  @media(max-width:430px){
+    .plate-input-wrap{flex-wrap:wrap;box-shadow:none;overflow:visible}
+    .plate-flag{border-radius:12px 0 0 12px}
+    .plate-input{font-size:1.25rem;letter-spacing:.08em;padding:16px 8px;border-radius:0 12px 12px 0}
+    .plate-btn{width:100%;justify-content:center;padding:15px 20px;margin-top:10px;border-radius:12px}
+  }
+
+  .plate-hint{margin-top:16px;font-size:.84rem;color:rgba(16,16,20,.57)}
+
+  /* Loading state */
+  .op-loading{display:none;text-align:center;padding:40px}
+  .op-loading.show{display:block}
+  .op-loading-spinner{
+    width:44px;height:44px;border-radius:50%;
+    border:3px solid rgba(16,16,20,.17);
+    border-top-color:var(--accent);
+    margin:0 auto 16px;animation:spin 1s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .op-loading p{color:rgba(16,16,20,.644);font-size:.94rem}
+
+  /* Error state */
+  .op-error{
+    display:none;background:rgba(215,38,30,.10);border:1px solid rgba(215,38,30,.35);
+    color:#FF7A6E;padding:16px 20px;border-radius:12px;margin:24px auto 0;max-width:440px;
+    text-align:center;font-size:.92rem;
+  }
+  .op-error.show{display:block}
+  .op-error strong{color:#101014;display:block;margin-bottom:4px;font-size:.86rem;text-transform:uppercase;letter-spacing:.1em}
+
+  /* Results */
+  .op-results{display:none;animation:fadeIn .5s ease}
+  .op-results.show{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  /* Auto info card */
+  .auto-info{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:18px;
+    padding:32px;margin-bottom:32px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;
+  }
+  @media(max-width:640px){.auto-info{grid-template-columns:1fr;text-align:center;gap:16px;padding:24px}}
+  .auto-info .mini-plate{
+    display:inline-flex;align-items:stretch;border-radius:8px;overflow:hidden;
+    font-family:'Inter',sans-serif;
+  }
+  .auto-info .mini-plate .flag{background:#0d47a1;color:#FFCA28;padding:0 8px;display:flex;align-items:center;font-size:.7rem;font-weight:900;letter-spacing:.06em}
+  .auto-info .mini-plate .num{background:#FFC30B;color:#000;padding:8px 14px;font-weight:900;font-size:1.1rem;letter-spacing:.1em}
+  .auto-info-details h3{margin:0 0 4px;font-size:1.4rem;letter-spacing:-.015em}
+  .auto-info-details p{margin:0;color:rgba(16,16,20,.644);font-size:.92rem}
+  .auto-info-details p span::before{content:"·";margin:0 6px;color:rgba(16,16,20,.23)}
+  .auto-info-details p span:first-child::before{display:none}
+  .auto-info .category-badge{
+    background:var(--accent);color:#fff;padding:8px 14px;border-radius:8px;
+    font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  }
+
+  /* Packages grid */
+  .op-section-title{
+    color:#101014;font-size:.78rem;font-weight:800;letter-spacing:.22em;
+    text-transform:uppercase;margin:36px 0 18px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .op-section-title::before{content:"";display:inline-block;width:26px;height:2px;background:var(--accent)}
+  .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:920px){.packages-grid{grid-template-columns:1fr}}
+  .pkg{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
+    padding:32px 28px;position:relative;overflow:hidden;
+    transition:all .3s ease;display:flex;flex-direction:column;gap:14px;
+  }
+  .pkg:hover{transform:translateY(-4px);border-color:rgba(215,38,30,.4);box-shadow:0 24px 50px -15px rgba(16,16,20,.13)}
+  .pkg.recommended{border-color:var(--accent);box-shadow:0 20px 50px -10px rgba(215,38,30,.30)}
+  .pkg.recommended::before{
+    content:"AANRADER";position:absolute;top:0;right:24px;
+    background:var(--accent);color:#fff;
+    padding:6px 12px;border-radius:0 0 8px 8px;
+    font-size:.68rem;font-weight:800;letter-spacing:.12em;
+  }
+  .pkg h3{margin:0}
+  .pkg-desc{color:rgba(16,16,20,.644);font-size:.9rem;line-height:1.5;margin:0;flex:1}
+  .pkg-price{
+    display:flex;align-items:baseline;gap:8px;padding:16px 0;
+    border-top:1px solid rgba(16,16,20,.136);border-bottom:1px solid rgba(16,16,20,.136);
+  }
+  .pkg-price .euro{font-size:1.4rem;color:rgba(16,16,20,.644);font-weight:600}
+  .pkg-price .amount{font-size:2.6rem;font-weight:900;color:#101014;letter-spacing:-.03em;line-height:1}
+  .pkg-price .suffix{color:rgba(16,16,20,.644);font-size:.86rem;font-weight:500}
+  .pkg ul{margin:0;padding:0;list-style:none}
+  .pkg ul li{padding:6px 0;font-size:.9rem;color:rgba(16,16,20,.754);display:flex;gap:8px;align-items:flex-start;line-height:1.4}
+  .pkg ul li::before{content:"✓";color:var(--accent);font-weight:900;flex-shrink:0}
+  .pkg-cta{
+    margin-top:auto;padding:14px 22px;border-radius:10px;
+    background:transparent;color:#101014;border:1.5px solid var(--border);
+    font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;
+    text-decoration:none;text-align:center;
+    transition:all .25s ease;display:block;
+  }
+  .pkg-cta:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+  .pkg.recommended .pkg-cta{background:var(--accent);border-color:var(--accent)}
+  .pkg.recommended .pkg-cta:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+
+  /* Add-ons */
+  .addons-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(max-width:640px){.addons-grid{grid-template-columns:1fr}}
+  .addon{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:12px;
+    padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;
+    transition:all .25s ease;
+  }
+  .addon:hover{border-color:rgba(215,38,30,.35);transform:translateY(-2px)}
+  .addon-info h4{margin:0 0 3px;color:#101014;font-size:.98rem;font-weight:700;letter-spacing:-.005em}
+  .addon-info p{margin:0;color:rgba(16,16,20,.607);font-size:.82rem}
+  .addon-price{color:var(--accent);font-weight:900;font-size:1.15rem;letter-spacing:-.02em;flex-shrink:0}
+
+  /* Final CTA */
+  .op-final-cta{
+    margin-top:56px;padding:44px;background:var(--bg-card);border:1px solid var(--border);
+    border-radius:20px;text-align:center;
+  }
+  .op-final-cta h3{color:#101014;font-size:1.5rem;margin-bottom:8px}
+  .op-final-cta p{color:rgba(16,16,20,.681);margin:0 auto 24px;max-width:52ch}
+  .op-final-cta .btn-primary{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--accent);color:#fff;padding:16px 32px;border-radius:999px;
+    font-weight:800;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;
+    text-decoration:none;box-shadow:0 12px 30px -8px rgba(215,38,30,.5);
+    transition:all .25s ease;
+  }
+  .op-final-cta .btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
+
+  /* Disclaimer */
+  .op-disclaimer{
+    margin-top:32px;font-size:.82rem;color:rgba(16,16,20,.57);
+    text-align:center;line-height:1.6;
+  }
+
+  footer{padding:32px 0;border-top:1px solid rgba(16,16,20,.102);font-size:.86rem;color:rgba(16,16,20,.57);text-align:center}
+  footer strong{color:#101014}
+
+</style>
+
+<style>
+  .site-foot{padding:36px 0;border-top:1px solid rgba(16,16,20,.119);font-size:.86rem;color:rgba(16,16,20,.57)}
+  .site-foot .fw{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  .site-foot strong{color:rgba(16,16,20,.718)}
+  .site-foot a{color:rgba(16,16,20,.681);text-decoration:none}
+  .site-foot a:hover{color:#D7261E}
+  .site-foot .legal a + a::before{content:"·";margin:0 8px;color:rgba(16,16,20,.23)}
+
+  /* ============================================================
+     MOBIELE VERFIJNING — bewust als laatste zodat het overschrijft
+     ============================================================ */
+  @media(max-width:760px){
+    .op-hero{padding:36px 0 38px}
+    .op-section{padding:0 0 64px}
+    .wrap{padding:0 20px}
+    .op-hero-grid{gap:28px}
+    .plate-card{padding:26px 20px}
+    .op-section-title{margin-bottom:24px}
+    .op-how{padding:44px 0}
+    .op-how-grid{gap:20px}
+    .pkg{padding:26px 22px}
+    .packages-grid{gap:14px}
+    .op-final-cta{padding:40px 22px}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 18px}
+    .pkg-cta,.op-final-cta a{width:100%;justify-content:center}
+    .site-foot a{display:inline-block;padding:9px 0}
+  }
+</style>
+<!-- Cookie consent + Google Consent Mode v2 — moet vóór Tag Manager staan -->
+<script src="cookie-consent.js"></script>
+<script src="meting.js" defer></script>
+</head>
+<body data-fd-pagina="prijzen">
+
+<section class="op-hero">
+  <div class="wrap">
+    <div class="op-hero-grid">
+      <div class="op-hero-intro">
+        <span class="op-eyebrow">Prijzen berekenen</span>
+        <h1>Wat kost onderhoud <span class="serif">voor jouw auto?</span></h1>
+        <p>Vul je kenteken in en we tonen direct de prijs voor APK, kleine of grote beurt, plus populaire add-ons. Wij hanteren dezelfde tarieven als Kwik-Fit, maar dan met persoonlijk contact en één vast aanspreekpunt uit onze werkplaats in Zaandam.</p>
+        <ul class="op-hero-bullets">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Prijs binnen 5 seconden, geen wachten op offerte</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Merk, model en categorie automatisch via RDW</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Direct online een afspraak inplannen, geen bel-uurtjes</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Kenteken input rechts -->
+      <div class="plate-card">
+        <span class="plate-card-eyebrow">Live · via RDW</span>
+        <h2>Vul je kenteken in</h2>
+        <p>Wij halen automatisch je auto op en tonen de prijs.</p>
+        <form class="plate-input-wrap" id="plateForm" autocomplete="off">
+          <div class="plate-flag"></div>
+          <input type="text" class="plate-input" id="kentekenInput" placeholder="12ABC3" maxlength="8" autocomplete="off" spellcheck="false" required>
+          <button type="submit" class="plate-btn" id="lookupBtn">
+            Zoek
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+        <p class="plate-hint">Tip: streepjes hoeven niet, wij herkennen het formaat vanzelf</p>
+        <div class="op-error" id="opError">
+          <strong>Auto niet gevonden</strong>
+          Controleer het kenteken en probeer opnieuw. Of plan direct een <a href='/afspraak' style='color:#101014;text-decoration:underline'>afspraak</a> en vul je gegevens handmatig in.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Voorbeeld prijzen -->
+<section class="op-preview">
+  <div class="wrap">
+    <div class="op-preview-head">
+      <h2>Voorbeeld <span class="serif">tarieven</span> per autotype</h2>
+      <p>Vaste prijzen zonder verrassingen. Jouw auto wordt automatisch in de juiste categorie geplaatst.</p>
+    </div>
+    <div class="op-preview-grid">
+      <div class="op-preview-col">
+        <div class="op-preview-col-head">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></div>
+          <div><div class="lbl">Klein</div><div class="cat">Fiat 500, Polo, Aygo</div></div>
+        </div>
+        <div class="op-preview-row"><span class="svc">APK keuring</span><span class="prc">€ 60</span></div>
+        <div class="op-preview-row"><span class="svc">Kleine beurt</span><span class="prc">€ 219</span></div>
+        <div class="op-preview-row"><span class="svc">Grote beurt</span><span class="prc">€ 349</span></div>
+        <div class="op-preview-row"><span class="svc">Airco service</span><span class="prc">€ 150</span></div>
+      </div>
+      <div class="op-preview-col">
+        <div class="op-preview-col-head">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></div>
+          <div><div class="lbl">Middel</div><div class="cat">Golf, Focus, 208</div></div>
+        </div>
+        <div class="op-preview-row"><span class="svc">APK keuring</span><span class="prc">€ 60</span></div>
+        <div class="op-preview-row"><span class="svc">Kleine beurt</span><span class="prc">€ 277</span></div>
+        <div class="op-preview-row"><span class="svc">Grote beurt</span><span class="prc">€ 428</span></div>
+        <div class="op-preview-row"><span class="svc">Airco service</span><span class="prc">€ 150</span></div>
+      </div>
+      <div class="op-preview-col">
+        <div class="op-preview-col-head">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="8" width="15" height="10" rx="1"/><path d="M16 10h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <div><div class="lbl">Groot</div><div class="cat">SUV, bestel, premium</div></div>
+        </div>
+        <div class="op-preview-row"><span class="svc">APK keuring</span><span class="prc">€ 60</span></div>
+        <div class="op-preview-row"><span class="svc">Kleine beurt</span><span class="prc">€ 339</span></div>
+        <div class="op-preview-row"><span class="svc">Grote beurt</span><span class="prc">€ 499</span></div>
+        <div class="op-preview-row"><span class="svc">Airco service</span><span class="prc">€ 150</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hoe werkt het -->
+<section class="op-how">
+  <div class="wrap">
+    <div class="op-how-head">
+      <h2>Zo werkt het, <span class="serif">in 3 stappen</span></h2>
+      <p>Van kenteken naar afspraak in minder dan een minuut.</p>
+    </div>
+    <div class="op-how-grid">
+      <div class="op-how-step">
+        <span class="num">1</span>
+        <h3>Kenteken invoeren</h3>
+        <p>Wij halen merk, model en categorie automatisch op via de RDW-database.</p>
+      </div>
+      <div class="op-how-step">
+        <span class="num">2</span>
+        <h3>Prijs bekijken</h3>
+        <p>Direct zichtbaar: APK, kleine of grote beurt, plus optionele extra's zoals airco, banden en koplampen polijsten.</p>
+      </div>
+      <div class="op-how-step">
+        <span class="num">3</span>
+        <h3>Afspraak inplannen</h3>
+        <p>Kies een datum die jou uitkomt. Auto voor 12:00 brengen, meestal dezelfde dag klaar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="op-section">
+  <div class="wrap">
+
+    <!-- Loading -->
+    <div class="op-loading" id="opLoading">
+      <div class="op-loading-spinner"></div>
+      <p>Even je auto opzoeken bij de RDW...</p>
+    </div>
+
+    <!-- Results -->
+    <div class="op-results" id="opResults">
+      <!-- Auto info -->
+      <div class="auto-info">
+        <div class="mini-plate">
+          <div class="flag">★★<br>NL</div>
+          <div class="num" id="resPlate"></div>
+        </div>
+        <div class="auto-info-details">
+          <h3 id="resMerkModel"></h3>
+          <p>
+            <span id="resYear"></span>
+            <span id="resFuel"></span>
+            <span id="resTransmission"></span>
+          </p>
+        </div>
+        <div class="category-badge" id="resCategory"></div>
+      </div>
+
+      <!-- Packages -->
+      <div class="op-section-title">Onderhoud pakketten</div>
+      <div class="packages-grid">
+        <div class="pkg">
+          <h3>APK Keuring</h3>
+          <p class="pkg-desc">Verplichte keuring volgens RDW-eisen. Herkeuring binnen 8 weken is gratis.</p>
+          <div class="pkg-price">
+            <span class="euro">€</span>
+            <span class="amount" id="priceApk"></span>
+            <span class="suffix">schatting</span>
+          </div>
+          <ul>
+            <li>Volledige APK-check volgens RDW</li>
+            <li>Eerlijke beoordeling, alleen wat moet</li>
+            <li>Herkeuring binnen 8 weken gratis</li>
+          </ul>
+          <a class='pkg-cta' href='/afspraak'>Plan APK</a>
+        </div>
+        <div class="pkg recommended">
+          <h3>Kleine beurt</h3>
+          <p class="pkg-desc">Basis-onderhoud dat je auto scherp houdt: olie, oliefilter en een inspectie van de belangrijkste punten.</p>
+          <div class="pkg-price">
+            <span class="euro">€</span>
+            <span class="amount" id="priceKlein"></span>
+            <span class="suffix">schatting · incl. materiaal</span>
+          </div>
+          <ul>
+            <li>Olie verversen + oliefilter vervangen</li>
+            <li>Bijvullen ruitensproeiervloeistof</li>
+            <li>Accucheck met rapport</li>
+            <li>Bandeninspectie</li>
+            <li>Controle werking aircosysteem</li>
+            <li>15 aanvullende inspectiepunten</li>
+            <li>Volledig inspectieoverzicht</li>
+          </ul>
+          <a class='pkg-cta' href='/afspraak'>Plan kleine beurt</a>
+        </div>
+        <div class="pkg">
+          <h3>Grote beurt</h3>
+          <p class="pkg-desc">Uitgebreid onderhoud, alles van klein onderhoud, plus filters, remmeninspectie en aandrijfriem check.</p>
+          <div class="pkg-price">
+            <span class="euro">€</span>
+            <span class="amount" id="priceGroot"></span>
+            <span class="suffix">schatting · incl. materiaal</span>
+          </div>
+          <ul>
+            <li>Alles van kleine beurt</li>
+            <li>Vervangen interieurfilter</li>
+            <li>Voertuig storingscodes uitlezen</li>
+                        <li>Remmeninspectie en -reiniging</li>
+            <li>32 aanvullende inspectiepunten</li>
+            <li>Inspectieoverzicht incl. onderhoudsadvies</li>
+          </ul>
+          <a class='pkg-cta' href='/afspraak'>Plan grote beurt</a>
+        </div>
+      </div>
+
+      <!-- Combi -->
+      <div class="op-section-title">Slimme combinatie</div>
+      <div class="packages-grid" style="grid-template-columns:1fr">
+        <div class="pkg recommended" style="max-width:100%">
+          <h3>APK + Kleine beurt in één afspraak</h3>
+          <p class="pkg-desc">Twee vliegen in één klap. Auto in de ochtend brengen, klaar dezelfde dag. Bespaart tijd én je krijgt combi-korting.</p>
+          <div class="pkg-price">
+            <span class="euro">€</span>
+            <span class="amount" id="priceCombi"></span>
+            <span class="suffix">i.p.v. <s id="priceCombiOld" style="color:rgba(16,16,20,.368);text-decoration:line-through"></s> · bespaar €20</span>
+          </div>
+          <ul>
+            <li>Alles van APK + Kleine beurt</li>
+            <li>Één afspraak, één keer langsbrengen</li>
+            <li>Combi-korting van €20</li>
+          </ul>
+          <a class='pkg-cta' href='/afspraak'>Plan combi</a>
+        </div>
+      </div>
+
+      <!-- Add-ons -->
+      <div class="op-section-title">Populaire add-ons</div>
+      <div class="addons-grid">
+        <div class="addon"><div class="addon-info"><h4>Airco service</h4><p>Check + vullen incl. gas &amp; olie (ex BTW)</p></div><div class="addon-price">€150</div></div>
+        <div class="addon"><div class="addon-info"><h4>Koplampen polijsten</h4><p>Per koplamp (ex BTW)</p></div><div class="addon-price">€50</div></div>
+        <div class="addon"><div class="addon-info"><h4>Band vervangen</h4><p>Per band, elke maat (ex BTW)</p></div><div class="addon-price">€30</div></div>
+        <div class="addon"><div class="addon-info"><h4>Diagnose / uitlezen</h4><p>Foutcodes lezen (ex BTW)</p></div><div class="addon-price">€30</div></div>
+        <div class="addon"><div class="addon-info"><h4>Remvloeistof verversen</h4><p>Aanbevolen elke 2 jaar (ex BTW)</p></div><div class="addon-price">€80</div></div>
+        <div class="addon"><div class="addon-info"><h4>Koelvloeistof verversen</h4><p>Vervangen incl. materiaal</p></div><div class="addon-price">€69</div></div>
+        <div class="addon"><div class="addon-info"><h4>Distributieriem check</h4><p>Visuele inspectie</p></div><div class="addon-price">Gratis</div></div>
+        <div class="addon"><div class="addon-info"><h4>Distributieriem vervangen</h4><p>Prijs op maat, bel voor opgave</p></div><div class="addon-price">op aanvraag</div></div>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="op-final-cta">
+        <h3>Prijs weten? Plan direct.</h3>
+        <p>Klaar om je auto langs te brengen? Plan online een afspraak, je hoeft nu niets te betalen, dat doe je in de werkplaats bij het ophalen.</p>
+        <a class='btn-primary' href='/afspraak'>
+          Plan afspraak
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <p class="op-disclaimer"><strong>APK (€60)</strong> en <strong>bandenmontage (€30 ex BTW per band)</strong> zijn vaste tarieven, die veranderen niet. De <strong>beurten</strong> zijn schattingen inclusief materiaal en BTW voor reguliere benzine-personenauto's; voor SUV's, bestelauto's, diesel, hybride of elektrische auto's kunnen die afwijken. <strong>Airco (€150)</strong> en de overige losse werkzaamheden zijn exclusief BTW. Blijkt bij inspectie dat er meer werk nodig is, dan bellen we je altijd eerst voor akkoord, zonder jouw ja doen we niks. Bel voor een exacte opgave: <a href="tel:+31752013142" style="color:rgba(16,16,20,.718);text-decoration:underline">075-201 3142</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="fw">
+    <span>&copy; 2026 <strong>FD Autoservice</strong> &middot; Westzijde 158C, Zaandam &middot; <a href="tel:+31752013142">075 - 201 3142</a> &middot; <a href="mailto:contact@fdautoservice.nl">contact@fdautoservice.nl</a><br>KvK 94702551</span>
+    <span class="legal">
+      <a href='/privacyverklaring'>Privacyverklaring</a>
+      <a href='/cookiebeleid'>Cookiebeleid</a>
+      <a href='/algemene-voorwaarden'>Algemene voorwaarden</a>
+      <a href="#" data-cookie-settings>Cookievoorkeuren</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('plateForm');
+  const input = document.getElementById('kentekenInput');
+  const loading = document.getElementById('opLoading');
+  const errorEl = document.getElementById('opError');
+  const results = document.getElementById('opResults');
+  const lookupBtn = document.getElementById('lookupBtn');
+
+  // Prijzen per auto-categorie (schattingen)
+  const PRICES = {
+    klein:  { apk: 60, klein: 219, groot: 349 },
+    middel: { apk: 60, klein: 277, groot: 428 },
+    groot:  { apk: 60, klein: 339, groot: 499 }
+  };
+  const COMBI_KORTING = 20;
+
+  const CATEGORY_LABELS = {
+    klein:  'Kleine auto',
+    middel: 'Middenklasser',
+    groot:  'Grote / SUV / bestelauto'
+  };
+
+  function normalizeKenteken(v){
+    return v.toUpperCase().replace(/[^A-Z0-9]/g,'');
+  }
+
+  function categorize(car){
+    // Kies categorie op basis van RDW-data
+    const cylinder = parseInt(car.cilinderinhoud) || 0;
+    const mass = parseInt(car.massa_ledig_voertuig) || 0;
+    const type = (car.inrichting || '').toLowerCase();
+    const vtype = (car.voertuigsoort || '').toLowerCase();
+
+    if(vtype.includes('bedrijfs') || type.includes('bestel')) return 'groot';
+    if(cylinder >= 1900 || mass >= 1500) return 'groot';
+    if(cylinder >= 1300 || mass >= 1100) return 'middel';
+    return 'klein';
+  }
+
+  function euro(n){ return n.toLocaleString('nl-NL'); }
+
+  async function lookup(){
+    const raw = input.value.trim();
+    const kenteken = normalizeKenteken(raw);
+    if(kenteken.length < 6){
+      errorEl.querySelector('strong').textContent = 'Ongeldig kenteken';
+      errorEl.lastChild.textContent = ' Vul minstens 6 tekens in (bv. 12ABC3).';
+      errorEl.classList.add('show');
+      return;
+    }
+    errorEl.classList.remove('show');
+    results.classList.remove('show');
+    loading.classList.add('show');
+    lookupBtn.disabled = true;
+
+    try{
+      const res = await fetch(`https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken=${kenteken}`);
+      const data = await res.json();
+      loading.classList.remove('show');
+      lookupBtn.disabled = false;
+
+      if(!data || data.length === 0){
+        errorEl.querySelector('strong').textContent = 'Kenteken niet gevonden';
+        errorEl.lastChild.textContent = ' Controleer of je het juist hebt ingevoerd. Bij twijfel: bel ons op 075-201 3142.';
+        errorEl.classList.add('show');
+        return;
+      }
+
+      showResults(data[0]);
+    } catch(err){
+      loading.classList.remove('show');
+      lookupBtn.disabled = false;
+      errorEl.querySelector('strong').textContent = 'Er ging iets mis';
+      errorEl.lastChild.textContent = ' Kon de RDW niet bereiken. Probeer opnieuw of bel ons op 075-201 3142.';
+      errorEl.classList.add('show');
+    }
+  }
+
+  function showResults(car){
+    const cat = categorize(car);
+    const prices = PRICES[cat];
+
+    // Format kenteken with dashes for display
+    const kenteken = car.kenteken || input.value;
+    const formattedPlate = formatKenteken(kenteken);
+    document.getElementById('resPlate').textContent = formattedPlate;
+
+    // Merk + model
+    const merk = (car.merk || '').split(' ').map(w => w.charAt(0) + w.slice(1).toLowerCase()).join(' ');
+    const model = (car.handelsbenaming || '').split(' ').map(w => w.charAt(0) + w.slice(1).toLowerCase()).join(' ');
+    document.getElementById('resMerkModel').textContent = `${merk} ${model}`.trim();
+
+    // Bouwjaar
+    const yearStr = car.datum_eerste_toelating || '';
+    const year = yearStr ? yearStr.substring(0,4) : '';
+    document.getElementById('resYear').textContent = year;
+
+    // Fuel type, need separate RDW query in reality; use inrichting as fallback
+    const cylinder = car.cilinderinhoud ? `${car.cilinderinhoud} cc` : '';
+    document.getElementById('resFuel').textContent = cylinder || 'benzine';
+
+    // Transmission, placeholder
+    const inrichting = (car.inrichting || 'personenauto').charAt(0).toUpperCase() + (car.inrichting || 'personenauto').slice(1).toLowerCase();
+    document.getElementById('resTransmission').textContent = inrichting;
+
+    // Category badge
+    document.getElementById('resCategory').textContent = CATEGORY_LABELS[cat];
+
+    // Prices
+    document.getElementById('priceApk').textContent = euro(prices.apk);
+    document.getElementById('priceKlein').textContent = euro(prices.klein);
+    document.getElementById('priceGroot').textContent = euro(prices.groot);
+
+    const combiOld = prices.apk + prices.klein;
+    const combiNew = combiOld - COMBI_KORTING;
+    document.getElementById('priceCombi').textContent = euro(combiNew);
+    document.getElementById('priceCombiOld').textContent = '€' + euro(combiOld);
+
+    results.classList.add('show');
+    results.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function formatKenteken(k){
+    k = k.toUpperCase().replace(/[^A-Z0-9]/g,'');
+    // Try common NL formats: XX-99-XX, 99-XX-99, XX-99-99, 99-XX-XX, XXX-99-X, etc.
+    // Simple pattern: split by digit-letter transitions
+    if(k.length === 6){
+      // Guess by content
+      const parts = k.match(/([A-Z]+|[0-9]+)/g) || [];
+      if(parts.length === 3) return parts.join('-');
+    }
+    return k;
+  }
+
+  // Auto-uppercase as user types
+  input.addEventListener('input', () => {
+    input.value = input.value.toUpperCase().replace(/[^A-Z0-9-]/g,'');
+    errorEl.classList.remove('show');
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    lookup();
+  });
+</script>
+<script src="site-data.js" defer></script>
+<script src="site-header.js" defer></script>
+<script src="contact-balk.js" defer></script>
+</body>
+</html>
