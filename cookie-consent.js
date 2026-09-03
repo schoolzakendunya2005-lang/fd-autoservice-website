@@ -160,7 +160,14 @@
       'border:1px solid #E4E4EA;border-radius:16px;padding:24px 26px;',
       'box-shadow:0 30px 80px -20px rgba(16,16,20,.16),0 0 0 1px rgba(16,16,20,.009) inset;',
       'font-family:Inter,system-ui,-apple-system,sans-serif;color:rgba(16,16,20,.644)}',
-      '@media(max-width:560px){.fd-cc-card{padding:20px}}',
+      '@media(max-width:560px){',
+      '  .fd-cc{padding:12px}',
+      '  .fd-cc-card{padding:18px 18px 16px;border-radius:14px}',
+      '  .fd-cc-card h2{font-size:.98rem}',
+      '  .fd-cc-card p{font-size:.82rem;line-height:1.5;margin-bottom:13px}',
+      '  .fd-cc-btn{min-width:0;width:100%;padding:12px 18px}',
+      '  .fd-cc-actions{gap:8px}',
+      '}',
       '.fd-cc-card h2{margin:0 0 8px;color:#101014;font-size:1.02rem;font-weight:800;letter-spacing:-.01em}',
       '.fd-cc-card p{margin:0 0 16px;font-size:.88rem;line-height:1.6}',
       '.fd-cc-card a{color:#D7261E;text-decoration:underline;text-underline-offset:2px}',
@@ -265,6 +272,11 @@
   function zetBalkHoogte(banner) {
     var h = banner ? banner.getBoundingClientRect().height : 0;
     document.documentElement.style.setProperty('--fd-cc-h', Math.round(h) + 'px');
+    // Op een telefoon is de melding al snel de halve hoogte van het scherm.
+    // De belbalk erboven schuiven werkt dan wel, maar hij komt over de kop
+    // van de pagina te liggen. Zolang de melding open staat verbergen we
+    // hem daarom; bellen kan intussen via de knop in de balk bovenaan.
+    document.documentElement.setAttribute('data-fd-cc-open', banner ? 'ja' : 'nee');
   }
 
   function showBanner() {
@@ -336,6 +348,7 @@
         banner.remove();
         // belbalk weer op zijn normale plek
         document.documentElement.style.setProperty('--fd-cc-h', '0px');
+        document.documentElement.setAttribute('data-fd-cc-open', 'nee');
       }, 260);
     }
     document.dispatchEvent(new CustomEvent('fd:consent', { detail: consent }));

@@ -6,8 +6,10 @@
    telefoonnummer. Deze balk zorgt dat bellen en appen overal binnen
    handbereik zijn.
 
-   De balk schuift automatisch boven de cookiemelding als die in beeld
-   staat, via de variabele --fd-cc-h die cookie-consent.js zet.
+   Zolang de cookiemelding open staat blijft deze balk weg; op een telefoon
+   vullen die twee samen het halve scherm. Bellen kan dan via de knop in de
+   balk bovenaan. Is de melding weg, dan verschijnt de balk, en hij houdt
+   afstand via de variabele --fd-cc-h die cookie-consent.js zet.
 
    Gebruik: <script src="contact-balk.js" defer></script>
    Op een pagina die de balk zelf al in de HTML heeft, doet dit script niets.
@@ -42,6 +44,8 @@
       '.floats .call{background:#FFFFFF;border:1px solid #E4E4EA}',
       '.floats .wa{background:#25D366}',
       '@media(max-width:760px){.floats{display:flex}}',
+      /* Melding open: balk weg, anders liggen ze samen over de pagina */
+      'html[data-fd-cc-open="ja"] .floats{display:none}',
       /* Onderaan de pagina ruimte houden zodat de balk niets afdekt */
       '@media(max-width:760px){body{padding-bottom:76px}}'
     ].join('');
