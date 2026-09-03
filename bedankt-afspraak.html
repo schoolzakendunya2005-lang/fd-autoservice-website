@@ -109,36 +109,6 @@
   </div>
 </footer>
 
-<script>
-  /* De conversie. Dit is het punt waarop een bezoeker echt een aanvraag
-     heeft gedaan, dus hier wordt het geteld. Het event gaat altijd de
-     dataLayer in, ook als Tag Manager uit staat; het wacht daar netjes
-     tot het meetnummer in site-config.js is ingevuld.
-
-     Eén keer per aanvraag: wie de pagina ververst of terugnavigeert
-     telt niet opnieuw mee. */
-  (function () {
-    'use strict';
-    var SLEUTEL = 'fd_afspraak_geteld';
-    var kenmerk = String(Date.now());
-
-    try {
-      var vorige = sessionStorage.getItem(SLEUTEL);
-      if (vorige) return;                       // deze aanvraag is al geteld
-      sessionStorage.setItem(SLEUTEL, kenmerk);
-    } catch (e) {
-      /* Geen sessieopslag beschikbaar; dan liever één keer te veel tellen
-         dan de conversie helemaal missen. */
-    }
-
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'afspraak_aangevraagd',
-      pagina: location.pathname,
-      bron: 'bedankpagina'
-    });
-  })();
-</script>
 
 <script src="site-data.js" defer></script>
 <script src="site-header.js" defer></script>

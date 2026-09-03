@@ -80,6 +80,16 @@
   });
 
   if (/\/bedankt/.test(location.pathname)) {
-    meld('afspraak_aangevraagd', { via: 'bedanktpagina' });
+    /* Eén keer per aanvraag. Wie de bedanktpagina ververst of via de
+       terugknop terugkomt, telt niet opnieuw mee. */
+    var alGeteld = false;
+    try {
+      alGeteld = !!sessionStorage.getItem('fd_afspraak_geteld');
+      if (!alGeteld) sessionStorage.setItem('fd_afspraak_geteld', String(Date.now()));
+    } catch (e) {
+      /* Geen sessieopslag: dan liever één keer te veel tellen dan de
+         conversie helemaal missen. */
+    }
+    if (!alGeteld) meld('afspraak_aangevraagd', { via: 'bedanktpagina' });
   }
 })();
