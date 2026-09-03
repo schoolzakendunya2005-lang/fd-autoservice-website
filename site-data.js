@@ -15,27 +15,17 @@
 (function () {
   'use strict';
 
-  var DATA = {
-    reviews: {
-      // Twee losse bronnen, bewust niet bij elkaar opgeteld
-      marktplaats: {
-        score: '5,0',
-        aantal: 148,
-        url: 'https://www.marktplaats.nl/u/fd-autoservice/44270263/'
-      },
-      google: {
-        score: '5,0',
-        // NOG INVULLEN. Het echte aantal Google-beoordelingen staat in
-        // het Google-bedrijfsprofiel. Zolang dit null is toont de site
-        // wel de score en de link, maar geen aantal. Liever geen getal
-        // dan een getal dat niet klopt.
-        aantal: null,
-        url: 'https://www.google.com/maps/search/?api=1&query=FD+Autoservice+Westzijde+158C+Zaandam'
-      }
-    },
+  /* De waarden staan in site-config.js. Mocht dat bestand ontbreken, dan
+     valt de site terug op de waarden hieronder, zodat er nooit een lege
+     openingstijd of een kapotte status op het scherm komt. */
+  var C = window.FD_CONFIG || {};
 
-    // 0 = zondag. null = die dag dicht.
-    openingstijden: {
+  var DATA = {
+    reviews: C.reviews || {
+      marktplaats: { score: '5,0', aantal: 148, url: 'https://www.marktplaats.nl/u/fd-autoservice/44270263/' },
+      google:      { score: '5,0', aantal: null, url: 'https://www.google.com/maps/search/?api=1&query=FD+Autoservice+Westzijde+158C+Zaandam' }
+    },
+    openingstijden: C.openingstijden || {
       0: null,
       1: { open: '09:00', dicht: '18:00' },
       2: { open: '09:00', dicht: '18:00' },
@@ -44,10 +34,10 @@
       5: { open: '09:00', dicht: '18:00' },
       6: { open: '10:00', dicht: '17:00' }
     },
-
-    telefoon: { link: '+31752013142', net: '075 - 201 3142' },
-    whatsapp: 'https://wa.me/31629123444',
-    adres: { straat: 'Westzijde 158C', postcode: '1506 EK', plaats: 'Zaandam' }
+    telefoon: C.telefoon || { link: '+31752013142', net: '075 - 201 3142' },
+    whatsapp: C.whatsapp || 'https://wa.me/31629123444',
+    adres:    C.adres    || { straat: 'Westzijde 158C', postcode: '1506 EK', plaats: 'Zaandam' },
+    diensten: C.diensten || []
   };
 
   var DAGEN = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];

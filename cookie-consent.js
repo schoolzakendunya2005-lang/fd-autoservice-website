@@ -40,7 +40,9 @@
    *
    * Alle Consent Mode-logica hieronder blijft werken zodra de ID er staat.
    */
-  var GTM_ID = '';   // ← vul in: 'GTM-TSKBT6GV' zodra CookieHub eruit is
+  // Het containernummer staat in site-config.js, zodat het op één plek
+  // te wijzigen is en niet tussen deze code verstopt zit.
+  var GTM_ID = (window.FD_CONFIG && window.FD_CONFIG.gtmId) || '';
   var STORAGE_KEY = 'fd_cookie_consent_v2';
   var CONSENT_VERSION = 2;
 

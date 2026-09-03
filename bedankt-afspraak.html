@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Aanvraag ontvangen | FD Autoservice Zaandam</title>
+<meta name="description" content="Je afspraakaanvraag bij FD Autoservice in Zaandam is binnen. Wij bellen je terug om de afspraak te bevestigen.">
+<!-- Een bedankpagina hoort niet in Google: hij is alleen zinvol direct na
+     het versturen van het formulier. -->
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://fdautoservice.nl/bedankt-afspraak">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@1,9..144,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dienst.css">
+<style>
+  .bd{padding:72px 0 84px}
+  .bd .wrap{max-width:720px}
+  .bd-vink{
+    width:62px;height:62px;border-radius:50%;
+    background:var(--accent);color:#fff;
+    display:grid;place-items:center;margin:0 0 26px;
+    box-shadow:0 14px 34px -12px rgba(215,38,30,.55);
+  }
+  .bd-vink svg{width:30px;height:30px}
+  .bd h1{max-width:18ch;margin-bottom:16px}
+  .bd-lead{font-size:1.12rem;color:var(--text);max-width:56ch;margin:0 0 34px}
+
+  /* Wat er nu gebeurt. Genummerd, want het is echt een volgorde. */
+  .bd-stappen{list-style:none;margin:0 0 38px;padding:0;border-top:1px solid var(--border)}
+  .bd-stappen li{
+    display:grid;grid-template-columns:2rem 1fr;gap:16px;align-items:baseline;
+    padding:16px 0;border-bottom:1px solid var(--border);
+  }
+  .bd-stappen .nr{
+    font-size:.8rem;font-weight:800;color:var(--accent);
+    font-variant-numeric:tabular-nums;
+  }
+  .bd-stappen strong{display:block;color:var(--text-strong);font-weight:700;margin-bottom:3px}
+  .bd-stappen span.uitleg{font-size:.95rem;color:var(--text);line-height:1.55}
+
+  /* Bellen blijft de snelste weg, ook hier. */
+  .bd-bel{
+    background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;
+    padding:26px 28px;display:flex;align-items:center;justify-content:space-between;
+    gap:20px;flex-wrap:wrap;
+  }
+  .bd-bel p{margin:0;max-width:38ch}
+  .bd-bel strong{display:block;color:var(--text-strong);font-size:1.02rem;margin-bottom:4px}
+  .bd-bel .acties{display:flex;gap:10px;flex-wrap:wrap}
+  @media(max-width:560px){
+    .bd{padding:48px 0 64px}
+    .bd-bel{padding:22px 20px}
+    .bd-bel .acties{width:100%}
+    .bd-bel .acties a{flex:1 1 auto;justify-content:center}
+  }
+</style>
+<script src="site-config.js"></script>
+<script src="cookie-consent.js"></script>
+<script src="meting.js" defer></script>
+</head>
+<body data-fd-pagina="">
+
+<section class="bd">
+  <div class="wrap">
+    <span class="bd-vink" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </span>
+
+    <span class="d-eyebrow">Aanvraag binnen</span>
+    <h1>Bedankt, we gaan <span class="serif">ermee aan de slag.</span></h1>
+    <p class="bd-lead">Je aanvraag staat bij ons in de werkplaats op het scherm. Je hoeft verder niets te doen; wij nemen contact op om de dag en het tijdstip te bevestigen.</p>
+
+    <ol class="bd-stappen">
+      <li>
+        <span class="nr">1</span>
+        <span><strong>Wij bellen je terug</strong>
+        <span class="uitleg">Op werkdagen meestal binnen een paar uur, en altijd dezelfde dag als je vóór 16:00 hebt aangevraagd.</span></span>
+      </li>
+      <li>
+        <span class="nr">2</span>
+        <span><strong>We bevestigen dag en tijd</strong>
+        <span class="uitleg">Past het moment je toch niet, dan schuiven we het meteen door. Je zit nergens aan vast.</span></span>
+      </li>
+      <li>
+        <span class="nr">3</span>
+        <span><strong>Je hoort de prijs vooraf</strong>
+        <span class="uitleg">Blijkt er onderweg iets anders nodig, dan bellen we eerst. Er gebeurt niets zonder dat je het weet.</span></span>
+      </li>
+    </ol>
+
+    <div class="bd-bel">
+      <p><strong>Liever nu al iets vragen?</strong>Bel gerust, je krijgt iemand uit de werkplaats aan de lijn.</p>
+      <div class="acties">
+        <a class="d-btn-primair" href="tel:+31752013142" data-fd="tel-link">Bel <span data-fd="tel">075 - 201 3142</span></a>
+        <a class="d-btn-bel" href="https://wa.me/31629123444" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="fw">
+    <div><strong>FD Autoservice</strong> · Westzijde 158C, 1506 EK Zaandam · KvK 94702551</div>
+    <div class="legal">
+      <a href="/">Home</a><a href="/diensten">Diensten</a><a href="/onderhoud-prijzen">Prijzen</a><a href="/contact">Contact</a><a href="/privacyverklaring">Privacy</a><a href="/cookiebeleid">Cookies</a><a href="/algemene-voorwaarden">Voorwaarden</a><a href="#" data-cookie-open>Cookievoorkeuren</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* De conversie. Dit is het punt waarop een bezoeker echt een aanvraag
+     heeft gedaan, dus hier wordt het geteld. Het event gaat altijd de
+     dataLayer in, ook als Tag Manager uit staat; het wacht daar netjes
+     tot het meetnummer in site-config.js is ingevuld.
+
+     Eén keer per aanvraag: wie de pagina ververst of terugnavigeert
+     telt niet opnieuw mee. */
+  (function () {
+    'use strict';
+    var SLEUTEL = 'fd_afspraak_geteld';
+    var kenmerk = String(Date.now());
+
+    try {
+      var vorige = sessionStorage.getItem(SLEUTEL);
+      if (vorige) return;                       // deze aanvraag is al geteld
+      sessionStorage.setItem(SLEUTEL, kenmerk);
+    } catch (e) {
+      /* Geen sessieopslag beschikbaar; dan liever één keer te veel tellen
+         dan de conversie helemaal missen. */
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'afspraak_aangevraagd',
+      pagina: location.pathname,
+      bron: 'bedankpagina'
+    });
+  })();
+</script>
+
+<script src="site-data.js" defer></script>
+<script src="site-header.js" defer></script>
+<script src="contact-balk.js" defer></script>
+</body>
+</html>

@@ -385,6 +385,7 @@
   }
 </style>
 <!-- Cookie consent + Google Consent Mode v2 — moet vóór Tag Manager staan -->
+<script src="site-config.js"></script>
 <script src="cookie-consent.js"></script>
 <script src="meting.js" defer></script>
 </head>
@@ -411,7 +412,11 @@
 
     <div class="ap-grid">
       <div>
-        <form action='/bedankt-afspraak' id='apkForm' method='POST' name='afspraak'>
+        <!-- data-netlify laat Netlify het formulier bij het uitrollen herkennen;
+     zonder dat attribuut wordt de aanvraag nergens opgeslagen.
+     netlify-honeypot wijst het spamveld aan dat hieronder verborgen staat. -->
+        <form action="/bedankt-afspraak" id="apkForm" method="POST" name="afspraak"
+              data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="afspraak">
           <input type="hidden" name="gekozen-datum" id="hiddenDate">
           <!-- Spamval. Alleen bots vullen dit in.

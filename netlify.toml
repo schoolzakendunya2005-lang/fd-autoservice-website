@@ -100,7 +100,25 @@
   status = 301
   force = true
 
-# Oude adressen die nog in advertenties of visitekaartjes kunnen staan
+[[redirects]]
+  from = "/bedankt-afspraak.html"
+  to = "/bedankt-afspraak"
+  status = 301
+  force = true
+
+# Oude adressen die nog in advertenties of visitekaartjes kunnen staan.
+# /apk-afspraak was het oude adres van het formulier; dat doet inmiddels
+# meer dan alleen APK en heet daarom /afspraak.
+[[redirects]]
+  from = "/apk-afspraak"
+  to = "/afspraak"
+  status = 301
+
+[[redirects]]
+  from = "/apk-afspraak.html"
+  to = "/afspraak"
+  status = 301
+
 [[redirects]]
   from = "/apk"
   to = "/apk-keuring"
