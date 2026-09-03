@@ -129,6 +129,13 @@
   to = "/occasions"
   status = 301
 
+# Netlify serveert 404.html vanzelf bij een onbekend adres. Deze regel legt
+# dat expliciet vast, zodat het niet per ongeluk verdwijnt bij een wijziging.
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
 # ------------------------------------------------------------------ headers
 [[headers]]
   for = "/*"
