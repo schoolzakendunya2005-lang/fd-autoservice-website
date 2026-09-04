@@ -1,86 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Opgebouwd door bouw-schema.mjs uit de routes in site-config.js.
+     Niet met de hand wijzigen: een nieuwe pagina voeg je daar toe. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fdautoservice.nl/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://fdautoservice.nl/diensten</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://fdautoservice.nl/apk-keuring</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.98</priority>
   </url>
   <url>
     <loc>https://fdautoservice.nl/onderhoud</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://fdautoservice.nl/bandenservice</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://fdautoservice.nl/airco-service</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://fdautoservice.nl/afspraak</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://fdautoservice.nl/contact</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://fdautoservice.nl/onderhoud-prijzen</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://fdautoservice.nl/occasions</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://fdautoservice.nl/diensten</loc>
-    <lastmod>2026-09-03</lastmod>
+    <loc>https://fdautoservice.nl/afspraak</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://fdautoservice.nl/contact</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://fdautoservice.nl/over-ons</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fdautoservice.nl/privacyverklaring</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://fdautoservice.nl/cookiebeleid</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://fdautoservice.nl/algemene-voorwaarden</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

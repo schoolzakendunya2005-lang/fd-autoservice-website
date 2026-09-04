@@ -73,6 +73,71 @@
       6: { open: '10:00', dicht: '17:00' }
     },
 
+    /* ------------------------------------------------------------------
+       HET BEDRIJF
+       Deze gegevens gaan één op één de gestructureerde data in die Google
+       uitleest. Wijzig ze hier en draai daarna `node bouw-schema.mjs`,
+       dan lopen de pagina's en het schema weer gelijk.
+       ------------------------------------------------------------------ */
+    site: {
+      url: 'https://fdautoservice.nl',
+      naam: 'FD Autoservice',
+      alternatief: 'FD Autoservice Zaandam',
+      beschrijving: 'Eerlijke autogarage in Zaandam voor APK keuring, onderhoud, autoreparatie, banden en airco.',
+      afbeelding: 'https://fdautoservice.nl/og-fd-autoservice.jpg',
+      opgericht: '2020',
+      prijsklasse: '€€',
+      betaalwijzen: 'Contant, pin, bankoverschrijving',
+      // Deze coördinaten wijzen naar Westzijde 158C en zijn dezelfde als
+      // die van de kaart op /contact. In het oude schema stond een punt dat
+      // er ongeveer 400 meter naast lag.
+      geo: { breedte: 52.4451045, lengte: 4.8195716 },
+      regio: 'Noord-Holland',
+      land: 'NL'
+    },
+
+    /* Waar wij klanten vandaan krijgen. Gaat in areaServed. */
+    gebied: ['Zaandam', 'Zaanstad', 'Wormerveer', 'Koog aan de Zaan', 'Krommenie'],
+
+    /* Profielen die bij dit bedrijf horen. Gaat in sameAs, waarmee Google
+       de site aan het bedrijfsprofiel kan koppelen. */
+    sameAs: [
+      'https://www.marktplaats.nl/u/fd-autoservice/44270263/',
+      'https://www.facebook.com/fdautoservice/',
+      'https://www.instagram.com/f.dautoservice/',
+      'https://www.tiktok.com/@fd.autoservice'
+      // NOG AANVULLEN: het adres van het Google-bedrijfsprofiel. Dat is de
+      // belangrijkste van de lijst en die staat nergens in de site.
+    ],
+
+    /* ------------------------------------------------------------------
+       ROUTES
+       Eén lijst voor de sitemap, het kruimelpad en het schema. Een nieuwe
+       pagina voeg je hier toe, niet in sitemap.xml.
+
+       schema: 'dienst' krijgt Service + aanbod, 'faq' leest de vragen van
+       de pagina zelf. inSitemap: false houdt hem uit de sitemap.
+       ------------------------------------------------------------------ */
+    routes: [
+      { pad: '/',                     naam: 'Home',              bestand: 'index.html',                prioriteit: '1.0',  frequentie: 'weekly'  },
+      { pad: '/diensten',             naam: 'Diensten',          bestand: 'diensten.html',             prioriteit: '0.9',  frequentie: 'monthly' },
+      { pad: '/apk-keuring',          naam: 'APK keuring',       bestand: 'apk-keuring.html',          prioriteit: '0.98', frequentie: 'monthly', dienst: 'apk' },
+      { pad: '/onderhoud',            naam: 'Onderhoud',         bestand: 'onderhoud.html',            prioriteit: '0.95', frequentie: 'monthly', dienst: 'onderhoud' },
+      { pad: '/bandenservice',        naam: 'Bandenservice',     bestand: 'bandenservice.html',        prioriteit: '0.95', frequentie: 'monthly', dienst: 'banden' },
+      { pad: '/airco-service',        naam: 'Airco service',     bestand: 'airco-service.html',        prioriteit: '0.95', frequentie: 'monthly', dienst: 'airco' },
+      { pad: '/onderhoud-prijzen',    naam: 'Prijzen',           bestand: 'onderhoud-prijzen.html',    prioriteit: '0.9',  frequentie: 'monthly' },
+      { pad: '/occasions',            naam: "Auto's te koop",    bestand: 'occasions.html',            prioriteit: '0.85', frequentie: 'daily'   },
+      { pad: '/afspraak',             naam: 'Afspraak',          bestand: 'afspraak.html',             prioriteit: '0.95', frequentie: 'weekly'  },
+      { pad: '/contact',              naam: 'Contact',           bestand: 'contact.html',              prioriteit: '0.9',  frequentie: 'monthly' },
+      { pad: '/over-ons',             naam: 'Over ons',          bestand: 'over-ons.html',             prioriteit: '0.7',  frequentie: 'monthly' },
+      { pad: '/privacyverklaring',    naam: 'Privacyverklaring', bestand: 'privacyverklaring.html',    prioriteit: '0.3',  frequentie: 'yearly'  },
+      { pad: '/cookiebeleid',         naam: 'Cookiebeleid',      bestand: 'cookiebeleid.html',         prioriteit: '0.3',  frequentie: 'yearly'  },
+      { pad: '/algemene-voorwaarden', naam: 'Voorwaarden',       bestand: 'algemene-voorwaarden.html', prioriteit: '0.3',  frequentie: 'yearly'  },
+      // Deze twee horen niet in Google en dus ook niet in de sitemap.
+      { pad: '/bedankt-afspraak',     naam: 'Bedankt',           bestand: 'bedankt-afspraak.html',     inSitemap: false, schema: false },
+      { pad: '/404',                  naam: 'Niet gevonden',     bestand: '404.html',                  inSitemap: false, schema: false }
+    ],
+
     telefoon: { link: '+31752013142', net: '075 - 201 3142' },
     whatsapp: 'https://wa.me/31629123444',
     email: 'contact@fdautoservice.nl',
