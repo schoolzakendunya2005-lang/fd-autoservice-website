@@ -233,6 +233,61 @@ function vragen(html) {
   return { '@type': 'FAQPage', mainEntity: uit };
 }
 
+/* -------------------------------------------------------------- deelkaart */
+/* De og:- en twitter:-tags bepalen hoe een link eruitziet in WhatsApp,
+   Facebook, LinkedIn en X. Ze stonden op drie pagina's helemaal niet en
+   liepen elders uiteen. Ze worden hier afgeleid van de <title> en de
+   <meta name="description"> van de pagina zelf, zodat er maar één plek is
+   waar de tekst van een pagina staat. */
+
+const META_START = '<!-- fd:meta -->';
+const META_EIND = '<!-- /fd:meta -->';
+
+function tekstVan(html, re) {
+  const m = html.match(re);
+  return m ? m[1].trim() : '';
+}
+
+function socialeTags(html, route) {
+  const titel = tekstVan(html, /<title>([\s\S]*?)<\/title>/);
+  const omschrijving = tekstVan(html, /<meta name="description" content="([^"]*)"/);
+  const adres = BASIS + (route.pad === '/' ? '/' : route.pad);
+  const soort = route.pad === '/' ? 'website' : 'article';
+
+  return [
+    META_START,
+    '<!-- Niet met de hand wijzigen. Opgebouwd door bouw-schema.mjs uit de',
+    '     titel en de omschrijving hierboven. -->',
+    `<meta property="og:type" content="${soort}">`,
+    `<meta property="og:site_name" content="${C.site.naam}">`,
+    `<meta property="og:locale" content="nl_NL">`,
+    `<meta property="og:url" content="${adres}">`,
+    `<meta property="og:title" content="${titel}">`,
+    `<meta property="og:description" content="${omschrijving}">`,
+    `<meta property="og:image" content="${C.site.afbeelding}">`,
+    `<meta property="og:image:width" content="1200">`,
+    `<meta property="og:image:height" content="630">`,
+    `<meta property="og:image:alt" content="${C.site.naam} in ${C.adres.plaats}">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:title" content="${titel}">`,
+    `<meta name="twitter:description" content="${omschrijving}">`,
+    `<meta name="twitter:image" content="${C.site.afbeelding}">`,
+    META_EIND
+  ].join('\n');
+}
+
+function zetMeta(html, route) {
+  const blok = socialeTags(html, route);
+  const i = html.indexOf(META_START);
+  const j = html.indexOf(META_EIND);
+  if (i !== -1 && j !== -1) {
+    return html.slice(0, i) + blok + html.slice(j + META_EIND.length);
+  }
+  // Bestaande losse tags eerst weghalen, anders staan ze er dubbel in
+  html = html.replace(/[ \t]*<meta (?:property="og:|name="twitter:)[^>]*>\n?/g, '');
+  return html.replace('</head>', blok + '\n</head>');
+}
+
 /* ------------------------------------------------------------- schrijven */
 
 const START = '<!-- fd:schema -->';
@@ -240,6 +295,7 @@ const EIND = '<!-- /fd:schema -->';
 
 let geschreven = 0;
 let overgeslagen = [];
+let teLang = [];
 
 for (const route of C.routes) {
   if (route.schema === false) continue;
@@ -286,6 +342,14 @@ for (const route of C.routes) {
     }
   }
 
+  html = zetMeta(html, route);
+
+  // Vinger aan de pols: Google kapt een omschrijving af rond 155 tekens.
+  const omschrijving = tekstVan(html, /<meta name="description" content="([^"]*)"/);
+  if (omschrijving && (omschrijving.length < 120 || omschrijving.length > 160)) {
+    teLang.push(`${route.bestand} (${omschrijving.length} tekens)`);
+  }
+
   writeFileSync(join(HIER, route.bestand), html, 'utf8');
   geschreven++;
 }
@@ -325,3 +389,4 @@ writeFileSync(
 console.log(`schema geschreven op ${geschreven} pagina's`);
 console.log(`sitemap: ${C.routes.filter((r) => r.inSitemap !== false).length} adressen`);
 if (overgeslagen.length) console.log('overgeslagen: ' + overgeslagen.join(', '));
+if (teLang.length) console.log('omschrijving buiten 120-160 tekens: ' + teLang.join(', '));
