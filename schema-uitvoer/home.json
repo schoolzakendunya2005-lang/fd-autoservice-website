@@ -1,0 +1,280 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "AutoRepair",
+        "LocalBusiness"
+      ],
+      "@id": "https://fdautoservice.nl/#business",
+      "name": "FD Autoservice",
+      "alternateName": "FD Autoservice Zaandam",
+      "description": "Eerlijke autogarage in Zaandam voor APK keuring, onderhoud, autoreparatie, banden en airco.",
+      "url": "https://fdautoservice.nl/",
+      "telephone": "+31752013142",
+      "email": "contact@fdautoservice.nl",
+      "image": "https://fdautoservice.nl/og-fd-autoservice.jpg",
+      "logo": "https://fdautoservice.nl/og-fd-autoservice.jpg",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Contant, pin, bankoverschrijving",
+      "foundingDate": "2020",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Westzijde 158C",
+        "addressLocality": "Zaandam",
+        "postalCode": "1506 EK",
+        "addressRegion": "Noord-Holland",
+        "addressCountry": "NL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.4451045,
+        "longitude": 4.8195716
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "17:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Zaandam"
+        },
+        {
+          "@type": "City",
+          "name": "Zaanstad"
+        },
+        {
+          "@type": "City",
+          "name": "Wormerveer"
+        },
+        {
+          "@type": "City",
+          "name": "Koog aan de Zaan"
+        },
+        {
+          "@type": "City",
+          "name": "Krommenie"
+        }
+      ],
+      "sameAs": [
+        "https://www.marktplaats.nl/u/fd-autoservice/44270263/",
+        "https://www.facebook.com/fdautoservice/",
+        "https://www.instagram.com/f.dautoservice/",
+        "https://www.tiktok.com/@fd.autoservice"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Diensten",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "APK keuring",
+              "serviceType": "APK keuring"
+            },
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price": "60",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "60",
+              "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": true
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Onderhoud & beurt",
+              "serviceType": "Onderhoud & beurt"
+            },
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "219",
+              "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": true
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Banden vervangen",
+              "serviceType": "Banden vervangen"
+            },
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price": "30",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "30",
+              "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": false
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Airco service",
+              "serviceType": "Airco service"
+            },
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price": "150",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "150",
+              "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": true
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Diagnose & uitlezen",
+              "serviceType": "Diagnose & uitlezen"
+            },
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price": "30",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "30",
+              "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": false
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Autoreparatie",
+              "serviceType": "Autoreparatie"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Koplampen polijsten",
+              "serviceType": "Koplampen polijsten"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "148",
+        "bestRating": "5",
+        "worstRating": "1",
+        "itemReviewed": {
+          "@id": "https://fdautoservice.nl/#business"
+        }
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://fdautoservice.nl/#website",
+      "url": "https://fdautoservice.nl/",
+      "name": "FD Autoservice",
+      "inLanguage": "nl-NL",
+      "publisher": {
+        "@id": "https://fdautoservice.nl/#business"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wat kost een APK bij FD Autoservice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "€ 60, een vaste prijs, ongeacht je automerk of model. Geen verrassingen achteraf. Wordt je auto afgekeurd, dan bespreken we eerst wat er moet gebeuren en wat dat kost; je bent niet verplicht die reparatie bij ons te laten doen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe snel kan ik bij jullie terecht?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Voor APK, banden en kleinere reparaties vaak nog deze week. Voor spoed bellen we liever even, soms kan het dezelfde dag nog."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Werken jullie aan alle automerken?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Volkswagen, Audi, BMW, Toyota, Renault, Peugeot, Ford, Mercedes. Wij doen er alles aan dat met vier wielen rijdt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Behoud ik fabrieksgarantie als ik bij jullie onderhoud laat doen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. We werken volgens fabrieksvoorschrift en gebruiken de juiste onderdelen, je fabrieksgarantie blijft gewoon geldig."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Krijg ik altijd vooraf de prijs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Altijd. We bellen je vóór we iets vervangen dat boven het afgesproken bedrag uitkomt. Geen akkoord = geen werk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you also help expats / English speakers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we explain everything in English if you prefer. WhatsApp us your question and we'll reply in English."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat kost het vervangen van een band?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "€ 30 ex BTW per band, ongeacht de maat. Dat is het montageloon. De banden zelf komen daarbij. Hoeveel banden je wil laten doen geef je door bij aankomst; we rekenen achteraf af op basis van wat er daadwerkelijk gedaan is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Moet ik mijn auto de hele dag afgeven?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Breng je auto 's ochtends vóór 12:00 uur langs, dan is hij meestal dezelfde dag klaar. Lukt dat een keer niet, bijvoorbeeld omdat een onderdeel besteld moet worden, dan hoor je dat dezelfde dag van ons, niet pas als je voor de deur staat."
+          }
+        }
+      ]
+    }
+  ]
+}
