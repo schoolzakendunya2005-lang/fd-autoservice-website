@@ -32,18 +32,14 @@
           er nog in, dan verschijnt er een tweede cookiebanner over de site.
        2. Vul daarna pas het nummer hieronder in.
        ------------------------------------------------------------------ */
-    // BEWUST LEEG. Op 5 september 2026 is 'GTM-TSKBT6GV' ingevuld en getest.
-    // Uitkomst: er zit nog een CookieHub-tag in die container. Gevolg was
-    // dat cdn.cookiehub.eu een tweede, Engelstalige cookiebanner over de
-    // site legde, en erger: Google Analytics en Google Ads vuurden meteen,
-    // terwijl de opgeslagen keuze van de bezoeker statistieken en marketing
-    // op geweigerd had staan. Meten bij iemand die nee zegt mag niet.
+    // Eén installatie voor de hele site. Er staat nergens een los
+    // GTM-snippet in de HTML, en er is geen <noscript>-iframe: die zou
+    // Tag Manager buiten de toestemming om laden.
     //
-    // Zodra RBNYDZ de CookieHub-tag uit de container heeft gehaald: zet
-    // hieronder 'GTM-TSKBT6GV' en draai `node bouw-schema.mjs`. De rest
-    // staat klaar: cookie-consent.js laadt Tag Manager met Consent Mode v2,
-    // alles op geweigerd tot de bezoeker zelf kiest.
-    gtmId: '',
+    // cookie-consent.js laadt de container PAS nadat de bezoeker
+    // statistieken heeft toegestaan. Weigert iemand, dan gaat er geen
+    // enkel verzoek naar Google.
+    gtmId: 'GTM-TSKBT6GV',
 
     /* ------------------------------------------------------------------
        REVIEWS

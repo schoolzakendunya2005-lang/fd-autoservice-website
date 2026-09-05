@@ -368,6 +368,10 @@ textarea:focus-visible,
 .plate-btn,
 .kenteken-btn{
   align-self:stretch;
+  /* Naast het veld zorgt align-self:stretch voor de juiste hoogte. Op een
+     telefoon zakt de knop naar een eigen regel en valt die stretch weg;
+     dan bleef er 18px over, te weinig om op te tikken. */
+  min-height:var(--fd-knop-h-m);
   display:flex;align-items:center;justify-content:center;
   gap:var(--fd-icoon-gat);
   padding:0 var(--fd-ruimte-5);
@@ -383,4 +387,20 @@ textarea:focus-visible,
 .kenteken-btn:focus-visible{
   outline:var(--fd-focus-dikte) solid var(--fd-focus-kleur);
   outline-offset:-4px;              /* naar binnen, anders valt hij buiten het veld */
+}
+
+/* --------------------------------------------------- raakvlakken op mobiel
+   Losse bel- en mailkoppelingen in lopende tekst waren 26 tot 28 pixels
+   hoog; op een telefoon is dat lastig raken, juist bij de twee dingen waar
+   het om draait. Verticale padding op een inline-element vergroot het
+   raakvlak zonder de regelafstand of de tekstloop te veranderen.
+
+   Alleen op aanraakschermen, want met een muis is 26px prima. */
+@media(pointer:coarse){
+  a[href^="tel:"],
+  a[href^="mailto:"]{padding-block:9px}
+
+  /* Ook de rij juridische links onderaan, die zaten net onder de 40px. */
+  .site-foot .legal a,
+  .foot-legal a{padding-block:4px}
 }

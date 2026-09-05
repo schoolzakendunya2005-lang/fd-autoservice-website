@@ -50,6 +50,10 @@
       '@media(max-width:760px){.floats{display:flex}}',
       /* Melding open: balk weg, anders liggen ze samen over de pagina */
       'html[data-fd-cc-open="ja"] .floats{display:none}',
+      /* Mobiele menu open: balk weg. Het menu ligt er wel overheen, maar
+         de achtergrond is 98% wit, dus de groene WhatsApp-knop schemerde
+         er onderaan doorheen. */
+      'body.menu-open .floats{display:none}',
       /* Onderaan de pagina ruimte houden zodat de balk niets afdekt */
       '@media(max-width:760px){body{padding-bottom:calc(var(--fd-knop-h-m,48px) + var(--fd-ruimte-6,32px))}}'
     ].join('');

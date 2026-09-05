@@ -96,8 +96,20 @@
   /* ======================================================================
      2. TAG MANAGER LADEN
      ====================================================================== */
-  function loadGTM() {
+  /* Tag Manager wordt PAS geladen als de bezoeker statistieken heeft
+     toegestaan. Niet bij het openen van de pagina.
+
+     Consent Mode alleen zou ook mogen: dan laadt Tag Manager meteen en
+     houden de tags zich in aan de toestemmingsstand. Maar dan gaat er wel
+     een verzoek naar googletagmanager.com voordat iemand iets gekozen
+     heeft, en dat willen we hier niet. Weigert de bezoeker, dan wordt er
+     niets van Google geladen; ook geen container.
+
+     De consent-defaults hierboven blijven staan: zodra de container wél
+     laadt, weet hij meteen wat wel en niet mag. */
+  function loadGTM(consent) {
     if (!GTM_ID) return;
+    if (!consent || !consent.statistieken) return;
     if (document.getElementById('fd-gtm')) return;
     window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
     var s = document.createElement('script');
@@ -106,7 +118,9 @@
     s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
     document.head.appendChild(s);
   }
-  loadGTM();
+
+  // Terugkerende bezoeker die eerder ja zei: container mag meteen laden.
+  if (saved) loadGTM(saved);
 
   /* ======================================================================
      3. CONSENT OPSLAAN
@@ -340,6 +354,7 @@
   function finish(prefs, banner) {
     var consent = saveConsent(prefs);
     pushConsentUpdate(consent);
+    loadGTM(consent);
     activateEmbeds(consent);
     if (banner) {
       if (banner.__ro) banner.__ro.disconnect();
@@ -376,6 +391,7 @@
         var cur = readConsent() || {};
         var consent = saveConsent({ statistieken: !!cur.statistieken, marketing: true });
         pushConsentUpdate(consent);
+        loadGTM(consent);
         activateEmbeds(consent);
         var b = document.querySelector('.fd-cc');
         if (b) b.remove();

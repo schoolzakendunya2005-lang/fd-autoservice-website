@@ -686,6 +686,12 @@
     background:rgba(255,255,255,.98);backdrop-filter:blur(20px);
     display:flex;flex-direction:column;
     padding:90px 28px 36px;
+    /* Negen links plus twee knoppen zijn samen hoger dan een telefoonscherm:
+       op 844px stond de laatste knop 192px onder de vouw, en omdat het menu
+       de pagina vastzet was hij niet te bereiken. Nu scrollt het menu zelf. */
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
     visibility:hidden;opacity:0;
     transition:opacity .35s ease, visibility 0s linear .35s;
   }
@@ -712,10 +718,13 @@
   }
   .mobile-menu ul a:hover{color:var(--accent);padding-left:8px}
   .mobile-menu-cta{display:flex;flex-direction:column;gap:12px;margin-top:auto}
+  /* Zonder hoofdletters, zoals elke andere knop op de site. Hoogte en
+     tekstbehandeling volgen tokens.css. */
   .mobile-menu-cta a{
     display:flex;align-items:center;justify-content:center;gap:10px;
-    padding:18px;border-radius:12px;text-decoration:none;
-    font-weight:700;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;
+    min-height:var(--fd-knop-h-l);padding:0 var(--fd-ruimte-5);
+    border-radius:var(--fd-hoek-knop);text-decoration:none;
+    font-weight:700;font-size:var(--fd-tekst-s);letter-spacing:0;text-transform:none;
   }
   .mobile-menu-cta .primary{background:var(--accent);color:#fff}
   .mobile-menu-cta .secondary{background:transparent;color:#101014;border:1.5px solid rgba(16,16,20,.18)}
@@ -895,7 +904,9 @@
     border-bottom:1px solid rgba(16,16,20,.18);
     padding-bottom:2px;text-decoration:none;
     transition:color .25s ease, border-color .25s ease;
-  }
+    /* Raakvlak van 44px op een aanraakscherm; visueel verandert er niets. */
+  padding-block:10px;
+}
   .hero-textlink:hover{color:#101014;border-color:#101014}
 
   /* Floating price card (FD's eigen twist) */
