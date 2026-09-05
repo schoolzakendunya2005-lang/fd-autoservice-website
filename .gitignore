@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Netlify
+.netlify/
+
+# Als er ooit een bouwstap of afhankelijkheden bij komen
+node_modules/
+.env
+.env.*
