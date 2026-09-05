@@ -44,17 +44,15 @@
       '  font-family:Inter,system-ui,-apple-system,sans-serif}',
       '.fdh-in{max-width:1200px;margin:0 auto;padding:12px 24px;',
       '  display:flex;align-items:center;gap:22px}',
-      '.fdh-logo{display:flex;align-items:center;gap:10px;font-weight:800;color:#101014;',
-      '  font-size:1rem;text-decoration:none;flex-shrink:0}',
-      '.fdh-mark{width:40px;height:40px;border-radius:8px;background:#000;display:grid;',
-      '  place-items:center;font-weight:900;letter-spacing:-.05em;font-size:.95rem;',
-      '  position:relative;overflow:hidden;border:1px solid #ECECF1;flex-shrink:0}',
-      '.fdh-mark::before{content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);',
-      '  width:25px;height:5px;background:linear-gradient(90deg,transparent,#fff 30%,#fff 70%,transparent);',
-      '  border-radius:50%;opacity:.85;clip-path:polygon(0 50%,15% 0,85% 0,100% 50%,100% 100%,0 100%)}',
-      '.fdh-mark i{color:#D7261E;margin-top:8px;font-size:.86rem;line-height:1;font-style:normal}',
-      '.fdh-logo small{display:block;font-weight:500;font-size:.64rem;color:rgba(16,16,20,.644);',
-      '  letter-spacing:.06em;text-transform:uppercase;margin-top:-2px}',
+      '.fdh-logo{display:flex;flex-direction:column;align-items:flex-start;gap:0;color:#101014;',
+      '  text-decoration:none;flex-shrink:0}',
+      /* Het echte logo, in plaats van het nagetekende blokje dat hier stond.
+         De naam staat al in de afbeelding, dus daarnaast alleen nog de
+         plaatsnaam; die hoort erbij en staat niet in het logo. */
+      '.fdh-merk{display:block;height:34px;width:auto;flex-shrink:0}',
+      '.fdh-logo small{display:block;font-weight:600;font-size:.62rem;color:rgba(16,16,20,.644);',
+      '  letter-spacing:.16em;text-transform:uppercase;line-height:1;padding-left:2px;margin-top:3px}',
+      '@media(max-width:520px){.fdh-merk{height:28px}.fdh-logo small{display:none}}',
       '.fdh-nav{display:flex;list-style:none;gap:24px;margin:0;padding:0;flex:1;justify-content:center}',
       '.fdh-nav a{color:rgba(16,16,20,.773);font-weight:600;font-size:.76rem;',
       '  text-transform:uppercase;letter-spacing:.13em;text-decoration:none;',
@@ -81,7 +79,6 @@
       /* Onder 1080px verdwijnt het menu, maar het telefoonnummer blijft */
       '@media(max-width:1080px){.fdh-nav{display:none}.fdh-in{justify-content:space-between}}',
       '@media(max-width:620px){',
-      '  .fdh-logo span:not(.fdh-mark){display:none}',
       '  .fdh-tel span{display:none}',
       '  .fdh-tel{width:var(--fd-knop-h-s,40px);height:var(--fd-knop-h-s,40px);justify-content:center;',
 '    padding:0;background:rgba(16,16,20,.043);border-radius:var(--fd-hoek-veld,10px)}',
@@ -110,8 +107,9 @@
     h.innerHTML =
       '<div class="fdh-in">' +
         '<a class="fdh-logo" href="/">' +
-          '<span class="fdh-mark"><i>FD</i></span>' +
-          '<span>FD Autoservice<small>Zaandam</small></span>' +
+          '<img class="fdh-merk" src="/logo-fd-autoservice.png" ' +
+            'alt="FD Autoservice Zaandam" width="814" height="200">' +
+          '<small>Zaandam</small>' +
         '</a>' +
         '<ul class="fdh-nav">' + items + '</ul>' +
         '<div class="fdh-acties">' +

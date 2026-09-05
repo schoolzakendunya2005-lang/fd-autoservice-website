@@ -120,6 +120,24 @@ function bedrijf() {
       addressCountry: C.site.land
     },
     geo: { '@type': 'GeoCoordinates', latitude: C.site.geo.breedte, longitude: C.site.geo.lengte },
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      `${C.adres.straat}, ${C.adres.postcode} ${C.adres.plaats}`)}`,
+    /* Naam, adres en telefoonnummer moeten overal exact hetzelfde staan:
+       op de site, in het Google-bedrijfsprofiel en hier. Wijkt er één teken
+       af, dan kan Google niet zien dat het om hetzelfde bedrijf gaat. */
+    legalName: C.site.naam,
+    identifier: { '@type': 'PropertyValue', name: 'KvK', value: C.kvk },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: C.telefoon.link,
+        email: C.email,
+        areaServed: 'NL',
+        availableLanguage: ['nl', 'Dutch']
+      }
+    ],
+    knowsLanguage: ['nl-NL'],
     openingHoursSpecification: openingstijden(),
     areaServed: C.gebied.map((n) => ({ '@type': 'City', name: n })),
     sameAs: C.sameAs,
@@ -276,6 +294,18 @@ function socialeTags(html, route) {
   ].join('\n');
 }
 
+/* De robots-regel stond op dertien pagina's als 'index,follow' en op één
+   als 'index,follow,max-image-preview:large'. Dat laatste laat Google een
+   grote afbeelding tonen in de zoekresultaten, wat voor een garage met
+   foto's van de werkplaats gunstig is. Nu overal gelijk. */
+function zetRobots(html, route) {
+  if (route.schema === false) return html;              // 404 en bedankpagina blijven noindex
+  return html.replace(
+    /<meta name="robots" content="index,follow[^"]*">/,
+    '<meta name="robots" content="index,follow,max-image-preview:large">'
+  );
+}
+
 function zetMeta(html, route) {
   const blok = socialeTags(html, route);
   const i = html.indexOf(META_START);
@@ -342,6 +372,7 @@ for (const route of C.routes) {
     }
   }
 
+  html = zetRobots(html, route);
   html = zetMeta(html, route);
 
   // Vinger aan de pols: Google kapt een omschrijving af rond 155 tekens.

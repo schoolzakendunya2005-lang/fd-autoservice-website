@@ -71,6 +71,29 @@
         "latitude": 52.4451045,
         "longitude": 4.8195716
       },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Westzijde%20158C%2C%201506%20EK%20Zaandam",
+      "legalName": "FD Autoservice",
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "KvK",
+        "value": "94702551"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+31752013142",
+          "email": "contact@fdautoservice.nl",
+          "areaServed": "NL",
+          "availableLanguage": [
+            "nl",
+            "Dutch"
+          ]
+        }
+      ],
+      "knowsLanguage": [
+        "nl-NL"
+      ],
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -520,7 +543,15 @@
     display:grid;grid-template-columns:auto 1fr auto;
     align-items:center;padding:22px 0;gap:24px;
   }
-  .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:#101014;font-size:1.05rem;text-decoration:none}
+  /* Het echte logo. De naam staat al in de afbeelding, dus daaronder alleen
+     nog de plaatsnaam. */
+  .logo{display:flex;flex-direction:column;align-items:flex-start;gap:0;color:#101014;text-decoration:none}
+  .logo-merk{display:block;height:38px;width:auto}
+  .logo > small{
+    display:block;font-weight:600;font-size:.62rem;color:rgba(16,16,20,.644);
+    letter-spacing:.16em;text-transform:uppercase;line-height:1;padding-left:2px;margin-top:4px;
+  }
+  @media(max-width:520px){.logo-merk{height:30px}.logo > small{display:none}}
   .logo span{color:#101014}
   .logo span small{color:rgba(16,16,20,.644)}
   .logo-mark{
@@ -1899,8 +1930,9 @@
 <header>
   <div class="wrap nav">
     <a class="logo" href="/">
-      <span class="logo-mark"><span class="fd">FD</span></span>
-      <span>FD Autoservice<small>Zaandam</small></span>
+      <img class="logo-merk" src="/logo-fd-autoservice.png"
+           alt="FD Autoservice Zaandam" width="814" height="200">
+      <small>Zaandam</small>
     </a>
     <nav>
       <ul>
@@ -2492,8 +2524,9 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <a class="logo" href="/" style="margin-bottom:18px">
-          <span class="logo-mark"><span class="fd">FD</span></span>
-          <span>FD Autoservice<small>Zaandam</small></span>
+          <img class="logo-merk" src="/logo-fd-autoservice.png"
+           alt="FD Autoservice Zaandam" width="814" height="200">
+      <small>Zaandam</small>
         </a>
         <p>De eerlijke autogarage van Zaandam. APK, onderhoud, reparatie, banden en airco, onder één dak, met persoonlijke service.</p>
         <div class="foot-socials">

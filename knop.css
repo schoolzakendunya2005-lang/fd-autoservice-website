@@ -65,8 +65,6 @@
 .nf-thuis,
 .ct-map-cta,
 .final-cta-btn,
-.plate-btn,
-.kenteken-btn,
 .ap-btn-next,
 .ap-btn-back,
 .ap-btn-submit,
@@ -114,7 +112,6 @@
 .about-cta-bel svg,
 .nf-bel svg,
 .ct-map-cta svg,
-.plate-btn svg,
 .ap-btn-next svg,
 .ap-btn-back svg{
   width:var(--fd-icoon-m);
@@ -165,8 +162,6 @@
 .di-hero-afspraak,
 .nf-bel,
 .final-cta-btn,
-.plate-btn,
-.kenteken-btn,
 .ap-btn-next,
 .ap-btn-submit,
 .mobile-menu-cta{
@@ -182,7 +177,6 @@
 .di-hero-afspraak:hover,
 .nf-bel:hover,
 .final-cta-btn:hover,
-.plate-btn:hover,
 .ap-btn-next:hover,
 .ap-btn-submit:hover{
   background:var(--accent-hover,#B81F18);
@@ -251,7 +245,6 @@
 .about-cta-bel:focus-visible,
 .nf-bel:focus-visible,
 .nf-thuis:focus-visible,
-.plate-btn:focus-visible,
 .ap-btn-next:focus-visible,
 .ap-btn-back:focus-visible,
 .ap-btn-submit:focus-visible{
@@ -312,7 +305,6 @@ button[disabled].fd-knop{
    als ze visueel kleiner ogen. */
 @media(pointer:coarse){
   .fd-knop,
-  .plate-btn,
   .qty-btn{min-height:var(--fd-raakvlak)}
 }
 
@@ -363,4 +355,32 @@ textarea:focus-visible,
 [tabindex]:focus-visible{
   outline:var(--fd-focus-dikte) solid var(--fd-focus-kleur);
   outline-offset:var(--fd-focus-afstand);
+}
+
+
+/* ------------------------------------------------- knop in een invoerveld
+   De Zoek-knop naast het kentekenveld is geen losse knop: hij hoort bij het
+   veld en moet even hoog zijn als het gele vlak ernaast. Daarom staat hij
+   niet in de component hierboven, die een vaste hoogte en ronde hoeken
+   oplegt; met die regels hing hij scheef in het veld.
+
+   Wat hij wél overneemt is de tekstbehandeling, zodat hij bij de rest hoort. */
+.plate-btn,
+.kenteken-btn{
+  align-self:stretch;
+  display:flex;align-items:center;justify-content:center;
+  gap:var(--fd-icoon-gat);
+  padding:0 var(--fd-ruimte-5);
+  border:0;border-radius:0;
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  font-size:var(--fd-tekst-s);font-weight:700;line-height:1;
+  letter-spacing:0;text-transform:none;
+  white-space:nowrap;cursor:pointer;
+}
+.plate-btn svg,
+.kenteken-btn svg{width:var(--fd-icoon-m);height:var(--fd-icoon-m);flex:0 0 auto}
+.plate-btn:focus-visible,
+.kenteken-btn:focus-visible{
+  outline:var(--fd-focus-dikte) solid var(--fd-focus-kleur);
+  outline-offset:-4px;              /* naar binnen, anders valt hij buiten het veld */
 }

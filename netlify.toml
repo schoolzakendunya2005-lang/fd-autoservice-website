@@ -106,6 +106,16 @@
   status = 301
   force = true
 
+# De site is ook bereikbaar op fdautoservice-zaandam.netlify.app. Dat is
+# hetzelfde huis met twee adressen: Google ziet dezelfde pagina's twee keer
+# en moet gaan kiezen. Alles op het voorbeeldadres gaat daarom permanent
+# door naar het echte domein.
+[[redirects]]
+  from = "https://fdautoservice-zaandam.netlify.app/*"
+  to = "https://fdautoservice.nl/:splat"
+  status = 301
+  force = true
+
 # Oude adressen die nog in advertenties of visitekaartjes kunnen staan.
 # /apk-afspraak was het oude adres van het formulier; dat doet inmiddels
 # meer dan alleen APK en heet daarom /afspraak.
