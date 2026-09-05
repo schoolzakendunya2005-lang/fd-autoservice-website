@@ -35,10 +35,14 @@
       '}',
       '.floats a{',
       '  pointer-events:auto;flex:1;',
-      '  display:inline-flex;align-items:center;justify-content:center;gap:8px;',
-      '  padding:14px 12px;border-radius:12px;',
+      '  display:inline-flex;align-items:center;justify-content:center;',
+      '  gap:var(--fd-icoon-gat,8px);',
+      /* Zelfde hoogte als elke andere knop; zie tokens.css */
+      '  height:var(--fd-knop-h-m,48px);padding:0 var(--fd-ruimte-3,12px);box-sizing:border-box;',
+      '  border-radius:var(--fd-hoek-veld,10px);',
       '  font-family:Inter,system-ui,-apple-system,sans-serif;',
-      '  font-weight:600;font-size:.95rem;color:#101014;text-decoration:none;',
+      '  font-weight:700;font-size:var(--fd-tekst-s,.875rem);line-height:1;',
+      '  color:#101014;text-decoration:none;',
       '  box-shadow:0 12px 32px rgba(16,16,20,.098);',
       '}',
       '.floats .call{background:#FFFFFF;border:1px solid #E4E4EA}',
@@ -47,7 +51,7 @@
       /* Melding open: balk weg, anders liggen ze samen over de pagina */
       'html[data-fd-cc-open="ja"] .floats{display:none}',
       /* Onderaan de pagina ruimte houden zodat de balk niets afdekt */
-      '@media(max-width:760px){body{padding-bottom:76px}}'
+      '@media(max-width:760px){body{padding-bottom:calc(var(--fd-knop-h-m,48px) + var(--fd-ruimte-6,32px))}}'
     ].join('');
     document.head.appendChild(s);
   }

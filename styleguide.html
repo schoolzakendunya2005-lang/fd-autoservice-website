@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="nl-NL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Styleguide | FD Autoservice</title>
+<meta name="description" content="Interne pagina: alle knopvarianten, tokens en tekstgroottes van FD Autoservice naast elkaar, met hun gemeten hoogtes.">
+<!-- Interne pagina. Hoort niet in Google en staat daarom ook niet in de sitemap. -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#D7261E; --accent-hover:#B81F18;
+    --border:#E4E4EA; --text:#55525C; --text-strong:#101014; --bg-soft:#F5F4F6;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:#fff;color:var(--text-strong);
+    font-family:Inter,system-ui,-apple-system,sans-serif;
+    font-size:15px;line-height:1.6;
+  }
+  .sg-wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+  .sg-kop{border-bottom:1px solid var(--border);padding:44px 0 30px;margin-bottom:8px}
+  .sg-kop h1{font-size:2rem;letter-spacing:-.03em;margin:0 0 10px}
+  .sg-kop p{margin:0;color:var(--text);max-width:62ch}
+
+  .sg-blok{padding:40px 0;border-bottom:1px solid var(--border)}
+  .sg-blok h2{
+    font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--text);margin:0 0 6px;
+  }
+  .sg-blok .sg-uitleg{margin:0 0 24px;color:var(--text);max-width:62ch;font-size:.92rem}
+
+  .sg-rij{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-bottom:14px}
+
+  table{border-collapse:collapse;width:100%;font-size:.86rem}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border)}
+  th{font-weight:700;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text)}
+  td.getal{font-variant-numeric:tabular-nums;font-weight:700}
+  td.ok{color:#186B45;font-weight:700}
+  td.fout{color:var(--accent);font-weight:700}
+
+  .sg-staal{display:flex;flex-wrap:wrap;gap:10px}
+  .sg-staal div{
+    border:1px solid var(--border);border-radius:8px;padding:10px 12px;
+    font-size:.76rem;color:var(--text);min-width:104px;
+  }
+  .sg-staal b{display:block;color:var(--text-strong);font-size:.86rem;margin-bottom:3px}
+  .sg-ruimte{background:var(--accent);height:10px;border-radius:2px;margin-top:6px}
+
+  .sg-let{font-size:.82rem;color:var(--text);margin-top:10px}
+</style>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="knop.css">
+</head>
+<body>
+
+<div class="sg-wrap">
+
+  <header class="sg-kop">
+    <h1>Styleguide</h1>
+    <p>Interne pagina. Alle knopvarianten staan hier naast elkaar met hun <em>gemeten</em> hoogte, niet met hun bedoelde hoogte. Wijkt er iets af, dan kleurt het rood in de tabel hieronder.</p>
+  </header>
+
+  <section class="sg-blok">
+    <h2>Knoppen · maat l (56px)</h2>
+    <p class="sg-uitleg">De maat voor primaire acties: afspraak maken en bellen. Let op de tweede knop: die heeft een icoon én een rand, en is toch precies even hoog als de eerste.</p>
+    <div class="sg-rij" id="rij-l">
+      <a class="fd-knop" data-variant="primair" data-maat="l" href="#">Maak een afspraak</a>
+      <a class="fd-knop" data-variant="secundair" data-maat="l" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        075 - 201 3142
+      </a>
+      <a class="fd-knop" data-variant="stil" data-maat="l" href="#">Liever appen</a>
+    </div>
+  </section>
+
+  <section class="sg-blok">
+    <h2>Knoppen · maat m (48px)</h2>
+    <p class="sg-uitleg">De standaard. Voor alles wat niet de hoofdactie van de pagina is.</p>
+    <div class="sg-rij" id="rij-m">
+      <button class="fd-knop" data-variant="primair" type="button">Versturen</button>
+      <button class="fd-knop" data-variant="secundair" type="button">Vorige stap</button>
+      <button class="fd-knop" data-variant="stil" type="button">Annuleren</button>
+      <button class="fd-knop" data-variant="primair" type="button" disabled>Uitgeschakeld</button>
+    </div>
+  </section>
+
+  <section class="sg-blok">
+    <h2>Knoppen · maat s (40px)</h2>
+    <p class="sg-uitleg">Voor chips en knoppen in een strakke balk. Op een telefoon krijgen ze alsnog 44px raakoppervlak, ook al ogen ze kleiner.</p>
+    <div class="sg-rij" id="rij-s">
+      <a class="fd-knop" data-variant="primair" data-maat="s" href="#">Afspraak</a>
+      <a class="fd-knop" data-variant="secundair" data-maat="s" href="#">Prijzen</a>
+      <a class="fd-knop" data-variant="stil" data-maat="s" href="#">Meer</a>
+    </div>
+  </section>
+
+  <section class="sg-blok">
+    <h2>Gemeten hoogtes</h2>
+    <p class="sg-uitleg">Berekende hoogte van elke knop hierboven, uitgelezen uit de browser. Dit is de controle die de opdracht vraagt: gelijke waarde, niet "ziet er goed uit".</p>
+    <table>
+      <thead>
+        <tr><th>Knop</th><th>Variant</th><th>Maat</th><th>Verwacht</th><th>Gemeten</th><th>Klopt</th></tr>
+      </thead>
+      <tbody id="metingen"><tr><td colspan="6">Meten…</td></tr></tbody>
+    </table>
+    <p class="sg-let" id="samenvatting"></p>
+  </section>
+
+  <section class="sg-blok">
+    <h2>De regel onder een knoprij</h2>
+    <p class="sg-uitleg">Drie losse feiten zijn drie elementen, geen zin met middenpunten. Minimaal één spacing-stap ruimte erboven, en een max-width zodat er nooit één los woord op een tweede regel eindigt.</p>
+    <div class="sg-rij">
+      <a class="fd-knop" data-variant="primair" data-maat="l" href="#">Maak een afspraak</a>
+      <a class="fd-knop" data-variant="secundair" data-maat="l" href="#">075 - 201 3142</a>
+    </div>
+    <p class="fd-meta">
+      <span class="fd-meta-status" data-open="ja">Nu open · sluit om 18:00</span>
+      <span class="fd-meta-adres">Westzijde 158C, Zaandam</span>
+      <span class="fd-meta-adres">Vaak deze week terecht</span>
+    </p>
+  </section>
+
+  <section class="sg-blok">
+    <h2>Ruimte</h2>
+    <p class="sg-uitleg">Eén schaal. Geen 13px, geen 7px, geen 23px.</p>
+    <div class="sg-staal" id="ruimte"></div>
+  </section>
+
+  <section class="sg-blok">
+    <h2>Hoeken</h2>
+    <p class="sg-uitleg">Drie waardes, elk met een betekenis: rond voor knoppen, ruim voor kaarten, klein voor invoervelden.</p>
+    <div class="sg-staal" id="hoeken"></div>
+  </section>
+
+  <section class="sg-blok">
+    <h2>Tekst</h2>
+    <p class="sg-uitleg">Vaste stappen met hun eigen regelhoogte. Componenten kiezen een stap; ze zetten geen eigen font-size.</p>
+    <div id="tekst"></div>
+  </section>
+
+</div>
+
+<script>
+/* Alles hieronder meet alleen; het verandert niets aan de opmaak. */
+(function () {
+  'use strict';
+
+  var verwacht = { s: 40, m: 48, l: 56 };
+  var rijen = [];
+
+  ['s', 'm', 'l'].forEach(function (maat) {
+    var rij = document.getElementById('rij-' + maat);
+    [].forEach.call(rij.querySelectorAll('.fd-knop'), function (knop) {
+      var h = Math.round(knop.getBoundingClientRect().height);
+      rijen.push({
+        naam: knop.textContent.replace(/\s+/g, ' ').trim(),
+        variant: knop.getAttribute('data-variant'),
+        maat: maat,
+        verwacht: verwacht[maat],
+        gemeten: h,
+        klopt: h === verwacht[maat]
+      });
+    });
+  });
+
+  var lijf = document.getElementById('metingen');
+  lijf.innerHTML = rijen.map(function (r) {
+    return '<tr><td>' + r.naam + '</td><td>' + r.variant + '</td><td>' + r.maat +
+           '</td><td class="getal">' + r.verwacht + 'px</td><td class="getal">' + r.gemeten +
+           'px</td><td class="' + (r.klopt ? 'ok' : 'fout') + '">' + (r.klopt ? 'ja' : 'NEE') + '</td></tr>';
+  }).join('');
+
+  var mis = rijen.filter(function (r) { return !r.klopt; });
+  document.getElementById('samenvatting').textContent = mis.length
+    ? mis.length + ' van de ' + rijen.length + ' knoppen wijkt af.'
+    : 'Alle ' + rijen.length + ' knoppen hebben exact de hoogte van hun maat.';
+
+  /* stalen uit de tokens zelf, zodat deze pagina niet apart bijgehouden hoeft */
+  var stijl = getComputedStyle(document.documentElement);
+
+  document.getElementById('ruimte').innerHTML = [1,2,3,4,5,6,7,8].map(function (n) {
+    var v = stijl.getPropertyValue('--fd-ruimte-' + n).trim();
+    return '<div><b>' + v + '</b>ruimte-' + n +
+           '<div class="sg-ruimte" style="width:' + v + '"></div></div>';
+  }).join('');
+
+  document.getElementById('hoeken').innerHTML = [
+    ['knop', 'knoppen en chips'], ['kaart', 'kaarten en panelen'], ['veld', 'invoervelden']
+  ].map(function (p) {
+    var v = stijl.getPropertyValue('--fd-hoek-' + p[0]).trim();
+    return '<div style="border-radius:' + v + '"><b>' + v + '</b>' + p[1] + '</div>';
+  }).join('');
+
+  document.getElementById('tekst').innerHTML = ['xs','s','m','l','xl','2xl'].map(function (k) {
+    var g = stijl.getPropertyValue('--fd-tekst-' + k).trim();
+    var r = stijl.getPropertyValue('--fd-regel-' + k).trim();
+    return '<p style="font-size:' + g + ';line-height:' + r + ';margin:0 0 10px">' +
+           'tekst-' + k + ' · ' + g + ' / ' + r + ' — Eerlijke autogarage in Zaandam</p>';
+  }).join('');
+})();
+</script>
+
+</body>
+</html>

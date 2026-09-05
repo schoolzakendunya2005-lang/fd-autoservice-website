@@ -1,0 +1,75 @@
+/* ==========================================================================
+   FD Autoservice — tokens
+   --------------------------------------------------------------------------
+   Eén plek voor ruimte, hoeken, tekstgroottes en knophoogtes. Alles wat
+   erna komt gebruikt deze waardes en verzint er geen nieuwe bij.
+
+   Aanleiding: over de site stonden 167 verschillende padding-waardes,
+   15 hoekafrondingen en 58 tekstgroottes. Twee knoppen naast elkaar in
+   dezelfde rij waren 53 en 60 pixels hoog, met exact dezelfde padding.
+
+   WAT JE HIERMEE DOET
+   Een nieuwe waarde nodig? Kijk eerst of er een token is die dichtbij
+   genoeg zit. Meestal is dat zo. Is dat niet zo, voeg hem hier toe met
+   een reden erbij, niet in de pagina zelf.
+   ========================================================================== */
+
+:root{
+
+  /* ---- ruimte ----------------------------------------------------------
+     Eén schaal. Geen 13px, geen 7px, geen 23px. Wil je iets net iets
+     ruimer, ga dan een stap omhoog in plaats van er drie bij op te tellen. */
+  --fd-ruimte-1:  4px;
+  --fd-ruimte-2:  8px;
+  --fd-ruimte-3: 12px;
+  --fd-ruimte-4: 16px;
+  --fd-ruimte-5: 24px;
+  --fd-ruimte-6: 32px;
+  --fd-ruimte-7: 48px;
+  --fd-ruimte-8: 64px;
+
+  /* ---- hoeken ----------------------------------------------------------
+     Drie waardes, elk met een betekenis. Niet dezelfde afronding op alles:
+     aan de hoek moet je kunnen zien wat voor ding het is. */
+  --fd-hoek-knop:  999px;   /* knoppen en chips: helemaal rond */
+  --fd-hoek-kaart:  16px;   /* kaarten, blokken, panelen */
+  --fd-hoek-veld:    10px;  /* invoervelden en kleine labels */
+
+  /* ---- tekst -----------------------------------------------------------
+     Vaste stappen met hun eigen regelhoogte. Componenten kiezen een stap,
+     ze zetten geen eigen font-size. */
+  --fd-tekst-xs:   .75rem;  --fd-regel-xs:  1.4;   /* labels, bijschriften */
+  --fd-tekst-s:    .875rem; --fd-regel-s:   1.5;   /* knoppen, meta */
+  --fd-tekst-m:    1rem;    --fd-regel-m:   1.6;   /* lopende tekst */
+  --fd-tekst-l:    1.125rem;--fd-regel-l:   1.55;  /* inleiding */
+  --fd-tekst-xl:   1.5rem;  --fd-regel-xl:  1.3;   /* tussenkop */
+  --fd-tekst-2xl:  2rem;    --fd-regel-2xl: 1.2;   /* sectiekop */
+
+  /* ---- knophoogtes -----------------------------------------------------
+     Hoogte is een eigenschap van de knop, geen uitkomst van padding plus
+     regelhoogte plus een icoon. Daarom staat hij vast en rekent de padding
+     zich daaromheen. Dat is precies wat er eerder misging. */
+  --fd-knop-h-s:  40px;
+  --fd-knop-h-m:  48px;
+  --fd-knop-h-l:  56px;
+
+  /* Horizontale ruimte in de knop, per maat. */
+  --fd-knop-p-s: var(--fd-ruimte-4);
+  --fd-knop-p-m: var(--fd-ruimte-5);
+  --fd-knop-p-l: var(--fd-ruimte-6);
+
+  /* Icoongrootte per maat, en de ruimte tussen icoon en tekst. */
+  --fd-icoon-s: 16px;
+  --fd-icoon-m: 18px;
+  --fd-icoon-l: 20px;
+  --fd-icoon-gat: var(--fd-ruimte-2);
+
+  /* Kleinste raakoppervlak op een telefoon. Ook als de knop kleiner oogt. */
+  --fd-raakvlak: 44px;
+
+  /* ---- focus -----------------------------------------------------------
+     Zichtbaar bij toetsenbordnavigatie, op elke ondergrond. */
+  --fd-focus-kleur: #101014;
+  --fd-focus-dikte: 2px;
+  --fd-focus-afstand: 3px;
+}

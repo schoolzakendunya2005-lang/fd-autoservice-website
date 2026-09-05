@@ -1,0 +1,366 @@
+/* ==========================================================================
+   FD Autoservice — de knop
+   --------------------------------------------------------------------------
+   Alle knoppen van de site komen hier langs: gevulde knoppen, omlijnde
+   knoppen, de telefoonknop, en links die eruitzien als een knop.
+
+   GEBRUIK
+
+       <a class="fd-knop" data-variant="primair" data-maat="l" href="/afspraak">
+         Maak een afspraak
+       </a>
+
+       <a class="fd-knop" data-variant="secundair" data-maat="l" href="tel:...">
+         <svg …></svg> 075 - 201 3142
+       </a>
+
+   variant : primair · secundair · stil
+   maat    : s (40px) · m (48px) · l (56px), standaard m
+
+   Knoppen naast elkaar zet je in een rij:
+
+       <div class="fd-knoprij"> … </div>
+
+   WAT HIER IS OPGELOST
+   Twee knoppen in dezelfde rij waren 53 en 60 pixels hoog, met exact
+   dezelfde padding. Het verschil kwam van het icoon in de tweede knop, dat
+   de regelhoogte optilde, plus een rand van een pixel. Nu staat de hoogte
+   vast in een token en rekent de rest zich daaromheen:
+
+     - height komt uit --fd-knop-h-*, niet uit padding
+     - box-sizing: border-box, dus een rand maakt de knop niet hoger
+     - line-height: 1 en een icoon met vaste afmeting, dus het icoon
+       kan de regel niet meer optillen
+     - de rij staat op align-items: stretch, zodat gelijke hoogte
+       structureel is en niet per ongeluk klopt
+
+   GEEN HOOFDLETTERS
+   Eerder schreeuwde de ene knop in kapitalen terwijl de andere dat niet
+   deed. Dat is nu overal hetzelfde: geen kapitalen. Een telefoonnummer in
+   hoofdletters leest slechter, en dat is de belangrijkste knop van de site.
+
+   DE OUDE KLASSEN
+   Onderaan staan de bestaande knopklassen als aliassen. Zo hebben ze
+   allemaal dezelfde basis zonder dat elke pagina overhoop hoeft. Nieuwe
+   opmaak gebruikt .fd-knop; de aliassen mogen verdwijnen zodra de laatste
+   pagina om is.
+   ========================================================================== */
+
+/* --------------------------------------------------------------- basis */
+
+.fd-knop,
+.btn,
+.btn.btn-primary,
+.btn.btn-secondary,
+.btn-pill,
+.btn-primary,
+.btn-secondary,
+.d-btn-primair,
+.d-btn-bel,
+.d-btn-vol,
+.di-hero-btn,
+.foot-cta-bel,
+.about-cta-bel,
+.nf-bel,
+.nf-thuis,
+.ct-map-cta,
+.final-cta-btn,
+.plate-btn,
+.kenteken-btn,
+.ap-btn-next,
+.ap-btn-back,
+.ap-btn-submit,
+.mobile-menu-cta{
+  /* opmaak */
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:var(--fd-icoon-gat);
+
+  /* hoogte is een token, geen uitkomst */
+  height:var(--fd-knop-h-m);
+  min-height:var(--fd-knop-h-m);
+  padding:0 var(--fd-knop-p-m);
+  box-sizing:border-box;      /* een rand maakt de knop niet hoger */
+
+  /* tekst: één behandeling voor elke variant */
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fd-tekst-s);
+  font-weight:700;
+  line-height:1;              /* zo kan een icoon de regel niet optillen */
+  letter-spacing:0;
+  text-transform:none;
+  text-decoration:none;
+  white-space:nowrap;
+
+  border:1px solid transparent;
+  border-radius:var(--fd-hoek-knop);
+  cursor:pointer;
+  transition:background-color .18s ease, border-color .18s ease,
+             color .18s ease, transform .18s ease;
+}
+
+/* Het icoon heeft een vaste maat en mag nooit meekrimpen of meegroeien. */
+.fd-knop svg,
+.btn svg,
+.btn-pill svg,
+.btn-primary svg,
+.btn-secondary svg,
+.d-btn-primair svg,
+.d-btn-bel svg,
+.d-btn-vol svg,
+.di-hero-btn svg,
+.foot-cta-bel svg,
+.about-cta-bel svg,
+.nf-bel svg,
+.ct-map-cta svg,
+.plate-btn svg,
+.ap-btn-next svg,
+.ap-btn-back svg{
+  width:var(--fd-icoon-m);
+  height:var(--fd-icoon-m);
+  flex:0 0 auto;
+  /* optisch op de tekst uitlijnen, niet op de box */
+  margin-top:-1px;
+}
+
+/* --------------------------------------------------------------- maten */
+
+.fd-knop[data-maat="s"]{
+  height:var(--fd-knop-h-s); min-height:var(--fd-knop-h-s);
+  padding:0 var(--fd-knop-p-s);
+  font-size:var(--fd-tekst-xs);
+}
+.fd-knop[data-maat="s"] svg{width:var(--fd-icoon-s);height:var(--fd-icoon-s)}
+
+.fd-knop[data-maat="l"],
+.btn.btn-primary,
+.btn.btn-secondary,
+.btn-pill,
+.d-btn-primair,
+.d-btn-bel,
+.d-btn-vol,
+.di-hero-btn,
+.foot-cta-bel,
+.about-cta-bel,
+.nf-bel,
+.nf-thuis,
+.final-cta-btn{
+  height:var(--fd-knop-h-l); min-height:var(--fd-knop-h-l);
+  padding:0 var(--fd-knop-p-l);
+  font-size:var(--fd-tekst-s);
+}
+.fd-knop[data-maat="l"] svg{width:var(--fd-icoon-l);height:var(--fd-icoon-l)}
+
+/* ------------------------------------------------------------ varianten
+   Alleen kleur verschilt per variant. Alles wat met formaat te maken heeft
+   staat hierboven en is voor elke variant gelijk. */
+
+.fd-knop[data-variant="primair"],
+.btn.btn-primary,
+.btn-pill,
+.btn-primary,
+.d-btn-primair,
+.d-btn-vol,
+.di-hero-afspraak,
+.nf-bel,
+.final-cta-btn,
+.plate-btn,
+.kenteken-btn,
+.ap-btn-next,
+.ap-btn-submit,
+.mobile-menu-cta{
+  background:var(--accent,#D7261E);
+  border-color:var(--accent,#D7261E);
+  color:#fff;
+}
+.fd-knop[data-variant="primair"]:hover,
+.btn-pill:hover,
+.btn-primary:hover,
+.d-btn-primair:hover,
+.d-btn-vol:hover,
+.di-hero-afspraak:hover,
+.nf-bel:hover,
+.final-cta-btn:hover,
+.plate-btn:hover,
+.ap-btn-next:hover,
+.ap-btn-submit:hover{
+  background:var(--accent-hover,#B81F18);
+  border-color:var(--accent-hover,#B81F18);
+  color:#fff;
+  transform:translateY(-1px);
+}
+
+.fd-knop[data-variant="secundair"],
+.btn.btn-secondary,
+.btn-secondary,
+.d-btn-bel,
+.di-hero-bel,
+.foot-cta-bel,
+.about-cta-bel,
+.nf-thuis,
+.ct-map-cta,
+.ap-btn-back{
+  background:#fff;
+  border-color:var(--border,#E4E4EA);
+  color:var(--text-strong,#101014);
+}
+.fd-knop[data-variant="secundair"]:hover,
+.btn-secondary:hover,
+.d-btn-bel:hover,
+.di-hero-bel:hover,
+.foot-cta-bel:hover,
+.about-cta-bel:hover,
+.nf-thuis:hover,
+.ct-map-cta:hover,
+.ap-btn-back:hover{
+  border-color:var(--accent,#D7261E);
+  color:var(--accent,#D7261E);
+  transform:translateY(-1px);
+}
+/* Het icoon in een omlijnde knop mag wél het accent dragen: het wijst de
+   actie aan zonder dat de hele knop om aandacht vraagt. */
+.fd-knop[data-variant="secundair"] svg,
+.d-btn-bel svg,
+.di-hero-bel svg,
+.foot-cta-bel svg,
+.about-cta-bel svg{color:var(--accent,#D7261E)}
+
+.fd-knop[data-variant="stil"]{
+  background:transparent;
+  border-color:transparent;
+  color:var(--text-strong,#101014);
+}
+.fd-knop[data-variant="stil"]:hover{
+  background:var(--bg-soft,#F5F4F6);
+  color:var(--accent,#D7261E);
+}
+
+/* ------------------------------------------------------------- toestand */
+
+.fd-knop:focus-visible,
+.btn:focus-visible,
+.btn-pill:focus-visible,
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.d-btn-primair:focus-visible,
+.d-btn-bel:focus-visible,
+.d-btn-vol:focus-visible,
+.di-hero-btn:focus-visible,
+.foot-cta-bel:focus-visible,
+.about-cta-bel:focus-visible,
+.nf-bel:focus-visible,
+.nf-thuis:focus-visible,
+.plate-btn:focus-visible,
+.ap-btn-next:focus-visible,
+.ap-btn-back:focus-visible,
+.ap-btn-submit:focus-visible{
+  outline:var(--fd-focus-dikte) solid var(--fd-focus-kleur);
+  outline-offset:var(--fd-focus-afstand);
+}
+
+.fd-knop:active,
+.btn-pill:active,
+.d-btn-primair:active,
+.di-hero-btn:active{transform:translateY(0)}
+
+.fd-knop[disabled],
+.fd-knop[aria-disabled="true"],
+button[disabled].fd-knop{
+  opacity:.45;
+  cursor:not-allowed;
+  transform:none;
+}
+
+/* ------------------------------------------------------------------ rij
+   Knoppen naast elkaar. stretch zorgt dat gelijke hoogte structureel is;
+   ze hebben dezelfde hoogte omdat de rij dat afdwingt, niet omdat de
+   waardes toevallig uitkomen. */
+
+.fd-knoprij,
+.d-acties,
+.di-hero-acties,
+.foot-cta-acties,
+.about-cta-acties,
+.nf-acties{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:stretch;
+  gap:var(--fd-ruimte-3);
+}
+
+/* Op een telefoon vullen de knoppen de breedte, onder elkaar. */
+@media(max-width:560px){
+  .fd-knoprij,
+  .d-acties,
+  .di-hero-acties,
+  .foot-cta-acties,
+  .about-cta-acties,
+  .nf-acties{
+    flex-direction:column;
+    gap:var(--fd-ruimte-2);
+  }
+  .fd-knoprij > *,
+  .d-acties > *,
+  .di-hero-acties > *,
+  .foot-cta-acties > *,
+  .about-cta-acties > *,
+  .nf-acties > *{width:100%}
+}
+
+/* Kleine knoppen halen op een telefoon het minimale raakoppervlak, ook
+   als ze visueel kleiner ogen. */
+@media(pointer:coarse){
+  .fd-knop,
+  .plate-btn,
+  .qty-btn{min-height:var(--fd-raakvlak)}
+}
+
+/* -------------------------------------------------------------- meta
+   De regel onder een knoprij. Stond eerder tegen de knoppen aan geplakt,
+   was 743 pixels breed en reeg drie losse feiten aan elkaar met
+   middenpunten. Nu: ruimte erboven, een leesbare regellengte, en de
+   openingsstatus krijgt zijn eigen behandeling. */
+
+.fd-meta{
+  margin-top:var(--fd-ruimte-5);
+  max-width:52ch;                    /* onder de 80 tekens */
+  font-size:var(--fd-tekst-s);
+  line-height:var(--fd-regel-s);
+  color:var(--text,#55525C);
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:var(--fd-ruimte-2) var(--fd-ruimte-4);
+}
+.fd-meta-status{
+  display:inline-flex;align-items:center;gap:var(--fd-ruimte-2);
+  font-weight:700;color:var(--text-strong,#101014);
+}
+.fd-meta-status::before{
+  content:"";width:7px;height:7px;border-radius:50%;
+  background:#8C8896;flex:0 0 auto;
+}
+.fd-meta-status[data-open="ja"]::before{background:#1B7A4B}
+.fd-meta-status[data-open="nee"]::before{background:var(--accent,#D7261E)}
+.fd-meta-adres{color:var(--text,#55525C)}
+
+/* ------------------------------------------------------- focus, overal
+   Basisregel voor alles wat met de tab-toets bereikbaar is en niet al een
+   eigen focusring heeft. Element-selectors, dus elke component hierboven
+   wint er nog van; dit is het vangnet, geen dwingende regel.
+
+   Aanleiding: buiten de knoppen viel de site terug op de standaardring van
+   de browser, die de tekstkleur volgt. Op een rode knop met witte tekst is
+   dat een witte ring, en die verdwijnt zodra iemand de knop een lichte
+   achtergrond geeft. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible{
+  outline:var(--fd-focus-dikte) solid var(--fd-focus-kleur);
+  outline-offset:var(--fd-focus-afstand);
+}

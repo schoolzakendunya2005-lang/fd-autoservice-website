@@ -183,6 +183,8 @@
     // open/dicht-styling
     document.querySelectorAll('[data-fd-status]').forEach(function (el) {
       el.dataset.state = st.open ? 'open' : 'closed';
+      // De stip voor de statusregel leest data-open, zie .fd-meta-status
+      el.setAttribute('data-open', st.open ? 'ja' : 'nee');
     });
 
     // Google-aantal alleen tonen als het echt bekend is

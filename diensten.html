@@ -74,7 +74,10 @@
   .di-eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--accent-mute);font-size:.74rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;margin-bottom:24px}
   .di-eyebrow::before{content:"";display:inline-block;width:32px;height:1px;background:var(--accent-mute)}
   .di-hero h1{max-width:22ch;margin-bottom:20px}
-  .di-hero > .wrap > p{color:rgba(16,16,20,.754);max-width:64ch;font-size:1.15rem;line-height:1.6;margin:0}
+  /* :not(.fd-meta) omdat deze regel anders van de metaregel wint: twee
+     klassen plus een element verslaan één klasse. De inleiding houdt
+     zijn opmaak, de statusregel wordt door .fd-meta bepaald. */
+  .di-hero > .wrap > p:not(.fd-meta){color:rgba(16,16,20,.754);max-width:64ch;font-size:1.15rem;line-height:1.6;margin:0}
   .di-hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem)}
 
   /* Knoppen in de hero: afspraak plus het telefoonnummer, zodat bellen
@@ -92,7 +95,9 @@
   .di-hero-bel{background:#fff;color:var(--text-strong);border:1.5px solid var(--border)}
   .di-hero-bel:hover{border-color:var(--accent);color:var(--accent)}
   .di-hero-bel .nr{font-size:1rem;letter-spacing:-.01em;text-transform:none}
-  .di-hero-note{margin:16px 0 0;font-size:.9rem;color:var(--muted)}
+  /* Ruimte, breedte en tekstgrootte komen uit .fd-meta in knop.css.
+     Hier stond margin:16px, dat vocht met de spacingschaal. */
+  .di-hero-note{color:var(--muted)}
   .di-hero-note b{color:var(--text-strong);font-weight:700}
 
   /* Pijl onderin: laat zien dat er onder de vouw nog meer staat. */
@@ -608,6 +613,10 @@
 <meta name="twitter:description" content="APK €60, onderhoud vanaf €219, banden, diagnose en airco in Zaandam. Check met je kenteken hoelang je nog hebt tot je APK verloopt.">
 <meta name="twitter:image" content="https://fdautoservice.nl/og-fd-autoservice.jpg">
 <!-- /fd:meta -->
+<!-- Als laatste, zodat de knopcomponent wint van de losse regels
+     die verderop in deze pagina staan. -->
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="knop.css">
 </head>
 <body data-fd-pagina="diensten">
 
@@ -620,7 +629,15 @@
       <a class="di-hero-btn di-hero-afspraak" href="/afspraak">Afspraak maken</a>
       <a class="di-hero-btn di-hero-bel" href="tel:+31752013142"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="nr" data-fd="tel">075 - 201 3142</span></a>
     </div>
-    <p class="di-hero-note"><b data-fd-status data-fd="status-label">Nu open</b> · Westzijde 158C, Zaandam · vaak deze week terecht</p>
+    <!-- Drie losse feiten waren met middenpunten aan elkaar geregen tot één
+         zin van 743 pixels. Het zijn drie dingen: de openingsstatus, waar we
+         zitten, en hoe snel je terecht kunt. De status krijgt een stip en
+         vet, de rest staat ernaast. Ruimte erboven komt uit .fd-meta. -->
+    <p class="di-hero-note fd-meta">
+      <span class="fd-meta-status" data-fd-status data-fd="status-label">Nu open</span>
+      <span class="fd-meta-adres">Westzijde 158C, Zaandam</span>
+      <span class="fd-meta-adres">Vaak deze week terecht</span>
+    </p>
   </div>
   <a class="di-scroll" href="#apk-check" aria-label="Naar de APK-check">
     <span>Bekijk meer</span>

@@ -68,9 +68,14 @@
       '  font-size:.88rem;text-decoration:none;white-space:nowrap}',
       '.fdh-tel svg{width:16px;height:16px;color:#D7261E;flex-shrink:0}',
       '.fdh-tel:hover{color:#D7261E}',
-      '.fdh-cta{display:inline-flex;align-items:center;padding:10px 19px;border-radius:999px;',
-      '  background:#D7261E;color:#fff;font-weight:700;font-size:.74rem;letter-spacing:.1em;',
-      '  text-transform:uppercase;text-decoration:none;white-space:nowrap;',
+      /* Maten en tekstbehandeling uit tokens.css, gelijk aan elke andere
+         knop op de site. Hoogte staat vast, padding rekent zich daaromheen. */
+      '.fdh-cta{display:inline-flex;align-items:center;justify-content:center;',
+      '  height:var(--fd-knop-h-s,40px);padding:0 var(--fd-ruimte-5,24px);box-sizing:border-box;',
+      '  border-radius:var(--fd-hoek-knop,999px);',
+      '  background:#D7261E;color:#fff;font-weight:700;font-size:var(--fd-tekst-s,.875rem);',
+      '  line-height:1;letter-spacing:0;text-transform:none;',
+      '  text-decoration:none;white-space:nowrap;',
       '  box-shadow:0 8px 22px -8px rgba(215,38,30,.6);transition:background .2s ease}',
       '.fdh-cta:hover{background:#B81B14}',
       /* Onder 1080px verdwijnt het menu, maar het telefoonnummer blijft */
@@ -78,10 +83,11 @@
       '@media(max-width:620px){',
       '  .fdh-logo span:not(.fdh-mark){display:none}',
       '  .fdh-tel span{display:none}',
-      '  .fdh-tel{padding:9px;background:rgba(16,16,20,.043);border-radius:10px}',
+      '  .fdh-tel{width:var(--fd-knop-h-s,40px);height:var(--fd-knop-h-s,40px);justify-content:center;',
+'    padding:0;background:rgba(16,16,20,.043);border-radius:var(--fd-hoek-veld,10px)}',
       '  .fdh-tel svg{width:18px;height:18px}',
       '  .fdh-in{padding:10px 16px;gap:10px}',
-      '  .fdh-cta{padding:10px 15px;font-size:.7rem}',
+      '  .fdh-cta{padding:0 var(--fd-ruimte-4,16px);font-size:var(--fd-tekst-xs,.75rem)}',
       '}'
     ].join('');
     document.head.appendChild(s);
