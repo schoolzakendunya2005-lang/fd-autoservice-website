@@ -655,8 +655,11 @@
     .nav-phone{display:none}
   }
   @media(max-width:520px){
-    /* Op hele kleine schermen alleen icoon-knoppen zichtbaar in header */
-    .nav-actions .btn-primary{display:none}
+    /* Op hele kleine schermen alleen icoon-knoppen zichtbaar in header.
+       Drie klassen diep, want knop.css laadt later en zet display op de
+       knopcomponent; met twee klassen won die van dit display:none en kwam
+       de knop terug, waardoor de hamburger buiten beeld werd geduwd. */
+    .nav-actions .btn.btn-primary{display:none}
     .logo span{display:none}
     .logo{gap:0}
   }
@@ -755,9 +758,12 @@
   .hero .wrap{position:relative;z-index:3}
 
   /* 360° YouTube video als hero background */
+  /* Doorzichtig, niet wit: deze laag staat op dezelfde z-index als de
+     posterfoto maar later in de HTML, en dekte hem daardoor volledig af.
+     Zolang de video niet geladen is hoort hier niets te staan. */
   .hero-video-bg{
     position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;
-    background:#FFFFFF;
+    background:transparent;
   }
   .hero-video-bg iframe{
     position:absolute;top:50%;left:50%;
@@ -767,21 +773,62 @@
     border:0;pointer-events:none;
   }
   /* Poster fallback — toont tot YouTube laadt */
+  /* De werkplaats aan de Westzijde. Dit is wat vrijwel iedereen ziet: de
+     video eronder laadt pas na toestemming voor YouTube, en de meeste
+     bezoekers geven die niet.
+
+     Hier stond een thumbnail van img.youtube.com. Die zette geen cookie,
+     maar ging bij elk bezoek wel langs Google voordat de cookievraag was
+     beantwoord. Nu staat de foto gewoon op onze eigen server. */
   .hero-video-poster{
     position:absolute;inset:0;z-index:0;
-    background-image:url('https://img.youtube.com/vi/9xX2LIL518w/maxresdefault.jpg');
-    background-size:cover;background-position:center;
+    background-image:url('werkplaats-buitenkant-zaandam.jpg');
+    background-image:image-set(
+      url('werkplaats-buitenkant-zaandam.webp') type('image/webp'),
+      url('werkplaats-buitenkant-zaandam.jpg') type('image/jpeg'));
+    background-size:cover;
+    background-position:center 58%;   /* de werkplaatsdeur in beeld houden */
     transition:opacity .8s ease;
+  }
+  /* Op een telefoon is de volle 2000px zonde van de data. */
+  @media(max-width:760px){
+    .hero-video-poster{
+      background-image:url('werkplaats-buitenkant-zaandam-klein.jpg');
+      background-image:image-set(
+        url('werkplaats-buitenkant-zaandam-klein.webp') type('image/webp'),
+        url('werkplaats-buitenkant-zaandam-klein.jpg') type('image/jpeg'));
+    }
   }
   .hero-video-bg.loaded ~ .hero-video-poster,
   .hero-video-bg.loaded + .hero-video-poster{opacity:0}
 
-  /* Dark overlay for text legibility — sterker omdat video bewegt */
+  /* Witte sluier over de foto. De kop is zwart en de foto is fel: blauwe
+     lucht, rode poorten, veel detail. Zonder sluier valt "Autogarage
+     Zaandam" weg tegen de achtergrond, en juist die kop moet leesbaar zijn.
+
+     In het midden, waar de tekst staat, is de sluier het dichtst; naar de
+     randen toe wordt hij dunner zodat de werkplaats zichtbaar blijft. */
   .hero::before{
     content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
     background:
-      linear-gradient(180deg, rgba(16,16,20,.039) 0%, rgba(16,16,20,.03) 35%, rgba(16,16,20,.047) 100%),
-      radial-gradient(ellipse at center, transparent 0%, rgba(16,16,20,.027) 100%);
+      /* Boven: het logo en het menu staan hier overheen en moeten leesbaar
+         blijven tegen de lucht. */
+      linear-gradient(180deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.6) 90px,
+        rgba(255,255,255,0) 170px),
+      /* Onder: de scrollhint staat op de klinkers, die anders wegvalt. */
+      linear-gradient(0deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.45) 90px,
+        rgba(255,255,255,0) 190px),
+      /* Midden: onder de kop en de knoppen. */
+      radial-gradient(ellipse 820px 460px at 50% 46%,
+        rgba(255,255,255,.93) 0%, rgba(255,255,255,.87) 40%,
+        rgba(255,255,255,.5) 74%, rgba(255,255,255,.08) 100%);
+  }
+  /* Smal scherm: de tekst vult bijna de hele breedte, dus overal dekkend. */
+  @media(max-width:760px){
+    .hero::before{
+      background:linear-gradient(180deg, rgba(255,255,255,.82) 0%,
+        rgba(255,255,255,.9) 40%, rgba(255,255,255,.95) 100%);
+    }
   }
   /* Subtle noise overlay */
   .hero::after{
