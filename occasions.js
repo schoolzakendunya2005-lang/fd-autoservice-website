@@ -26,10 +26,6 @@
 
   var SELLER_URL = 'https://www.marktplaats.nl/u/fd-autoservice/44270263/';
 
-  /* Uit de instellingen, met een terugval zodat dit bestand ook los werkt. */
-  var CFG     = window.FD_CONFIG || {};
-  var TEL     = (CFG.telefoon && CFG.telefoon.link) || '+31752013142';
-  var TEL_NET = (CFG.telefoon && CFG.telefoon.net) || '075 - 201 3142';
 
   /* Eigen omschrijving per auto, gekoppeld aan het Marktplaats-nummer uit de
      URL. Staat een auto hier niet bij, dan gebruiken we de tekst van de
@@ -143,21 +139,11 @@
     if (!container) return;
 
     if (!cars || !cars.length) {
-      /* Geen voorraad op de site. Bellen staat voorop: wie hier komt zoekt
-         een auto, en wij weten aan de telefoon wat er staat. Daarnaast de
-         link naar Marktplaats, want daar staat het actuele aanbod. */
-      container.innerHTML =
-        '<div class="oc-geen">' +
-        '<p class="oc-geen-kop">Op dit moment staat er geen auto op de site.</p>' +
-        '<p>Er staat vaak wel iets in de werkplaats dat nog niet online is. ' +
-        'Bel even, dan vertellen we precies wat er is.</p>' +
-        '<p class="oc-geen-acties">' +
-        '<a class="fd-knop" data-variant="primair" data-maat="l" href="tel:' + TEL + '">' +
-        'Bel ' + TEL_NET + '</a>' +
-        '<a class="fd-knop" data-variant="secundair" data-maat="l" href="' + SELLER_URL +
-        '" target="_blank" rel="noopener">Bekijk op Marktplaats</a>' +
-        '</p>' +
-        '</div>';
+      /* Geen auto's: dan ook geen kader met een melding. De pagina zelf
+         vertelt al waar het aanbod staat, en onderaan staan de bel- en
+         WhatsApp-knoppen. Een leeg vak met "er is niets" voegt daar niets
+         aan toe. */
+      container.innerHTML = '';
       return;
     }
 
