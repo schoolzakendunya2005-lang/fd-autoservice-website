@@ -26,6 +26,11 @@
 
   var SELLER_URL = 'https://www.marktplaats.nl/u/fd-autoservice/44270263/';
 
+  /* Uit de instellingen, met een terugval zodat dit bestand ook los werkt. */
+  var CFG     = window.FD_CONFIG || {};
+  var TEL     = (CFG.telefoon && CFG.telefoon.link) || '+31752013142';
+  var TEL_NET = (CFG.telefoon && CFG.telefoon.net) || '075 - 201 3142';
+
   /* Eigen omschrijving per auto, gekoppeld aan het Marktplaats-nummer uit de
      URL. Staat een auto hier niet bij, dan gebruiken we de tekst van de
      advertentie zelf. */
@@ -37,31 +42,29 @@
   };
 
   /* Vaste lijst, gebruikt zolang de Marktplaats-koppeling niet antwoordt.
-     image bewust leeg: die foto's stonden niet meer op de servers van
-     Marktplaats. Liever een nette tekening dan een kapot plaatje. */
-  var FALLBACK_LISTINGS = [
-    {
-      id: '2385758571',
-      title: 'Ford Transit Custom 280 2.0 TDCI L1H2 Trend',
-      year: 2020, km: 199568, fuel: 'Diesel', transmission: 'Handgeschakeld',
-      price: 11500, priceType: 'FIXED', image: '',
-      url: 'https://www.marktplaats.nl/v/auto-s/bestelauto-s/m2385758571-ford-transit-custom-280-2-0-tdci-l1h2-trend'
-    },
-    {
-      id: '2393015241',
-      title: 'Fiat 500 1.2 Lounge Cabrio',
-      year: 2017, km: 51927, fuel: 'Benzine', transmission: 'Handgeschakeld',
-      price: 10950, priceType: 'FIXED', image: '',
-      url: 'https://www.marktplaats.nl/v/auto-s/fiat/m2393015241-fiat-500-1-2-lounge-cabrio'
-    },
-    {
-      id: '2393015064',
-      title: 'Ford Fiesta 1.0 EcoBoost ST-Line',
-      year: 2017, km: 141382, fuel: 'Benzine', transmission: 'Handgeschakeld',
-      price: 8000, priceType: 'FIXED', image: '',
-      url: 'https://www.marktplaats.nl/v/auto-s/ford/m2393015064-ford-fiesta-1-0-ecoboost-st-line'
-    }
-  ];
+
+     LEEG OP 5 SEPTEMBER 2026. Hier stonden een Ford Transit, een Fiat 500
+     en een Ford Fiesta. Alle drie de advertenties gaven 410 Gone: verkocht
+     of verlopen. Ze stonden dus als te koop op de site terwijl ze er niet
+     meer waren, en daar bellen mensen over.
+
+     AUTO TOEVOEGEN
+     Zet er een blok bij in deze vorm. Alleen titel, prijs en url zijn
+     nodig; de rest maakt de kaart completer.
+
+       {
+         id: '2385758571',                    // het nummer uit de Marktplaats-URL
+         title: 'Ford Transit Custom 280',
+         year: 2020, km: 199568, fuel: 'Diesel', transmission: 'Handgeschakeld',
+         price: 11500, priceType: 'FIXED',
+         image: 'occasion-transit.jpg',       // in deze map; leeg laten mag ook
+         url: 'https://www.marktplaats.nl/v/...'
+       }
+
+     Laat je image leeg, dan komt er een nette tekening in plaats van een
+     kapot plaatje. Een eigen foto in deze map is beter dan een link naar
+     Marktplaats: die adressen verdwijnen zodra de advertentie weg is. */
+  var FALLBACK_LISTINGS = [];
 
   function tekst(v) {
     return String(v == null ? '' : v)
@@ -140,10 +143,20 @@
     if (!container) return;
 
     if (!cars || !cars.length) {
+      /* Geen voorraad op de site. Bellen staat voorop: wie hier komt zoekt
+         een auto, en wij weten aan de telefoon wat er staat. Daarnaast de
+         link naar Marktplaats, want daar staat het actuele aanbod. */
       container.innerHTML =
         '<div class="oc-geen">' +
-        '<p>Op dit moment staan er geen auto’s te koop.</p>' +
-        '<p><a href="' + SELLER_URL + '" target="_blank" rel="noopener">Bekijk het actuele aanbod op Marktplaats →</a></p>' +
+        '<p class="oc-geen-kop">Op dit moment staat er geen auto op de site.</p>' +
+        '<p>Er staat vaak wel iets in de werkplaats dat nog niet online is. ' +
+        'Bel even, dan vertellen we precies wat er is.</p>' +
+        '<p class="oc-geen-acties">' +
+        '<a class="fd-knop" data-variant="primair" data-maat="l" href="tel:' + TEL + '">' +
+        'Bel ' + TEL_NET + '</a>' +
+        '<a class="fd-knop" data-variant="secundair" data-maat="l" href="' + SELLER_URL +
+        '" target="_blank" rel="noopener">Bekijk op Marktplaats</a>' +
+        '</p>' +
         '</div>';
       return;
     }
