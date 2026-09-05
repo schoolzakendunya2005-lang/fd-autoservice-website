@@ -63,12 +63,33 @@
   .di-hero{
     min-height:100svh;display:flex;align-items:center;
     padding:96px 0 120px;position:relative;overflow:hidden;
+    /* De werkplaats aan de Westzijde, net als op de homepage. */
+    background-image:url('werkplaats-buitenkant-zaandam.jpg');
+    background-image:image-set(
+      url('werkplaats-buitenkant-zaandam.webp') type('image/webp'),
+      url('werkplaats-buitenkant-zaandam.jpg') type('image/jpeg'));
+    background-size:cover;
+    background-position:center 58%;
   }
   .di-hero::before{
     content:"";position:absolute;inset:0;pointer-events:none;
     background:
-      radial-gradient(ellipse 800px 400px at 90% 100%, rgba(215,38,30,.12) 0%, transparent 60%),
-      radial-gradient(ellipse 600px 300px at 10% 20%, rgba(215,38,30,.05) 0%, transparent 60%);
+      /* De tekst staat links, dus daar is de sluier het dichtst; rechts
+         blijft de werkplaats zichtbaar. Zonder dit valt de zwarte kop weg
+         tegen de lucht en de bakstenen. */
+      linear-gradient(100deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.9) 38%,
+        rgba(255,255,255,.6) 62%, rgba(255,255,255,.3) 100%),
+      /* Boven voor het menu, onder voor de scrollpijl. */
+      linear-gradient(180deg, rgba(255,255,255,.85) 0%, rgba(255,255,255,0) 150px),
+      linear-gradient(0deg, rgba(255,255,255,.85) 0%, rgba(255,255,255,0) 150px),
+      radial-gradient(ellipse 800px 400px at 90% 100%, rgba(215,38,30,.12) 0%, transparent 60%);
+  }
+  /* Op een telefoon vult de tekst de breedte, dus overal dekkend. */
+  @media(max-width:760px){
+    .di-hero::before{
+      background:linear-gradient(180deg, rgba(255,255,255,.86) 0%,
+        rgba(255,255,255,.92) 40%, rgba(255,255,255,.95) 100%);
+    }
   }
   .di-hero .wrap{position:relative;z-index:1}
   .di-eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--accent-mute);font-size:.74rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;margin-bottom:24px}
