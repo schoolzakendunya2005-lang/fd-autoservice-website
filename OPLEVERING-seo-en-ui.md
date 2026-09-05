@@ -1,4 +1,4 @@
-# Oplevering — SEO/schema, en de UI-audit
+# Oplevering — SEO/schema en de knopcomponent
 
 Bijgewerkt op 5 september 2026.
 
@@ -177,97 +177,104 @@ Zeg per dienst wat er feitelijk gebeurt en ik schrijf het uit.
 
 ---
 
-# Deel 2 — UI-audit (stap 1: gemeten, niets gewijzigd)
+# Deel 2 — UI: tokens en één knopcomponent
 
-## Het gemeten probleem
+De twee keuzes die openstonden heb ik zelf gemaakt, zoals gevraagd:
+**geen hoofdletters op knoppen**, en **hoogtes 40 / 48 / 56**.
 
-Drie plekken waar twee knoppen naast elkaar staan, gemeten op 1440px:
+## Wat er mis was, in cijfers
 
-| Plek | Knop | Hoogte | Hoofdletters | Fontgrootte | Gewicht |
-|---|---|---|---|---|---|
-| `/diensten` hero | `.di-hero-btn.di-hero-afspraak` | **53px** | ja | 13,12px | 800 |
-| | `.di-hero-btn.di-hero-bel` | **60px** | ja | 13,12px | 800 |
-| Homepage eind-CTA | `.btn-pill` | **59px** | ja | 14,08px | 700 |
-| | `.foot-cta-bel` | **60px** | nee | 15,2px | 700 |
-| Homepage hero | `.btn-pill` | 59px | ja | 14,08px | 700 |
-| | `.hero-textlink` | 26px | nee | 14,08px | 500 |
+| Plek | Knop | Hoogte | Hoofdletters |
+|---|---|---|---|
+| `/diensten` hero | `.di-hero-afspraak` | 53px | ja |
+| | `.di-hero-bel` | 60px | ja |
+| Homepage eind-CTA | `.btn-pill` | 59px | ja |
+| | `.foot-cta-bel` | 60px | nee |
 
-De 7px op `/diensten` is het duidelijkst: beide knoppen hebben *dezelfde*
-padding (`16px 28px`) en dezelfde fontgrootte. Het verschil komt van het
-icoon in de belknop, dat de regelhoogte optilt, plus 1px rand. Precies het
-patroon uit de opdracht: hoogte is een uitkomst van padding in plaats van
-een eigenschap van de knop. De rij staat bovendien op `align-items: center`,
-dus het verschil is zichtbaar in plaats van weggepoetst.
+Beide knoppen op `/diensten` hadden *dezelfde* padding en fontgrootte. De
+7 pixels kwamen van het icoon, dat de regelhoogte optilde, plus een rand.
 
-**Twee daarvan zijn van mijn hand.** `.foot-cta-bel` heb ik eerder deze week
-zelf toegevoegd, en ik heb daarbij exact dezelfde fout gemaakt: een nieuwe
-one-off klasse in plaats van een bestaande hergebruiken.
+Verder: 36 knopachtige klassen, 167 padding-waardes, 15 hoekafrondingen en
+58 tekstgroottes.
 
-## De regel eronder
+## Wat er nu staat
 
-Op `/diensten`:
+**`tokens.css`** — één ruimteschaal (4 t/m 64), drie hoeken met een
+betekenis, een typeschaal met bijbehorende regelhoogtes, en drie
+knophoogtes.
 
-> Nu gesloten · opent om 10:00 · Westzijde 158C, Zaandam · vaak deze week terecht
+**`knop.css`** — de knop als component:
 
-- `margin-top: 0px` — plakt tegen de knoppen aan.
-- 743px breed, ruim boven de 80 tekens.
-- Drie losse feiten aan elkaar geregen met middenpunten: openingsstatus,
-  adres en beschikbaarheid.
+- `height` komt uit een token, niet uit padding
+- `box-sizing: border-box`, dus een rand maakt de knop niet hoger
+- `line-height: 1` en een icoon met vaste maat, dus het icoon kan de regel
+  niet meer optillen
+- de knoprij staat op `align-items: stretch`, zodat gelijke hoogte
+  structureel is en niet per ongeluk klopt
+- focusring, hover, active en disabled zijn gedefinieerd
+- 44px raakoppervlak op een aanraakscherm, ook als de knop kleiner oogt
 
-## Wat de audit opleverde
+Nieuwe opmaak schrijf je zo:
 
-**36 verschillende knopachtige klassen**, waarvan de belangrijkste:
+```html
+<a class="fd-knop" data-variant="primair" data-maat="l" href="/afspraak">
+  Maak een afspraak
+</a>
+```
 
-| Klasse | Aantal | Voorbeeld |
-|---|---|---|
-| `d-btn-bel` | 14 | `airco-service.html:394` |
-| `d-btn-vol` | 5 | `airco-service.html:411` |
-| `d-btn-primair` | 4 | `bedankt-afspraak.html:96` |
-| `plate-btn` | 4 | `index.html:2049` |
-| `qty-btn` | 4 | `afspraak.html:1347` |
-| `btn-primary` / `btn-secondary` | 4 | `index.html:2331` |
-| `social-pill` / `social-cta` | 8 | `over-ons.html:939` |
-| `ap-btn-next` / `-back` / `-submit` | 6 | `afspraak.html:746` |
-| `btn-pill` | 2 | `index.html:2481` |
-| `di-hero-btn` / `di-hero-bel` | 3 | `diensten.html:620` |
-| `fd-cc-btn` | 3 | `cookie-consent.js:259` |
-| `nf-bel`, `bd-bel`, `ct-map-cta`, `final-cta`, `mobile-menu-cta`, `kenteken-btn` | 1 elk | verspreid |
+De 24 bestaande knopklassen hangen als alias aan dezelfde basis. Dat scheelt
+honderd wijzigingen in de HTML en het effect is hetzelfde: één plek bepaalt
+hoe een knop eruitziet. De aliassen mogen weg zodra de laatste pagina om is.
 
-Verder gemeten over alle HTML, CSS en JS:
+`site-header.js`, `contact-balk.js` en `cookie-consent.js` schrijven hun CSS
+vanuit JavaScript; die gebruiken nu dezelfde tokens.
 
-- **167 verschillende padding-waardes.** Onder andere `5px 10px`,
-  `9px 0`, `17px 26px`, `22px 20px` — geen van drieën uit een schaal.
-- **15 verschillende radiuswaardes**: 2, 5, 6, 8, 9, 10, 12, 14, 16, 18, 20,
-  22, 24px, 50% en 999px.
-- **58 verschillende fontgroottes**, waarvan 22 vaker dan tien keer
-  voorkomen. `.86rem` staat 39 keer, `.78rem` 28 keer, maar er staan ook
-  `.94rem`, `.96rem` en `.98rem` naast elkaar.
+## De regel onder de knoppen
 
-## Waarom ik hier gestopt ben
+Was: één zin van 743 pixels die tegen de knoppen aan plakte en drie feiten
+aaneenreeg met middenpunten. Nu drie losse elementen, ruimte uit de schaal,
+en een regellengte onder de 80 tekens. De openingsstatus heeft zijn eigen
+behandeling gekregen: vet, met een stip die groen is als we open zijn en
+rood als we dicht zijn.
 
-De opdracht vraagt om een `Button`-component met `variant`, `size`, `icon`
-en `href`. Dat is de taal van React of Vue. **Deze site heeft geen
-bouwstap** — het zijn zestien losse HTML-bestanden. De vertaling is een
-CSS-component (`.fd-knop` met `--variant` en `--maat`) plus het vervangen
-van 36 klassen op ruim honderd plekken, verspreid over HTML én de drie
-JavaScript-bestanden die hun eigen CSS injecteren.
+## Twee dingen die ik onderweg tegenkwam
 
-Dat is te doen en het is de goede oplossing, maar het raakt vrijwel elke
-pagina en dat wil ik niet doen zonder dat jij eerst twee dingen kiest:
+**Een cascadebotsing.** `.di-hero > .wrap > p` (twee klassen plus een
+element) won van `.fd-meta` (één klasse) en maakte de nieuwe spacing stil
+ongedaan. Opgelost met `:not(.fd-meta)` op die regel, niet met `!important`.
 
-1. **Hoofdletters of niet.** Nu staan beide vormen door elkaar: de primaire
-   knop schreeuwt, de belknop niet. De opdracht zegt terecht: kies er één.
-   Mijn voorstel is *geen* hoofdletters — een telefoonnummer in kapitalen
-   leest slechter, en het is de belangrijkste knop van de site.
-2. **Drie knophoogtes: 40 / 48 / 56.** Dat betekent dat de huidige knoppen
-   van 53, 59 en 60px allemaal iets van formaat veranderen. Ze worden
-   consistent, maar niet identiek aan nu.
+**Een fout van mezelf.** In de audit had ik `.final-cta` als knopklasse
+opgevat omdat er "cta" in de naam zit. Het is een `<section>`. Die kreeg
+daardoor `display:inline-flex`, een vaste hoogte en `white-space:nowrap`,
+en dat gaf 72 pixels horizontale scroll op 768px breed. De knop erbinnen
+heet `.final-cta-btn`; dat is rechtgezet.
 
-Zeg wat je kiest, dan bouw ik de tokenset, de knopcomponent en een
-`/styleguide`-pagina waarop de varianten naast elkaar staan met hun gemeten
-hoogtes erbij.
+## Gecontroleerd
 
----
+`/styleguide.html` toont elke variant met zijn **gemeten** hoogte, niet zijn
+bedoelde hoogte. Alle tien knoppen komen exact op hun token uit.
+
+Over de pagina's heen, op 360, 768 en 1440 pixels breed:
+
+| Pagina | Knoppen | Afwijkend | Scheve rijen | Horizontale scroll |
+|---|---|---|---|---|
+| `/` | 13 | 0 | 0 | nee |
+| `/diensten` | 8 | 0 | 0 | nee |
+| `/apk-keuring` | 9 | 0 | 0 | nee |
+| `/over-ons` | 6 | 0 | 0 | nee |
+| `/contact` | 8 | 0 | 0 | nee |
+| `/onderhoud-prijzen` | 5 | 0 | 0 | nee |
+| `/afspraak` | 5 | 0 | 0 | nee |
+| `/404` | 6 | 0 | 0 | nee |
+
+## Wat er overblijft
+
+De knoppen zijn om, de rest van de site nog niet. Buiten `tokens.css` en
+`knop.css` staan nog 142 padding-waardes buiten de schaal, 15
+hoekafrondingen en 59 tekstgroottes. Dat zijn secties, kaarten en
+tussenkoppen: zichtbaar werk met een groot oppervlak en weinig risico, maar
+het is een aparte ronde. De knoppen waren de plek waar het opviel, en die
+zijn nu één ding.
 
 # Wat een beslissing van jou nodig heeft
 
@@ -281,7 +288,7 @@ hoogtes erbij.
 3. **Aanvullende tekst voor de vier dienstpagina's**, zie hierboven.
 4. **De vier werkplaatsfoto's.** Nu plaatshouders.
 5. **De deelkaart.** Vervangen door een foto, of laten staan?
-6. **Hoofdletters op knoppen: wel of niet.**
-7. **Knophoogtes 40 / 48 / 56 akkoord?**
-8. Openstaand uit de vorige ronde: `/autoreparatie`, `/diagnose` en
+6. **De rest van de site langs de tokens halen** — secties, kaarten en
+   koppen. Aparte ronde, zeg maar of het moet.
+7. Openstaand uit de vorige ronde: `/autoreparatie`, `/diagnose` en
    `/koplampen-polijsten` bestaan niet en wijzen nu naar `/afspraak`.
