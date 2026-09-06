@@ -148,8 +148,15 @@
 
     document.querySelectorAll('[data-fd-dienst]').forEach(function (el) {
       var d = opSleutel[el.getAttribute('data-fd-dienst')];
-      if (!d || !d.url) return;
+      if (!d) return;
 
+      // Prijs bijwerken als de dienst er een heeft. Zo staan de bedragen op
+      // maar een plek: site-config.js. Dit gaat voor de controles hieronder,
+      // anders mist de prijs op de pagina van de dienst zelf.
+      var prijs = el.querySelector('[data-fd-dienst-prijs]');
+      if (prijs && d.prijs) prijs.textContent = d.prijs;
+
+      if (!d.url) return;
       // Niet naar de pagina linken waar de bezoeker al staat
       var hier = location.pathname.replace(/\.html$/, '') || '/';
       if (d.url === hier) return;
