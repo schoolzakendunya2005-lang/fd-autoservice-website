@@ -404,3 +404,64 @@ textarea:focus-visible,
   .site-foot .legal a,
   .foot-legal a{padding-block:4px}
 }
+
+/* ==========================================================================
+   Leesbaarheid op een telefoon
+   --------------------------------------------------------------------------
+   De labels op de site staan in kapitalen met flinke letterafstand. Op een
+   scherm van een halve meter breed leest dat prima op 10,5 pixels, op een
+   telefoon in je hand niet. Gemeten: zeventien van die labels op de
+   homepage en twintig op /over-ons zaten onder de 12 pixels, terwijl de
+   typeschaal in tokens.css daar juist zijn ondergrens heeft.
+
+   Alleen de maat gaat omhoog; kleur, gewicht en letterafstand blijven, dus
+   het blijft een label en wordt geen kop. */
+@media(max-width:760px){
+  /* Dubbele klassenaam om de specificiteit op te krikken: de pagina's
+     schrijven deze labels als .sec-head .eyebrow, en dat wint van één
+     losse klasse. Geen !important nodig, dit telt gewoon even zwaar en
+     staat later in de cascade. */
+  .eyebrow.eyebrow,
+  .lbl.lbl,
+  .stamp.stamp,
+  .fd-tag.fd-tag,
+  .social-pill.social-pill,
+  .review-theme.review-theme,
+  .bron-naam.bron-naam,
+  .bron-aantal.bron-aantal,
+  .price-badge.price-badge,
+  .apk-lbl.apk-lbl,
+  .apk-check-eyebrow,
+  .ct-lbl,
+  .ct-weg-lbl,
+  .ap-eyebrow,
+  .ap-step-label,
+  .eyebrow-tag,
+  .about-hero-badge .txt small,
+  .about-hero-rating .rate small,
+  .oc-mp,
+  .plate-hint,
+  .d-prijs-sub,
+  .site-foot h4,
+  footer h4,
+  .d-eyebrow,
+  .di-eyebrow,
+  .op-eyebrow,
+  .oc-eyebrow,
+  .ct-eyebrow,
+  .lg-eyebrow,
+  .dcta-eyebrow,
+  .hp-check-eyebrow,
+  .plate-card-eyebrow,
+  .d-prijs-lbl,
+  .fd-kaart-adres,
+  .site-foot .legal,
+  .foot-legal{
+    font-size:var(--fd-tekst-xs);   /* 12px, de ondergrens van de schaal */
+    line-height:var(--fd-regel-xs);
+  }
+
+  /* De bronvermelding op de kaart mag klein blijven: die hoort er wel te
+     staan, maar hoeft niet te concurreren met de rest. */
+  .fd-kaart-bron{font-size:11px}
+}

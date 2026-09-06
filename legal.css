@@ -139,7 +139,9 @@ header{
   .lg-table thead{display:none}
   .lg-table tr{border:1px solid var(--border);border-radius:10px;margin-bottom:12px;padding:6px 0}
   .lg-table td{border:0;padding:8px 14px}
-  .lg-table td:first-child{color:var(--accent);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em}
+  /* De eerste cel wordt op een telefoon het label boven de waarde.
+     .72rem is 11,5px in kapitalen; .75rem is de ondergrens uit de schaal. */
+  .lg-table td:first-child{color:var(--accent);font-size:.75rem;text-transform:uppercase;letter-spacing:.09em}
 }
 
 /* Contact-kaart onderaan */
@@ -174,3 +176,25 @@ footer strong{color:rgba(16,16,20,.69)}
 footer a{color:rgba(16,16,20,.681);text-decoration:none}
 footer a:hover{color:var(--accent)}
 .foot-legal a + a::before{content:"·";margin:0 8px;color:rgba(16,16,20,.23)}
+
+/* ==========================================================================
+   Op een telefoon
+   --------------------------------------------------------------------------
+   Twee dingen gemeten op /cookiebeleid bij 390px breed: de links in de
+   inhoudsopgave waren 18 pixels hoog, en de labels en tabelcellen zaten
+   rond de 11 pixels. Allebei net te krap om prettig te lezen of te raken.
+   ========================================================================== */
+@media(max-width:760px){
+  .lg-toc a{
+    display:inline-block;
+    padding-block:9px;          /* 18px hoog wordt zo'n 36 tot 40 */
+  }
+  .lg-table td,
+  .lg-table th,
+  .lg-contact-item .k,
+  .lg-body .lbl,
+  .cc-status .lbl{
+    font-size:.75rem;           /* de ondergrens van de typeschaal */
+    line-height:1.45;
+  }
+}
