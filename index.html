@@ -1298,7 +1298,26 @@
   /* ---------- Reviews ---------- */
   .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   @media(max-width:920px){.reviews{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:620px){.reviews{grid-template-columns:1fr}}
+  /* Onder elkaar waren de drie kaarten samen 975px: ruim een heel scherm
+     scrollen door dezelfde soort tekst. Als swipe-rij zie je er één, met de
+     volgende half in beeld zodat duidelijk is dat er meer is. Er verdwijnt
+     niets. De rij loopt tot de schermrand door, vandaar de negatieve marge
+     tegen de 24px van .wrap. */
+  @media(max-width:620px){
+    .reviews{
+      display:flex;grid-template-columns:none;
+      overflow-x:auto;scroll-snap-type:x mandatory;
+      scroll-padding-inline:18px;   /* anders trekt de snap de eerste kaart tegen de rand */
+      gap:14px;margin-inline:-18px;padding:4px 18px 8px;   /* .wrap heeft hier 18px */
+      scrollbar-width:none;-ms-overflow-style:none;
+      overscroll-behavior-x:contain;
+    }
+    .reviews::-webkit-scrollbar{display:none}
+    .reviews > .review{flex:0 0 86%;scroll-snap-align:start}
+    /* In een zijwaartse rij hoort de fade-in bij het scrollen niet thuis:
+       kaarten buiten beeld zouden pas bij het swipen opdoemen. */
+    .reviews > .review.reveal{opacity:1;transform:none}
+  }
   .review{
     background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:38px 32px;
     position:relative;display:flex;flex-direction:column;
@@ -1766,6 +1785,38 @@
     color:#101014;font-size:.75rem;margin-bottom:22px;
     text-transform:uppercase;letter-spacing:.2em;font-weight:800;
   }
+  /* Op een telefoon stonden hier 23 links onder elkaar: 1269px, ruim
+     anderhalf scherm scrollen door navigatie die ook al in het menu staat.
+     Diensten en Bedrijf zijn nu open te tikken; adres, telefoon en
+     openingstijden blijven staan, want daarvoor kijk je in een voetnoot.
+     Er verdwijnt niets, je hoeft er alleen niet meer langs. */
+  .foot-kolom > summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    min-height:var(--fd-raakvlak);margin-bottom:0;
+  }
+  .foot-kolom > summary > h3{
+    font:inherit;color:inherit;margin:0;
+    letter-spacing:inherit;text-transform:inherit;
+  }
+  .foot-kolom > summary::-webkit-details-marker{display:none}
+  .foot-kolom > summary::after{
+    content:"";width:9px;height:9px;flex:0 0 auto;
+    border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+    transform:rotate(45deg) translate(-2px,-2px);
+    transition:transform .2s ease;
+  }
+  .foot-kolom[open] > summary::after{transform:rotate(225deg) translate(-2px,-2px)}
+  .foot-kolom > ul{padding-top:16px}
+
+  /* Vanaf tablet blijven ze gewoon openstaan, zoals de voetnoot altijd was. */
+  @media(min-width:761px){
+    .foot-kolom:not([open]) > ul{display:block}
+    .foot-kolom > summary{pointer-events:none;margin-bottom:22px;min-height:0}
+    .foot-kolom > summary::after{display:none}
+    .foot-kolom > ul{padding-top:0}
+  }
+
   footer ul{list-style:none;padding:0;margin:0}
   footer ul li{margin-bottom:12px;font-size:.94rem}
   footer a{
@@ -1874,7 +1925,9 @@
     display:grid;grid-template-columns:1fr 1fr;gap:14px;
     max-width:640px;margin:36px auto 0;
   }
-  @media(max-width:560px){.reviews-bronnen{grid-template-columns:1fr}}
+  /* Twee smalle kaartjes passen prima naast elkaar; onder elkaar kostte
+     dit 302px voor twee regels tekst. */
+  @media(max-width:560px){.reviews-bronnen{gap:10px}}
   .reviews-bronnen .bron{
     display:flex;flex-direction:column;gap:5px;
     padding:22px 24px;border-radius:14px;text-decoration:none;
@@ -2621,8 +2674,8 @@
           </a>
         </div>
       </div>
-      <div>
-        <h3 class="foot-kop">Diensten</h3>
+      <details class="foot-kolom">
+        <summary class="foot-kop"><h3>Diensten</h3></summary>
         <ul>
           <li><a data-fd-dienst="apk" href='/apk-keuring'>APK keuring</a></li>
           <li><a data-fd-dienst="onderhoud" href='/onderhoud'>Onderhoud &amp; beurt</a></li>
@@ -2631,9 +2684,9 @@
           <li><a data-fd-dienst="diagnose" href='/diensten'>Diagnose</a></li>
           <li><a data-fd-dienst="airco" href='/airco-service'>Airco service</a></li>
         </ul>
-      </div>
-      <div>
-        <h3 class="foot-kop">Bedrijf</h3>
+      </details>
+      <details class="foot-kolom">
+        <summary class="foot-kop"><h3>Bedrijf</h3></summary>
         <ul>
           <li><a href='/occasions'>Auto's te koop</a></li>
           <li><a href='/over-ons'>Over ons</a></li>
@@ -2641,7 +2694,7 @@
           <li><a href="#faq">FAQ</a></li>
           <li><a href='/contact'>Contact</a></li>
         </ul>
-      </div>
+      </details>
       <div>
         <h3 class="foot-kop">Bezoek ons</h3>
         <ul>
