@@ -206,7 +206,7 @@
       '.fd-cc-row .info{flex:1}',
       '.fd-cc-row .name{color:#101014;font-size:.9rem;font-weight:700;display:block;margin-bottom:3px}',
       '.fd-cc-row .desc{font-size:.8rem;line-height:1.5;color:rgba(16,16,20,.506)}',
-      '.fd-cc-row .locked{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;',
+      '.fd-cc-row .locked{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;',
       'color:#17784A;white-space:nowrap;padding-top:2px}',
       '.fd-cc-toggle{position:relative;width:46px;height:26px;flex-shrink:0;cursor:pointer}',
       '.fd-cc-toggle input{position:absolute;opacity:0;width:0;height:0}',
