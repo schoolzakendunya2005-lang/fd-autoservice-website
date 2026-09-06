@@ -338,7 +338,10 @@
 
   .ap-step{display:none}
   .ap-step.active{display:block;animation:stepIn .4s ease}
-  @keyframes stepIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+  /* Was translateX(20px). Op een telefoon van 390px duwde dat de stap tijdens
+     de eerste 0,4 seconde 2px buiten beeld, met een korte horizontale schok tot
+     gevolg. Verticaal bewegen kan dat niet veroorzaken. */
+  @keyframes stepIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
   .ap-confirm{display:none;text-align:center;padding:60px 20px}
   .ap-confirm.show{display:block;animation:stepIn .5s ease}

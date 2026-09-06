@@ -466,3 +466,44 @@ textarea:focus-visible,
      staan, maar hoeft niet te concurreren met de rest. */
   .fd-kaart-bron{font-size:11px}
 }
+
+/* ---------------------------------------------------------------------------
+   Aanraakschermen: geen blijvende hover-staat
+
+   Op een telefoon blijft :hover hangen nadat je iets aanraakt, tot je ergens
+   anders tikt. De kaart die je net aantikte blijft dan opgetild staan of houdt
+   een rode rand, en dat ziet eruit als een fout in de pagina. Precies dat was
+   te zien op de Google-kaart bij de reviews.
+
+   Deze effecten zijn puur decoratief; op een apparaat zonder echte muisaanwijzer
+   horen ze niet te bestaan. !important is hier nodig omdat de paginastijlen na
+   dit bestand geladen worden.
+   --------------------------------------------------------------------------- */
+@media (hover: none) {
+  .addon:hover, .ap-btn-next:hover, .ap-btn-submit:hover,
+  .apk-cta-primary:hover, .apk-result-cta:hover, .btn-link:hover::after,
+  .btn-pill:hover, .btn-primary:hover, .ct-weg:hover,
+  .dcta-btn-primary:hover, .dcta-btn-secondary:hover, .di-hero-btn:hover,
+  .final-cta-btn:hover, .gal-tile:hover, .listing-actions .btn-mp:hover,
+  .listing:hover, .map-overlay-cta:hover, .mobile-menu-close:hover,
+  .op-final-cta .btn-primary:hover, .pkg:hover,
+  .reviews-bronnen .bron:hover, .service:hover, .service:hover .arrow,
+  .service:hover .price-badge, .side-socials a:hover, .social-card:hover,
+  .social-card:hover .social-cta svg, .social-card:hover .social-ico,
+  .social-card:hover::before, .step:hover .step-num, .value:hover,
+  .video-thumb:hover .video-play, .video-thumb:hover img,
+  .why-card:hover .ico, footer a:hover::before, nav ul a:hover::after {
+    transform: none !important;
+  }
+
+  /* Kleuren die anders blijven hangen, terug naar hun rusttoestand. */
+  .reviews-bronnen .bron:hover {
+    border-color: var(--border) !important;
+    box-shadow: none !important;
+  }
+  .btn-primary:hover { background: var(--accent) !important; }
+  .btn-secondary:hover {
+    background: transparent !important;
+    color: var(--text-strong) !important;
+  }
+}
