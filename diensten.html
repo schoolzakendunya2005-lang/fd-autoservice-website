@@ -229,7 +229,9 @@
   }
   .plate-btn:hover{background:var(--accent-hover)}
   .plate-btn svg{width:16px;height:16px}
-  .plate-hint{margin:12px 0 0;font-size:.78rem;color:rgba(16,16,20,.368);text-align:center}
+  /* Stond op center terwijl de hele kaart links uitlijnt; de tweede regel
+     hing daardoor los in het midden. */
+  .plate-hint{margin:12px 0 0;font-size:.78rem;color:rgba(16,16,20,.368);text-align:left}
   /* Op smalle telefoons: knop onder het kentekenveld ipv ernaast */
   @media(max-width:430px){
     .plate-wrap{flex-wrap:wrap;box-shadow:none}

@@ -1784,6 +1784,11 @@
   footer .foot-kop{
     color:#101014;font-size:.75rem;margin-bottom:22px;
     text-transform:uppercase;letter-spacing:.2em;font-weight:800;
+    /* Twee van de drie koppen zitten in een <summary>, dat als flexvak de
+       regelhoogte van de body meekrijgt (19px). De derde is een kale h3 en
+       werd 12px, waardoor de lijst eronder 7px uit de pas liep. Eén vaste
+       regelhoogte houdt alle drie gelijk. */
+    line-height:1.6;
   }
   /* Op een telefoon stonden hier 23 links onder elkaar: 1269px, ruim
      anderhalf scherm scrollen door navigatie die ook al in het menu staat.
@@ -1808,6 +1813,19 @@
   }
   .foot-kolom[open] > summary::after{transform:rotate(225deg) translate(-2px,-2px)}
   .foot-kolom > ul{padding-top:16px}
+
+  /* De derde kolom is geen accordeon, maar de kop hoort wel op dezelfde
+     hoogte te staan als Diensten en Bedrijf. Zonder dit vak zat dit label
+     13px hoger dan het ritme erboven: de labels stonden op 76, 76 en 63px
+     uit elkaar. */
+  @media(max-width:760px){
+    .foot-grid > div > .foot-kop{
+      min-height:var(--fd-raakvlak);
+      display:flex;align-items:center;
+      margin-bottom:0;
+    }
+    .foot-grid > div > .foot-kop + ul{padding-top:16px}
+  }
 
   /* Vanaf tablet blijven ze gewoon openstaan, zoals de voetnoot altijd was. */
   @media(min-width:761px){
@@ -1894,7 +1912,7 @@
   .plate-btn{flex-shrink:0;white-space:nowrap;padding:0 18px;background:var(--accent);color:#fff;border:0;cursor:pointer;font-family:'Inter',sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px;transition:background .2s ease}
   .plate-btn:hover{background:var(--accent-hover)}
   .plate-btn svg{width:15px;height:15px}
-  .plate-hint{margin:11px 0 0;font-size:.78rem;color:rgba(16,16,20,.46);text-align:center}
+  .plate-hint{margin:11px 0 0;font-size:.78rem;color:rgba(16,16,20,.46);text-align:left}
   @media(max-width:430px){
     .plate-wrap{flex-wrap:wrap;box-shadow:none;overflow:visible}
     .plate-flag{border-radius:10px 0 0 10px}
