@@ -1925,9 +1925,9 @@
     display:grid;grid-template-columns:1fr 1fr;gap:14px;
     max-width:640px;margin:36px auto 0;
   }
-  /* Twee smalle kaartjes passen prima naast elkaar; onder elkaar kostte
-     dit 302px voor twee regels tekst. */
-  @media(max-width:560px){.reviews-bronnen{gap:10px}}
+  /* Naast elkaar werden ze 172px breed en dat leest te krap; de 73px die
+     het scheelde weegt daar niet tegenop. */
+  @media(max-width:560px){.reviews-bronnen{grid-template-columns:1fr;gap:12px}}
   .reviews-bronnen .bron{
     display:flex;flex-direction:column;gap:5px;
     padding:22px 24px;border-radius:14px;text-decoration:none;
@@ -1943,7 +1943,10 @@
   .bron-score .stars{color:#D98B00;font-size:.9rem;letter-spacing:.05em}
   .bron-aantal{font-size:.88rem;color:rgba(16,16,20,.644)}
   .bron-aantal[hidden]{display:none}
-  .bron-link{margin-top:6px;font-size:.82rem;font-weight:700;color:rgba(16,16,20,.754)}
+  .bron-omschrijving{font-size:.88rem;color:rgba(16,16,20,.644);line-height:1.45}
+  /* margin-top:auto duwt de link naar de onderrand, zodat hij in beide
+     kaarten op dezelfde hoogte staat ook al is de ene korter. */
+  .bron-link{margin-top:auto;padding-top:12px;font-size:.82rem;font-weight:700;color:rgba(16,16,20,.754)}
   .reviews-bronnen .bron:hover .bron-link{color:#101014}
 
   /* ---------- Reveal on scroll ---------- */
@@ -2237,8 +2240,7 @@
     <div class="stats-grid">
       <div class="stat">
         <div class="num"><span data-counter="148">148</span></div>
-        <div class="stars">★★★★★</div>
-        <div class="lbl">5,0 op Marktplaats</div>
+        <div class="lbl">Reviews op Marktplaats</div>
       </div>
       <div class="stat">
         <div class="num"><span data-counter="5">5</span><span class="suffix">+</span></div>
@@ -2468,10 +2470,14 @@
         <span class="bron-aantal"><span data-fd="mp-aantal">148</span> ervaringen</span>
         <span class="bron-link">Lees ze allemaal →</span>
       </a>
-      <a class="bron" href="https://www.google.com/maps/search/?api=1&query=FD+Autoservice+Westzijde+158C+Zaandam" target="_blank" rel="noopener">
+      <!-- Geen sterren en geen score zolang het aantal Google-reviews niet
+           bekend is: vijf gouden sterren tonen zonder te kunnen zeggen
+           waarop ze gebaseerd zijn is een bewering die we niet waar kunnen
+           maken. Staat het echte aantal in site-config.js, dan mag de score
+           hier terug. -->
+      <a class="bron bron-kaal" href="https://www.google.com/maps/search/?api=1&query=FD+Autoservice+Westzijde+158C+Zaandam" target="_blank" rel="noopener">
         <span class="bron-naam">Google</span>
-        <span class="bron-score"><span class="stars">★★★★★</span> <strong data-fd="google-score">5,0</strong></span>
-        <span class="bron-aantal" data-fd-google-aantal hidden><span data-fd="google-aantal"></span> beoordelingen</span>
+        <span class="bron-omschrijving">Ons bedrijfsprofiel met openingstijden, route en beoordelingen.</span>
         <span class="bron-link">Bekijk op Google →</span>
       </a>
     </div>

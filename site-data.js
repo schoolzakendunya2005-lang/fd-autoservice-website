@@ -23,7 +23,7 @@
   var DATA = {
     reviews: C.reviews || {
       marktplaats: { score: '5,0', aantal: 148, url: 'https://www.marktplaats.nl/u/fd-autoservice/44270263/' },
-      google:      { score: '5,0', aantal: null, url: 'https://www.google.com/maps/search/?api=1&query=FD+Autoservice+Westzijde+158C+Zaandam' }
+      google:      { score: null, aantal: null, url: 'https://www.google.com/maps/search/?api=1&query=FD+Autoservice+Westzijde+158C+Zaandam' }
     },
     openingstijden: C.openingstijden || {
       0: null,
@@ -177,7 +177,8 @@
         'status-kort':    st.open ? 'Open' : 'Gesloten',
         'status-dag':     st.open ? 'Vandaag' : st.dagnaam
       }[sleutel];
-      if (v !== undefined) el.textContent = v;
+      // null betekent: niet bekend. Dan liever niets dan het woord "null".
+      if (v !== undefined && v !== null) el.textContent = v;
     });
 
     // open/dicht-styling

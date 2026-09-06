@@ -56,10 +56,13 @@
       },
       google: {
         naam: 'Google',
-        score: '5,0',
-        // NOG INVULLEN. Het echte aantal staat in het Google-bedrijfsprofiel.
-        // Zolang dit null is toont de site wel de score en de link, maar geen
-        // aantal. Liever geen getal dan een getal dat niet klopt.
+        // NOG INVULLEN, allebei. Ze staan in het Google-bedrijfsprofiel.
+        // Zolang score null is toont de site alleen een link naar het profiel,
+        // zonder sterren en zonder cijfer. Hier stond 5,0 zonder dat we konden
+        // zeggen waar dat op gebaseerd was; dat is een bewering die we niet
+        // waar kunnen maken. Vul je hier de echte waarden in, dan mag de kaart
+        // bij de reviews weer een score tonen.
+        score: null,
         aantal: null,
         url: 'https://www.google.com/maps/search/?api=1&query=FD+Autoservice+Westzijde+158C+Zaandam'
       }
