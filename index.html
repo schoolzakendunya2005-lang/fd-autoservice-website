@@ -2647,6 +2647,11 @@
         <div class="ans">Breng je auto 's ochtends vóór 12:00 uur langs, dan is hij meestal dezelfde dag klaar. Lukt dat een keer niet, bijvoorbeeld omdat een onderdeel besteld moet worden, dan hoor je dat dezelfde dag van ons, niet pas als je voor de deur staat.</div>
       </details>
     </div>
+
+    <!-- Op een telefoon staan de eerste vier vragen open in beeld; de rest
+         staat er gewoon in en komt met deze link tevoorschijn. Op een breed
+         scherm staan ze allemaal en is deze link verborgen. -->
+    <button class="faq-meer" type="button" id="faqMeer">Alle vragen bekijken</button>
   </div>
 </section>
 
@@ -2714,8 +2719,11 @@
           <li><a href='/contact'>Contact</a></li>
         </ul>
       </details>
-      <div>
-        <h3 class="foot-kop">Bezoek ons</h3>
+      <!-- Ook inklapbaar, net als de twee kolommen hierboven. Adres, route en
+           openingstijden staan sinds de herindeling in "Waar je ons vindt",
+           met kaart en routeknop; hier blijven ze staan als naslag. -->
+      <details class="foot-kolom" open>
+        <summary class="foot-kop"><h3>Bezoek ons</h3></summary>
         <ul>
           <li>Westzijde 158C</li>
           <li>1506 EK Zaandam</li>
@@ -2723,7 +2731,7 @@
           <li><a href="mailto:contact@fdautoservice.nl">contact@fdautoservice.nl</a></li>
           <li style="margin-top:14px;color:rgba(16,16,20,.57);font-size:.86rem">Ma t/m vr · 09:00 tot 18:00<br>Zaterdag · 10:00 tot 17:00</li>
         </ul>
-      </div>
+      </details>
     </div>
     <div class="foot-bottom">
       <span>© <span data-fd-jaar>2026</span> FD Autoservice · KvK 94702551</span>
@@ -3053,5 +3061,248 @@
 <script src="kenteken-check.js" defer></script>
 <script src="occasions.js" defer></script>
 <script>window.FD_DIENST = "homepage";</script>
+
+<style>
+  /* Op een breed scherm staan alle vragen al open; deze knop is er alleen
+     voor de telefoon. */
+  .faq-meer{display:none}
+</style>
+<!-- =========================================================================
+     Rustiger op een telefoon
+
+     Deze regels staan bewust op een plek en helemaal onderaan, zodat te zien
+     is wat er voor mobiel is teruggebracht en het in een keer terug te draaien
+     is. Ze gelden alleen onder 760px; de desktopweergave blijft zoals hij was.
+     ========================================================================= -->
+<style>
+@media (max-width: 760px) {
+
+  /* ---- 1. Een koppatroon ------------------------------------------------
+     Vijf secties hadden dezelfde drie lagen: een rood pillabel in hoofdletters,
+     een kop van 2,4 tot 4rem in gewicht 900 met een rode tweede regel, en een
+     gecentreerde lead. Dat kostte per sectie een half scherm voor er inhoud
+     stond. Nu overal alleen een kop, links, 1,6rem, gewicht 700. */
+  .sec-head{text-align:left;margin-bottom:20px}
+  .sec-head .eyebrow,
+  .hp-check-eyebrow,
+  .dcta-eyebrow{display:none}
+
+  .sec-head h2,
+  .dcta h2,
+  .hp-check-tekst h2,
+  .foot-cta h2{
+    font-size:1.6rem;font-weight:700;line-height:1.25;letter-spacing:-.01em;
+    text-align:left;margin:0 0 10px;
+  }
+  /* De tweede regel van elke kop was rood en cursief. Een kop is een kop. */
+  .sec-head h2 .serif, .sec-head h2 em,
+  .dcta h2 .accent,
+  .hp-check-tekst h2 .serif,
+  .foot-cta h2 .serif, .foot-cta h2 .accent,
+  .hero-stack h1 .accent, .hero-stack h1 .serif{
+    color:inherit;font-style:normal;font-family:inherit;font-size:inherit;
+  }
+  /* Deze lead herhaalt de kop erboven. De leads bij de kentekencheck en in de
+     hero leggen wel iets uit dat nergens anders staat en blijven dus staan. */
+  .dcta-inner > p{display:none}
+
+  /* ---- 2. Effen vlakken -------------------------------------------------
+     Elke sectie had een roze radiaal verloop als achtergrond, plus een tweede
+     laag via ::before. Nergens een rustig wit vlak. */
+  /* section:not(.hero) zet het verloop, dus met dezelfde specificiteit
+     terugdraaien; anders wint de oorspronkelijke regel. */
+  section:not(.hero), footer,
+  .hp-check, .dcta, .waarom, .alt, .waar{background-image:none}
+  .hp-check::before, .hp-check-kaart::before, .dcta::before, .waarom::before,
+  .alt::before, .waar::before, section::before, footer::before{display:none}
+  .hp-check, .dcta, .waar{background-color:var(--bg)}
+  .waarom, .alt{background-color:var(--bg-soft)}
+
+  /* Gloedschaduwen onder knoppen weg; een knop mag gewoon plat zijn. */
+  .btn-pill, .btn-primary, .dcta-btn-primary, .fd-cc-btn{box-shadow:none}
+  /* De glans die over de knop schoof. */
+  .btn-primary::before{display:none}
+
+  /* ---- 3. Rood als hierarchie, niet als thema ---------------------------
+     Rood blijft over voor de primaire knop en het telefoonnummer. Labels,
+     vinkjes, cijfers, sterren en initialen worden neutraal. */
+  /* Dubbele klasse waar de basisregel even zwaar weegt. */
+  .review-theme, .bron-naam, .stars, .fd-kaart-pin{color:var(--text-strong)}
+  .stat .num .suffix, .waarom-cijfers .suffix{color:rgba(16,16,20,.45)}
+  .av.av{background:var(--primary-light);color:var(--text-strong)}
+  .bron-link.bron-link{color:var(--text-strong)}
+  /* transition:all op de basisknop laat de schaduw anders nog naschuiven. */
+  .dcta-btn-primary.dcta-btn-primary,
+  .btn-pill.btn-pill{box-shadow:none;transition:none}
+  .waarom-lijst svg, .dl-naam svg, .trust-strip svg{color:rgba(16,16,20,.4)}
+  .av{background:var(--primary-light);color:var(--text-strong)}
+  .stars{color:rgba(16,16,20,.5)}
+
+  /* ---- 4. Alles links, behalve de kop in de hero ------------------------ */
+  .dcta-inner, .waarom, .waar, .foot-cta, .faq,
+  .hp-check-kaart, .reviews-bronnen, .stats-grid, .stat{text-align:left}
+  .dcta-actions, .foot-cta-acties{justify-content:flex-start}
+  .reviews-bronnen{margin-left:0;margin-right:0}
+
+  /* ---- 5. Nog een vaste laag: de balk onderaan --------------------------
+     De voortgangsbalk en de doorschijnende header lagen er allebei overheen.
+     De balk met bellen en afspraak maken is de kern van de site en blijft;
+     de header scrollt gewoon mee. */
+  .scroll-progress{display:none}
+  header{position:static;background:var(--bg);backdrop-filter:none;
+         border-bottom:1px solid var(--border)}
+  header.scrolled{background:var(--bg);backdrop-filter:none}
+
+  /* ---- 6. Animaties -----------------------------------------------------
+     Preloader, woord-voor-woord opkomende kop en de zwevende prijskaart weg.
+     De rustige fade bij het scrollen blijft. */
+  .preloader{display:none}
+  .hero-stack h1 .word{animation:none;transform:none;opacity:1}
+  .hero-price-card{display:none}
+
+  /* ---- 7. Reviews: een systeem -----------------------------------------
+     Er stonden twee dingen door elkaar: horizontaal scrollende kaarten die
+     half in beeld hingen, en daaronder nog een losse kaart met de bron. Nu
+     een review volledig, met daaronder een regel met het gemiddelde. */
+  .reviews{
+    display:block;overflow:visible;margin-inline:0;padding:0;
+    scroll-snap-type:none;
+  }
+  .reviews > .review{flex:none;width:auto}
+  .reviews > .review:nth-of-type(n+2){display:none}
+  .reviews-bronnen{margin-top:18px;max-width:none;grid-template-columns:1fr}
+  /* Dubbele klasse voor extra gewicht: de basisregel heeft dezelfde
+     specificiteit en de kaartopmaak bleef anders staan. */
+  .reviews-bronnen.reviews-bronnen .bron{
+    display:flex;flex-direction:row;flex-wrap:wrap;align-items:baseline;
+    gap:4px 10px;background:none;border:0;border-radius:0;
+    padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;
+    /* De basisregel heeft transition:all; zonder dit schuift de padding
+       nog een vijfde seconde na bij het laden. */
+    transition:none;
+  }
+  .reviews-bronnen.reviews-bronnen .bron:hover{background:none;border:0}
+  .bron-link{margin-top:0;padding-top:0;color:var(--accent-mute)}
+
+  /* ---- 8. Beloftes en cijfers als een blok ------------------------------
+     Stonden als twee gecentreerde blokken onder elkaar te concurreren. */
+  .waarom-lijst{grid-template-columns:1fr;gap:9px;margin-bottom:18px}
+  .waarom-lijst li{font-size:.95rem}
+  .waarom-cijfers{
+    display:flex;flex-wrap:wrap;gap:4px 16px;
+    padding-top:16px;border-top:1px solid var(--border);
+  }
+  .waarom-cijfers .stat{display:flex;align-items:baseline;gap:6px;padding:0}
+  .waarom-cijfers .num{font-size:1.05rem}
+  .waarom-cijfers .lbl{margin:0;font-size:.9rem;color:var(--muted)}
+
+  /* ---- 9. Veelgestelde vragen ------------------------------------------
+     Acht omrande kaarten met ruime padding waren samen ruim twee schermen.
+     Nu vier vragen, gescheiden door een lijn, de rest achter een link. */
+  .faq details{
+    margin:0;border:0;border-radius:0;box-shadow:none;background:none;
+    border-bottom:1px solid var(--border);
+  }
+  .faq summary{padding:12px 34px 12px 0;font-size:.96rem}
+  .faq .ans{padding:0 0 14px}
+  .faq details:nth-of-type(n+5){display:none}
+  body[data-faq="alles"] .faq details{display:block}
+  body[data-faq="alles"] .faq-meer{display:none}
+  .faq-meer{
+    display:inline-block;margin-top:16px;padding:10px 0;
+    background:none;border:0;cursor:pointer;font:inherit;
+    font-size:.92rem;font-weight:700;color:var(--text-strong);
+    text-decoration:underline;text-underline-offset:3px;
+  }
+
+  /* ---- 13. Laatste ronde: overal een tandje strakker -------------------
+     Puur maatvoering, er verdwijnt niets. */
+  .hero{min-height:40svh}
+  .dcta-inner{padding:24px 20px}
+  .dl-regel{padding:8px 2px}
+  .waar .fd-kaart{min-height:0;height:160px}
+  .waar-uren li{padding:5px 0}
+  .waar-adres{margin-bottom:10px}
+  .waar-tijden{margin-bottom:12px}
+  .review{padding:18px 16px}
+  .review blockquote{margin:10px 0}
+  /* De bronregel: klein en op een regel, geen kaart meer. */
+  .reviews-bronnen{margin-top:14px}
+  .reviews-bronnen .bron-naam{font-size:.8rem}
+  .reviews-bronnen .bron-score{font-size:1rem}
+  .reviews-bronnen .bron-aantal,
+  .reviews-bronnen .bron-link{font-size:.85rem}
+  /* Voetnoot: de twee slotknoppen naast elkaar in plaats van onder elkaar. */
+  .foot-cta-acties{flex-direction:row;gap:10px}
+  .foot-cta-acties > *{flex:1 1 0;min-width:0}
+  .foot-cta p{font-size:.9rem;margin-bottom:14px}
+  .foot-brand{padding-right:0}
+  .foot-brand p{font-size:.88rem;margin-bottom:12px}
+  .foot-bottom{margin-top:20px;padding-top:16px;font-size:.85rem}
+
+  /* ---- 10. Ruimte tussen en binnen de blokken ---------------------------
+     De secties stonden op 56px boven en onder. Met acht blokken is dat ruim
+     900px aan lucht op een pagina die om rust vraagt maar ook kort moet zijn.
+     40px scheidt nog steeds duidelijk. */
+  section{padding:24px 0}
+  .dcta{padding:24px 0}
+
+  /* De dienstenregels waren 55px hoog; 46 leest even goed. */
+  .dl-regel{padding:11px 2px}
+
+  /* ---- 11. Voetnoot -----------------------------------------------------
+     Was met 1428px ruim een kwart van de pagina. De adresgegevens staan nu
+     ook in "Waar je ons vindt" hierboven, met kaart en routeknop, dus de
+     derde kolom mag net als de andere twee ingeklapt. Er verdwijnt niets. */
+  .foot-cta{padding:32px 0}
+  .foot-cta h2{margin-bottom:8px}
+  .foot-cta p{margin-bottom:16px;font-size:.95rem}
+  .foot-cta-acties{gap:10px}
+  .foot-grid{padding:32px 0 24px;gap:24px}
+  .foot-brand p{margin-bottom:14px;font-size:.92rem}
+  .foot-socials a{width:40px;height:40px}
+  .foot-bottom{margin-top:24px;padding-top:20px}
+
+  /* ---- 12. Kaart en reviewkaart -----------------------------------------
+     De kaart hoeft niet zo hoog te zijn om te laten zien waar we zitten. */
+  .waar .fd-kaart{aspect-ratio:16/9}
+  .waar-uren li{padding:7px 0}
+  .review{padding:20px 18px}
+
+  /* ---- 14. Laatste maatvoering -----------------------------------------
+     Alleen nog ruimte weghalen, geen inhoud. */
+  .hp-check-kaart{padding:20px 18px}
+  .hp-check-tekst h2{margin-bottom:8px}
+  .hp-check-tekst p{margin-bottom:0;font-size:.92rem}
+  .dcta-inner{padding:20px 16px}
+  .review{padding:14px 16px}
+  .review blockquote{margin:8px 0}
+  .waar-blok{gap:16px}
+  .waar-uren{margin-bottom:16px}
+  .foot-cta{padding:20px 0}
+  .foot-cta p{margin-bottom:12px}
+  .foot-grid{padding:20px 0 14px;gap:16px}
+  .foot-brand .logo{margin-bottom:12px}
+  .foot-bottom{margin-top:12px;padding-top:12px}
+  .sec-head{margin-bottom:16px}
+
+  /* ---- 10. Hero ---------------------------------------------------------
+     Blijft gecentreerd, maar zonder de rode helft in de kop. */
+  .hero-stack h1{font-size:2rem;line-height:1.2}
+  .hero-lead{font-size:1rem}
+}
+</style>
+<script>
+/* De vijfde vraag en verder staan op een telefoon uit het zicht, niet uit de
+   pagina: ze blijven in de HTML voor de zoekmachine en voor wie geen
+   JavaScript heeft. Die ziet ze gewoon allemaal. */
+(function () {
+  var knop = document.getElementById('faqMeer');
+  if (!knop) return;
+  knop.addEventListener('click', function () {
+    document.body.dataset.faq = 'alles';
+  });
+})();
+</script>
 </body>
 </html>

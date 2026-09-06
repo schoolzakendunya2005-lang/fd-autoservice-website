@@ -174,14 +174,6 @@
       'border:1px solid #E4E4EA;border-radius:16px;padding:24px 26px;',
       'box-shadow:0 30px 80px -20px rgba(16,16,20,.16),0 0 0 1px rgba(16,16,20,.009) inset;',
       'font-family:Inter,system-ui,-apple-system,sans-serif;color:rgba(16,16,20,.644)}',
-      '@media(max-width:560px){',
-      '  .fd-cc{padding:12px}',
-      '  .fd-cc-card{padding:18px 18px 16px;border-radius:14px}',
-      '  .fd-cc-card h2{font-size:.98rem}',
-      '  .fd-cc-card p{font-size:.82rem;line-height:1.5;margin-bottom:13px}',
-      '  .fd-cc-btn{min-width:0;width:100%;padding:0 var(--fd-ruimte-4,16px)}',
-      '  .fd-cc-actions{gap:8px}',
-      '}',
       '.fd-cc-card h2{margin:0 0 8px;color:#101014;font-size:1.02rem;font-weight:800;letter-spacing:-.01em}',
       '.fd-cc-card p{margin:0 0 16px;font-size:.88rem;line-height:1.6}',
       '.fd-cc-card a{color:#D7261E;text-decoration:underline;text-underline-offset:2px}',
@@ -226,7 +218,35 @@
       '.fd-cc-ph p{color:rgba(16,16,20,.506);font-size:.85rem;line-height:1.55;margin:0 0 16px}',
       '.fd-cc-ph button{padding:11px 22px;border-radius:999px;border:0;cursor:pointer;background:#D7261E;color:#fff;',
       'font-family:inherit;font-weight:800;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}',
-      '.fd-cc-ph button:hover{background:#B81B14}'
+      '.fd-cc-ph button:hover{background:#B81B14}',
+
+      /* Op een telefoon stond hier een kaart ter grootte van een halve hero,
+         midden in beeld, precies over de knop "Maak een afspraak" heen. Nu
+         een smalle balk onderaan: twee knoppen naast elkaar, de tekst klein,
+         en de voorkeuren achter een link in plaats van een derde knop. */
+      '@media(max-width:760px){',
+      '  .fd-cc{padding:0;align-items:flex-end}',
+      '  .fd-cc-card{',
+      '    max-width:none;border-radius:14px 14px 0 0;border-bottom:0;',
+      '    padding:14px 18px 16px;max-height:52vh;',
+      '    box-shadow:0 -14px 40px -16px rgba(16,16,20,.28);',
+      '  }',
+      '  .fd-cc-card h2{font-size:.94rem;margin-bottom:5px}',
+      '  .fd-cc-card p{font-size:.78rem;line-height:1.45;margin-bottom:11px}',
+      '  .fd-cc-actions{gap:8px;flex-wrap:nowrap}',
+      '  .fd-cc-btn{min-width:0;flex:1 1 0;padding:0 var(--fd-ruimte-3,12px);',
+      '             height:var(--fd-knop-h-s,40px);font-size:.82rem}',
+      /* De derde knop wordt een gewone link onder de twee knoppen. */
+      '  .fd-cc-btn.fd-cc-settings{',
+      '    flex:1 0 100%;height:auto;padding:8px 0;background:none;border:0;',
+      '    color:rgba(16,16,20,.644);font-weight:600;font-size:.8rem;',
+      '    text-decoration:underline;text-underline-offset:3px;',
+      '  }',
+      '  .fd-cc-actions{flex-wrap:wrap}',
+      /* De twee links in de tekst waren rood; in deze balk is rood voor
+         de knop. Onderstreept blijven ze herkenbaar als link. */
+      '  .fd-cc-card a{color:#101014}',
+      '}',
     ].join('');
     document.head.appendChild(css);
   }
