@@ -546,7 +546,23 @@
     display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px;
   }
   @media(max-width:920px){.socials-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
-  @media(max-width:520px){.socials-grid{grid-template-columns:1fr}}
+  /* Onder elkaar waren de vier kaarten samen 1557px: bijna twee schermen
+     scrollen langs vier links naar dezelfde soort pagina. Als swipe-rij zie
+     je er een, met de volgende half in beeld. Zelfde patroon als de reviews
+     op de homepage. Er verdwijnt niets.
+     De rij loopt tot de schermrand door; .wrap heeft hier 18px. */
+  @media(max-width:520px){
+    .socials-grid{
+      display:flex;grid-template-columns:none;
+      overflow-x:auto;scroll-snap-type:x mandatory;
+      scroll-padding-inline:18px;   /* anders trekt de snap de eerste kaart tegen de rand */
+      gap:12px;margin-inline:-18px;padding:4px 18px 8px;
+      scrollbar-width:none;-ms-overflow-style:none;
+      overscroll-behavior-x:contain;
+    }
+    .socials-grid::-webkit-scrollbar{display:none}
+    .socials-grid > .social-card{flex:0 0 86%;scroll-snap-align:start}
+  }
   .social-card{
     background:var(--bg-card);border:1px solid var(--border);
     border-radius:18px;padding:32px 28px;
