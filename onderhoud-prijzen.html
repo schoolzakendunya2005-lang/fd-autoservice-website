@@ -408,6 +408,17 @@
     .pkg-cta,.op-final-cta a{width:100%;justify-content:center}
     .site-foot a{display:inline-block;padding:9px 0}
   }
+
+  /* Typografie op een telefoon. Onze koppen staan op gewicht 900 met
+     regelafstand 1,05 en letterafstand -0,03em. Op een breed scherm valt een
+     kop op een of twee regels en werkt dat; op 390px valt hij over drie of
+     vier regels en raken die elkaar bijna. Gemeten ter vergelijking:
+     carglass.nl gewicht 600 met regelafstand 1,25 tot 1,33, kwik-fit.nl
+     gewicht 700 met 1,30. Alleen op mobiel, desktop blijft zoals hij was. */
+  @media(max-width:760px){
+    h1,h2,h3{line-height:1.2;letter-spacing:-.015em}
+    h2{font-weight:800}
+  }
 </style>
 <!-- Cookie consent + Google Consent Mode v2 — moet vóór Tag Manager staan -->
 <script src="site-config.js"></script>

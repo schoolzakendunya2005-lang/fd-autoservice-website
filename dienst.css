@@ -272,3 +272,15 @@ a{color:var(--accent);text-decoration:none}
   .d-beeld{margin-bottom:32px;border-radius:14px}
   .d-beeld figcaption{padding:11px 14px;font-size:.8rem}
 }
+
+/* Typografie op een telefoon.
+   De koppen staan op gewicht 900 met letterafstand -0,025em en h2 op
+   regelafstand 1,15. Op een breed scherm valt een kop op een of twee regels
+   en werkt dat prima; op 390px valt hij over drie of vier regels en raken die
+   elkaar bijna, met letters die ook nog naar elkaar toe getrokken zijn.
+   Gemeten ter vergelijking op 390px: carglass.nl gewicht 600 met regelafstand
+   1,25 tot 1,33, kwik-fit.nl gewicht 700 met 1,30. */
+@media (max-width: 760px) {
+  h1, h2, h3 { line-height: 1.2; letter-spacing: -.015em }
+  h2 { font-weight: 800 }
+}

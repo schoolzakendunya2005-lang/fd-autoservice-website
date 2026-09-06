@@ -55,6 +55,17 @@
     .bd-bel .acties{width:100%}
     .bd-bel .acties a{flex:1 1 auto;justify-content:center}
   }
+
+  /* Typografie op een telefoon. Onze koppen staan op gewicht 900 met
+     regelafstand 1,05 en letterafstand -0,03em. Op een breed scherm valt een
+     kop op een of twee regels en werkt dat; op 390px valt hij over drie of
+     vier regels en raken die elkaar bijna. Gemeten ter vergelijking:
+     carglass.nl gewicht 600 met regelafstand 1,25 tot 1,33, kwik-fit.nl
+     gewicht 700 met 1,30. Alleen op mobiel, desktop blijft zoals hij was. */
+  @media(max-width:760px){
+    h1,h2,h3{line-height:1.2;letter-spacing:-.015em}
+    h2{font-weight:800}
+  }
 </style>
 <script src="site-config.js"></script>
 <script src="cookie-consent.js"></script>
