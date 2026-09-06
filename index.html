@@ -1829,7 +1829,6 @@
 
   /* Vanaf tablet blijven ze gewoon openstaan, zoals de voetnoot altijd was. */
   @media(min-width:761px){
-    .foot-kolom:not([open]) > ul{display:block}
     .foot-kolom > summary{pointer-events:none;margin-bottom:22px;min-height:0}
     .foot-kolom > summary::after{display:none}
     .foot-kolom > ul{padding-top:0}
@@ -2612,7 +2611,7 @@
           </a>
         </div>
       </div>
-      <details class="foot-kolom">
+      <details class="foot-kolom" open>
         <summary class="foot-kop"><h3>Diensten</h3></summary>
         <ul>
           <li><a data-fd-dienst="apk" href='/apk-keuring'>APK keuring</a></li>
@@ -2623,7 +2622,7 @@
           <li><a data-fd-dienst="airco" href='/airco-service'>Airco service</a></li>
         </ul>
       </details>
-      <details class="foot-kolom">
+      <details class="foot-kolom" open>
         <summary class="foot-kop"><h3>Bedrijf</h3></summary>
         <ul>
           <li><a href='/occasions'>Auto's te koop</a></li>
@@ -2655,6 +2654,24 @@
     </div>
   </div>
 </footer>
+<script>
+/* De voetnootkolommen staan open in de HTML. Dat is bewust: een gesloten
+   <details> wordt door de browser verborgen via ::details-content met
+   content-visibility:hidden, en dat is met CSS niet betrouwbaar terug te
+   draaien. Op de live site stonden de lijsten daardoor op desktop leeg,
+   terwijl ze wel hoogte hadden. Nu klappen we ze alleen op een telefoon
+   dicht, met JavaScript. Werkt dat niet, dan zie je gewoon alle links. */
+(function () {
+  var smal = window.matchMedia('(max-width:760px)');
+  var kolommen = document.querySelectorAll('.foot-kolom');
+  function pas() {
+    for (var i = 0; i < kolommen.length; i++) kolommen[i].open = !smal.matches;
+  }
+  pas();
+  if (smal.addEventListener) smal.addEventListener('change', pas);
+  else if (smal.addListener) smal.addListener(pas);
+})();
+</script>
 
 <!-- ============== FLOATING MOBILE CTAS ============== -->
 <script>
