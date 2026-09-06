@@ -194,7 +194,14 @@
     renderListings(FALLBACK_LISTINGS.map(normalizeCar));
 
     if (!window.fetch) return;
-    fetch('/api/marktplaats-cars', { cache: 'default' })
+
+    /* Alleen ophalen als er een adres is ingesteld. Staat het leeg, dan is
+       er geen koppeling en heeft proberen geen zin: dat leverde alleen een
+       404 in de console van elke bezoeker op. */
+    var api = (window.FD_CONFIG && window.FD_CONFIG.occasionsApi) || '';
+    if (!api) return;
+
+    fetch(api, { cache: 'default' })
       .then(function (res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
         return res.json();

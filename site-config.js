@@ -145,6 +145,17 @@
       { pad: '/404',                  naam: 'Niet gevonden',     bestand: '404.html',                  inSitemap: false, schema: false }
     ],
 
+    /* ------------------------------------------------------------------
+       OCCASIONS
+       Adres van een koppeling die de actuele voorraad teruggeeft. Leeg
+       laten als die er niet is: occasions.js probeert het dan niet, en dan
+       staat er ook geen mislukt verzoek in de console van elke bezoeker.
+
+       Er was ooit /api/marktplaats-cars bedacht, maar die is nooit
+       gebouwd; het gaf bij elke paginaweergave een 404.
+       ------------------------------------------------------------------ */
+    occasionsApi: '',
+
     telefoon: { link: '+31752013142', net: '075 - 201 3142' },
     whatsapp: 'https://wa.me/31629123444',
     email: 'contact@fdautoservice.nl',

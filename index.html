@@ -820,17 +820,17 @@
   .hero::before{
     content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
     background:
-      /* Boven: het logo en het menu staan hier overheen en moeten leesbaar
-         blijven tegen de lucht. */
-      linear-gradient(180deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.6) 90px,
-        rgba(255,255,255,0) 170px),
-      /* Onder: de scrollhint staat op de klinkers, die anders wegvalt. */
-      linear-gradient(0deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.45) 90px,
-        rgba(255,255,255,0) 190px),
-      /* Midden: onder de kop en de knoppen. */
-      radial-gradient(ellipse 820px 460px at 50% 46%,
-        rgba(255,255,255,.93) 0%, rgba(255,255,255,.87) 40%,
-        rgba(255,255,255,.5) 74%, rgba(255,255,255,.08) 100%);
+      /* Gelijkmatig sterke sluier in de band waar de tekst staat, dunner
+         aan de randen zodat de werkplaats zichtbaar blijft. De rode kop
+         haalt tegen een foto pas bij ongeveer 0,9 dekking de norm; het
+         radiale verloop dat hier stond gaf 3,5:1. */
+      linear-gradient(180deg,
+        rgba(255,255,255,.9) 0%,
+        rgba(255,255,255,.6) 13%,
+        rgba(255,255,255,.93) 28%,
+        rgba(255,255,255,.93) 68%,
+        rgba(255,255,255,.58) 86%,
+        rgba(255,255,255,.88) 100%);
   }
   /* Smal scherm: de tekst vult bijna de hele breedte, dus overal dekkend. */
   @media(max-width:760px){
@@ -928,7 +928,7 @@
   /* Scroll indicator */
   .scroll-hint{
     position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;
-    color:rgba(16,16,20,.607);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(16,16,20,.607);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;
     font-weight:700;display:flex;flex-direction:column;align-items:center;gap:8px;
   }
   .scroll-hint .line{width:1px;height:32px;background:linear-gradient(180deg,transparent 0%, rgba(16,16,20,.07) 100%);animation:lineGrow 2s ease-in-out infinite}
@@ -1759,9 +1759,12 @@
   }
   @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;gap:36px;padding:48px 0 32px}}
   @media(max-width:480px){.foot-grid{grid-template-columns:1fr}}
-  footer h4{
-    color:#101014;font-size:.74rem;margin-bottom:22px;
-    text-transform:uppercase;letter-spacing:.22em;font-weight:800;
+  /* Was een h4 na een h2, dus een overgeslagen niveau in de
+     koppenstructuur. Nu een h3; de opmaak blijft gelijk. */
+  footer h4,
+  footer .foot-kop{
+    color:#101014;font-size:.75rem;margin-bottom:22px;
+    text-transform:uppercase;letter-spacing:.2em;font-weight:800;
   }
   footer ul{list-style:none;padding:0;margin:0}
   footer ul li{margin-bottom:12px;font-size:.94rem}
@@ -2605,7 +2608,7 @@
         </div>
       </div>
       <div>
-        <h4>Diensten</h4>
+        <h3 class="foot-kop">Diensten</h3>
         <ul>
           <li><a data-fd-dienst="apk" href='/apk-keuring'>APK keuring</a></li>
           <li><a data-fd-dienst="onderhoud" href='/onderhoud'>Onderhoud &amp; beurt</a></li>
@@ -2616,7 +2619,7 @@
         </ul>
       </div>
       <div>
-        <h4>Bedrijf</h4>
+        <h3 class="foot-kop">Bedrijf</h3>
         <ul>
           <li><a href='/occasions'>Auto's te koop</a></li>
           <li><a href='/over-ons'>Over ons</a></li>
@@ -2626,7 +2629,7 @@
         </ul>
       </div>
       <div>
-        <h4>Bezoek ons</h4>
+        <h3 class="foot-kop">Bezoek ons</h3>
         <ul>
           <li>Westzijde 158C</li>
           <li>1506 EK Zaandam</li>

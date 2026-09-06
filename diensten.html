@@ -74,14 +74,20 @@
   .di-hero::before{
     content:"";position:absolute;inset:0;pointer-events:none;
     background:
-      /* De tekst staat links, dus daar is de sluier het dichtst; rechts
-         blijft de werkplaats zichtbaar. Zonder dit valt de zwarte kop weg
-         tegen de lucht en de bakstenen. */
-      linear-gradient(100deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.9) 38%,
-        rgba(255,255,255,.6) 62%, rgba(255,255,255,.3) 100%),
-      /* Boven voor het menu, onder voor de scrollpijl. */
-      linear-gradient(180deg, rgba(255,255,255,.85) 0%, rgba(255,255,255,0) 150px),
-      linear-gradient(0deg, rgba(255,255,255,.85) 0%, rgba(255,255,255,0) 150px),
+      /* Gelijkmatig sterke sluier in de band waar de tekst staat, en dunner
+         aan de boven- en onderkant zodat de werkplaats zichtbaar blijft.
+
+         Waarom zo sterk: de rode kop (#C7170E) haalt tegen een foto pas bij
+         ongeveer 0,9 dekking de norm van 4,5:1. Het verloop dat hier stond
+         werd naar rechts juist dunner en liep dwars door die kop heen:
+         gemeten 1,6 tot 3,5:1, ruim onvoldoende. */
+      linear-gradient(180deg,
+        rgba(255,255,255,.88) 0%,
+        rgba(255,255,255,.62) 14%,
+        rgba(255,255,255,.93) 30%,
+        rgba(255,255,255,.93) 70%,
+        rgba(255,255,255,.6) 88%,
+        rgba(255,255,255,.86) 100%),
       radial-gradient(ellipse 800px 400px at 90% 100%, rgba(215,38,30,.12) 0%, transparent 60%);
   }
   /* Op een telefoon vult de tekst de breedte, dus overal dekkend. */
